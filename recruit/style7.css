@@ -1,0 +1,160 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.job-description {
+    margin-bottom: 20px;
+}
+
+.job-description h2 {
+    color: #007bff;
+    margin-top: 0;
+}
+
+.job-description ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.job-description ul li::before {
+    content: "□ ";
+    color: #007bff;
+    font-weight: bold;
+}
+
+.requirements {
+    margin-bottom: 20px;
+}
+
+.requirements h2 {
+    color: #007bff;
+    margin-top: 0;
+}
+
+.requirements ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.requirements ul li::before {
+    content: "・ ";
+    color: #007bff;
+    font-weight: bold;
+}
+
+.contact {
+    margin-bottom: 20px;
+}
+
+.contact h2 {
+    color: #007bff;
+    margin-top: 0;
+}
+
+.remarks {
+    margin-bottom: 20px;
+}
+
+.remarks h2 {
+    color: #007bff;
+    margin-top: 0;
+}
+
+.remarks ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.remarks ul li::before {
+    content: "※ ";
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* ヘッダー */
+header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    background-color: #fff;
+  }
+
+   /* ナビゲーションのレイアウト */
+   #nav-pc {
+    font-size: 14px;
+    padding-top: 15px;
+    
+  }
+   /* ナビゲーションのリンクの装飾設定 */
+   #nav-pc > a {
+    text-decoration: none;
+    margin-left: 20px;
+    text-align: left;
+    word-spacing: 20px;
+  }
+  #nav-pc > a:link {
+    color: #0d0d0d;
+  }
+  #nav-pc > a:visited {
+    color: rgba(0, 81, 255, 0.637);
+  }
+  #nav-pc > a:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+  #nav-pc > a:active {
+    color: aqua;
+  }
+  #phot {
+    text-align: center;
+    margin: 20px;
+  }
+
+  /* フッターの調整*/
+   footer{
+    justify-content: space-between;
+    text-align: center;
+    border-top-style: solid;
+    border-top-width: 1px;
+    margin-top: 20px;
+    background-color: #fff;
+  }
+
+  #nav-pc > a:link {
+    color: #0d0d0d;
+  }
+  #nav-pc > a:visited {
+    color: rgba(0, 81, 255, 0.637);
+  }
+  #nav-pc > a:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+  #nav-pc > a:active {
+    color: aqua;
+  }
+  #footer-logo {
+    background-color: rgba(0, 0, 255, 0.822);
+    text-align: center;
+  }

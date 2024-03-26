@@ -1,0 +1,88 @@
+/*================
+ PC用のスタイル 
+=================*/
+@media screen and (min-width: 768px) {
+
+    /* ヘッダー */
+  header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+  }
+
+   /* ナビゲーションのレイアウト */
+   #nav-pc {
+    font-size: 14px;
+    padding-top: 15px;
+    
+  }
+   /* ナビゲーションのリンクの装飾設定 */
+   #nav-pc > a {
+    text-decoration: none;
+    margin-left: 20px;
+    text-align: left;
+    word-spacing: 20px;
+  }
+  #nav-pc > a:link {
+    color: #0d0d0d;
+  }
+  #nav-pc > a:visited {
+    color: rgba(0, 81, 255, 0.637);
+  }
+  #nav-pc > a:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+  #nav-pc > a:active {
+    color: aqua;
+  }
+  
+  #Newgraduate{
+    text-align: center;
+  }
+
+  #Newgraduate > p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+  }
+  #Newgraduate > ul{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 15px;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  /* フッターの調整*/
+   footer{
+    justify-content: space-between;
+    text-align: center;
+    border-top-style: solid;
+    border-top-width: 1px;
+    margin-top: 20px;
+  }
+
+  #nav-pc > a:link {
+    color: #0d0d0d;
+  }
+  #nav-pc > a:visited {
+    color: rgba(0, 81, 255, 0.637);
+  }
+  #nav-pc > a:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+  #nav-pc > a:active {
+    color: aqua;
+  }
+  #footer-logo {
+    background-color: rgba(0, 0, 255, 0.822);
+    text-align: center;
+  }
+}

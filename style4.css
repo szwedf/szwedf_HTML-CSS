@@ -1,0 +1,105 @@
+/*================
+ PC用のスタイル 
+=================*/
+@media screen and (min-width: 768px) {
+    /* 横幅設定 */
+    body {
+      max-width: 1080px;
+      min-width: 960px;
+      margin: 0 auto 0 auto;
+    }
+    
+    /* ヘッダー */
+    header {
+      display: flex;
+      justify-content: space-between;
+    }
+  
+     /* ナビゲーションのレイアウト */
+     #nav-pc {
+      font-size: 14px;
+      padding-top: 15px;
+    }
+     /* ナビゲーションのリンクの装飾設定 */
+     #nav-pc > a {
+      text-decoration: none;
+      margin-left: 20px;
+      text-align: left;
+      word-spacing: 20px;
+    }
+    #nav-pc > a:link {
+      color: #0d0d0d;
+    }
+    #nav-pc > a:visited {
+      color: rgba(0, 81, 255, 0.637);
+    }
+    #nav-pc > a:hover {
+      color: blue;
+      text-decoration: underline;
+    }
+    #nav-pc > a:active {
+      color: rgba(44, 241, 241, 0.695);
+    }
+
+  /*メインの調整*/
+    #Lookingforpartners {
+        font-size: 15px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    #Lookingforpartners > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 300px;
+        height: 60px;
+        color: #333;
+        font-size: 18px;
+        font-weight: 700;
+        text-decoration: none;
+        background-color: rgb(146, 146, 248);
+        border-radius: 20px;
+        margin: 0 0 0 400px;
+    }
+
+  
+
+    /* フッターの調整*/
+    #nav-footer{
+      justify-content: space-between;
+      text-align: center;
+      margin: 45px 0 0 0;
+    }
+  
+    #nav-footer > a:link {
+      color: #0d0d0d;
+    }
+    #nav-footer > a:visited {
+      color: rgba(0, 81, 255, 0.637);
+    }
+    #nav-footer > a:hover {
+      color: blue;
+      text-decoration: underline;
+    }
+    #nav-footer> a:active {
+      color: aqua;
+    }
+  
+    #footer-link {
+      text-align: center;
+      width: 100%;
+      background-color: #0d0d0d;
+      margin: 0 -200%; /* マージンを追記 */
+      padding: 0 200%; /* マージンで横にはみ出した部分を戻す */
+    }
+  
+    #footer-logo {
+      background-color: rgba(0, 0, 255, 0.822);
+      text-align: center;
+      margin: 0 -200%; /* マージンを追記 */
+      padding: 0 200%; /* マージンで横にはみ出した部分を戻す */
+    }
+
+}

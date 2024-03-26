@@ -1,0 +1,109 @@
+/*================
+ PC用のスタイル 
+=================*/
+@media screen and (min-width: 768px) {
+
+    /* ヘッダー */
+  header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+  }
+
+   /* ナビゲーションのレイアウト */
+   #nav-pc {
+    font-size: 14px;
+    padding-top: 15px;
+    
+  }
+   /* ナビゲーションのリンクの装飾設定 */
+   #nav-pc > a {
+    text-decoration: none;
+    margin-left: 20px;
+    text-align: left;
+    word-spacing: 20px;
+  }
+  #nav-pc > a:link {
+    color: #0d0d0d;
+  }
+  #nav-pc > a:visited {
+    color: rgba(0, 81, 255, 0.637);
+  }
+  #nav-pc > a:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+  #nav-pc > a:active {
+    color: aqua;
+  }
+  
+  #Newgraduate{
+    text-align: center;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  /* フッターの調整*/
+   footer{
+    justify-content: space-between;
+    text-align: center;
+    border-top-style: solid;
+    border-top-width: 1px;
+    margin-top: 20px;
+  }
+
+  #nav-pc > a:link {
+    color: #0d0d0d;
+  }
+  #nav-pc > a:visited {
+    color: rgba(0, 81, 255, 0.637);
+  }
+  #nav-pc > a:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+  #nav-pc > a:active {
+    color: aqua;
+  }
+  #footer-logo {
+    background-color: rgba(0, 0, 255, 0.822);
+    text-align: center;
+  }
+   #section-OpenRoles {
+    text-align: center;
+    margin: 15px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+   }
+
+   a {
+    text-decoration: none;
+  }
+  
+  .Recruitmentdetails a {
+     display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 300px;
+      height: 60px;
+      color: #333;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      background-color: rgb(146, 146, 248);
+      border-radius: 20px;
+      margin: 0 0 0 490px;
+  }
+
+
+}

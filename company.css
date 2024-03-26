@@ -1,0 +1,240 @@
+/*================
+ PC用のスタイル 
+=================*/
+@media screen and (min-width: 768px) {
+
+    /* ヘッダー */
+  header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+  }
+
+   /* ナビゲーションのレイアウト */
+   #nav-pc {
+    font-size: 14px;
+    padding-top: 15px;
+    
+  }
+   /* ナビゲーションのリンクの装飾設定 */
+   #nav-pc > a {
+    text-decoration: none;
+    margin-left: 20px;
+    text-align: left;
+    word-spacing: 20px;
+  }
+  #nav-pc > a:link {
+    color: #0d0d0d;
+  }
+  #nav-pc > a:visited {
+    color: rgba(0, 81, 255, 0.637);
+  }
+  #nav-pc > a:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+  #nav-pc > a:active {
+    color: aqua;
+  }
+
+   #Message {
+    text-align: center;
+   }
+   #Message >h1 {
+    font-size: 25px;
+   }
+
+   #Message >p {
+    margin: 20px 0 0 0;
+    font-size:15px;
+   }
+   #sign {
+    margin: 30px 0 0 900px;
+   }
+
+   #AboutAs {
+    text-align: center;
+   
+   }
+   #company-table {
+    width: 100%;
+    text-align: center;
+  }
+ 
+  .tableheader {
+    text-align: left;
+    padding: 20px;
+    border-bottom-color: #2710d5;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    width: 100px;
+  }
+ 
+  .tableheader-first {
+    text-align: left;
+    padding: 20px;
+    border-bottom-color: #2710d5;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-top-color: #2710d5;
+    border-top-width: 1px;
+    border-top-style: solid;
+    width: 100px;
+  }
+ 
+  .cell {
+    
+    padding: 30px;
+    border-bottom-color: #f7f5f5;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+  }
+ 
+  .cell-first {
+    padding: 30px;
+    border-bottom-color: #f7f5f5;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-top-color: #f7f5f5;
+    border-top-width: 1px;
+    border-top-style: solid;
+  }
+  .sp {
+    display: none;
+  }
+
+   /* フッターの調整*/
+   #nav-footer{
+    justify-content: space-between;
+    text-align: center;
+    margin: 45px 0 0 0;
+  }
+
+  #nav-footer > a:link {
+    color: #0d0d0d;
+  }
+  #nav-footer > a:visited {
+    color: rgba(0, 81, 255, 0.637);
+  }
+  #nav-footer > a:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+  #nav-footer> a:active {
+    color: aqua;
+  }
+  #footer-logo {
+    background-color: rgba(0, 0, 255, 0.822);
+    text-align: center;
+    padding: 50px 0 0 0;
+  }
+    /* スマホ用ナビを非表示 */
+    #nav-sp,
+    #menu-sp {
+      display: none;
+    }
+  
+}
+
+/*====================
+  タブレット用のスタイル
+  =====================*/
+  @media screen and (max-width: 767px) {
+    body {
+      min-width: 375px;
+      margin: 0;
+      width: auto;
+    }
+  
+    /* PC用ナビゲーション非表示 */
+    #nav-pc {
+      display: none;
+    }
+  
+    /* ハンバーガーメニュー */
+    #menu-sp {
+      float: right;
+      padding: 0;
+    }
+     /* スマホ用ナビゲーションの表示切替 */
+   /* 初期状態、レイアウトと非表示設定 */
+   #nav-sp {
+    background-color: #4b7ff0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+    z-index: 100;
+  }
+
+    /* ×ボタン */
+   #close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  /* ナビゲーションメニュー用ロゴ */
+  #logo-sp {
+    margin: 80px 0 30px 20px;
+  }
+  /* ナビゲーションのリンクの装飾設定 */
+  #nav-sp > a {
+    display: block;
+  }
+  #nav-sp > a:link {
+    color: #ffffff;
+  }
+  #nav-sp > a:visited {
+    color: #ffffff;
+  }
+  #nav-sp > a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+  #nav-sp > a:active {
+    color: #ffffff;
+  }
+  #nav-sp > .menu {
+    text-decoration: none;
+    display: block;
+    margin: 0 20px 0 20px;
+    height: 44px;
+    font-size: 16px;
+    background-image: url("images/arrow.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+  }
+   #ceo-phot img {
+    width:auto;
+    text-align: center;
+   }
+   .pc {
+    display: none;
+   }
+   
+   iframe {
+    width: 100%;
+   }
+
+  footer {
+    text-align: center;
+    padding: 60px 20px -90px 20px;
+  }
+
+  #footer-link {
+    text-align: center;
+    width: 100%;
+    margin: 100px 0 -90px 190px;
+  }
+
+  #footer-logo {
+    text-align: center;
+    background-color: rgba(0, 0, 255, 0.822);
+    margin: 0 -10%; /* マージンを追記 */
+    padding: 0 10%; /* マージンで横にはみ出した部分を戻す */
+  }
+  }
