@@ -1,560 +1,265 @@
-/*================
- PC用のスタイル 
-=================*/
- @media screen and (min-width: 768px) {
-  /* 横幅設定 */
-  body {
+body {
+  font-family: "Source Sans Pro", "Hiragino Kaku Gothic ProN", Meiryo, Arial, sans-serif;
+}
+
+
+body {
     max-width: 1080px;
     min-width: 960px;
     margin: 0 auto 0 auto;
-  }
-  
-  /* ヘッダー */
-  header {
+    font-family: 'Fredoka One', cursive;
+}
+ 
+   /* ヘッダー */
+   header {
     display: flex;
     justify-content: space-between;
-    border-style: outset;
-    border-radius: 10px;
-    background-color: #ffffff;
-  }
-
-   /* ナビゲーションのレイアウト */
-   #nav-pc {
-    font-size: 14px;
-    padding-top: 15px;
-  }
-   /* ナビゲーションのリンクの装飾設定 */
-   #nav-pc > a {
-    text-decoration: none;
-    margin-left: 20px;
-    text-align: left;
-    word-spacing: 20px;
-  }
-  #nav-pc > a:link {
-    color: #0d0d0d;
-  }
-  #nav-pc > a:visited {
-    color: rgba(0, 81, 255, 0.637);
-  }
-  #nav-pc > a:hover {
-    color: blue;
-    text-decoration: underline;
-  }
-  #nav-pc > a:active {
-    color: rgba(44, 241, 241, 0.695);
-  }
-
-  /* メインビジュアル*/
-  #main-visual {
-    position: relative;
+    text-align: right;
+    background-image: url(images/ヘッダー.jpg);
+   
     
   }
+
+
+nav a {
+  line-height: 50px;
+  height: 100%;
+  font-size: 15px;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+nav .animation {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  z-index: 0;
+  transition: all .5s ease 0s;
+  border-radius: 8px;
+}
+a:nth-child(1) {
+  width: 100px;
+}
+a:nth-child(2) {
+  width: 110px;
+}
+a:nth-child(3) {
+  width: 100px;
+}
+a:nth-child(4) {
+  width: 160px;
+}
+a:nth-child(5) {
+  width: 120px;
+}
+nav .start-home, a:nth-child(1):hover~.animation {
+  width: 100px;
+  left: 0;
+  background-color: #1abc9c;
+}
+nav .start-about, a:nth-child(2):hover~.animation {
+  width: 110px;
+  left: 100px;
+  background-color: #e74c3c;
+}
+nav .start-blog, a:nth-child(3):hover~.animation {
+  width: 100px;
+  left: 210px;
+  background-color: #3498db;
+}
+nav .start-portefolio, a:nth-child(4):hover~.animation {
+  width: 160px;
+  left: 310px;
+  background-color: #9b59b6;
+}
+nav .start-contact, a:nth-child(5):hover~.animation {
+  width: 120px;
+  left: 470px;
+  background-color: #e67e22;
+}
+
+
+  #headerletter {
+  position: absolute;
+  text-align: center;
+  justify-content: space-between;
+  padding-left: 400px;
+  font-size:65px; 
+  
+  }
+  .nav__toggle {
+    display: none; }
+    @media (max-width: 599px) {
+      .nav__toggle {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 1rem; } }
+
+  ul li {
+    position: relative;
+    list-style-type: none!important;/*ポチ消す*/
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    background: #dbebf8;
+    vertical-align: middle;
+    color: #505050;
+    border-radius: 15px 0px 0px 15px;/*左側の角丸く*/
+  }
+
+
+
+ /* メインビジュアル*/
+   #maincontent-flex {
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+  }
+
+  #main-visul {
+    margin: 50px;
+    border-style: outset;
+   border-radius: 10px;
+   background-color: rgb(248, 248, 248);
+  }
+   
 
   #main-message {
-    position: absolute;
-    top:0;
-    left:0;
-    color: #ffffff;
-    max-width: 620px;
-    height: 50;
-    width: 100%;
-  }
-  #main-message > h1 {
-    font-size: 60px;
-    font-weight: bold;
-    margin: 100px 0 0 50px;
-
-  }
-  #main-message > p { 
-    font-size: 28px;
-    margin: 5px 0 0 50px;
-  }
-
-  #topweb {
-    width: 100%;
-    margin: 10px 600px 0 0;
-  }
-
- /* サービスセクションの調整*/
-  #section-Service {
-   margin: 50px 0px 100px 0;
-   border-style: groove;
-   border-radius: 5px;
-   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-   background-color: #ffffff;
-  }
-
-  #section-Service > h2,h3,p {
-    margin: 10px 0 0 10px;
-  }
-
- #Service-System {
-   margin: 5px 0 0 5px;
-   width: 100%;
-   display: flex; 
-   
-  }
-
-  .sp {
-    display: none;
-  }
-
-  .container {
-    margin:-300px 0 230px 450px;
-    width: 100%;
-    display: flex;
-    overflow-wrap: normal;
-    font-size: 15px;
-  }
+   text-align: center;
+   justify-content: space-between;
+   font-family: 'Fredoka One', cursive;
+   font-size: 20px;
   
-  #outsourcing {
-    margin: -100px 0 50px 590px;
-    display: flex;
   }
 
- #outsourcing-sentence {
-  margin: -260px 90px 240px 15px;
-  display: flex;
-  font-size: 15px;
- }
-
-
-  #EC {
-    margin: -130px 0 50px 0px;
-    display: flex;
-  }
-
-  #ec-sentence {
-    margin: -290px 0 200px 450px;
-    display: flex;
-    font-size: 15px;
-  }
-
-  #businessphone {
-    margin: -150px 0 300px 610px;
-    display:flex;
-  }
-
- #businessphone-sentence {
-    margin: -390px 0 30px 0px;
-    font-size: 15px;
- }
-
-  /* フッターの調整*/
-  #nav-footer{
+  #maincontent-flex {
+    text-align:center;
     justify-content: space-between;
+    font-family: 'Fredoka One', cursive;
+  }
+  #maincontent-flex > p {
+    font-size: 20px;
+  }
+ #race-distance{
+  text-align:center;
+  justify-content: space-between;
+  font-family: 'Fredoka One', cursive;
+ }
+ #sprinter {
+   text-align: center;
+   justify-content: space-between;
+   padding-left: 50px;
+ }
+
+#mylar{
+  text-align: center;
+   justify-content: space-between;
+   padding-left: 50px;
+ }
+#mediumrange {
+  text-align: center;
+   justify-content: space-between;
+   padding-left: 50px;
+}
+
+#stayer{
+  text-align: center;
+  justify-content: space-between;
+  padding-left: 50px;
+}
+#movie-badridingground{
+  text-align: center;
+  justify-content: space-between;
+  padding-left: 50px;
+}
+
+#legquality{
+  text-align: center;
+  justify-content: space-between;
+}
+
+#legquality-movie{
+  text-align: center;
+  justify-content: space-between;
+  padding-left: 50px;
+}
+#situation{
+  text-align: center;
+  justify-content: space-between;
+}
+#stallion{
     text-align: center;
-    margin: 45px 0 30px 0;
+   justify-content: space-between;
+   font-family: 'Fredoka One', cursive;
+  }
+  #stallion > p{
+    font-size:20px;
   }
 
-  #nav-footer > a:link {
-    color: #0d0d0d;
-  }
-  #nav-footer > a:visited {
-    color: rgba(0, 81, 255, 0.637);
-  }
-  #nav-footer > a:hover {
-    color: blue;
-    text-decoration: underline;
-  }
-  #nav-footer> a:active {
-    color: aqua;
-  }
-
-  #footer-link {
+  #mare {
     text-align: center;
-    width: 100%;
-    background-color: #0d0d0d;
-    margin: 0 -10%; /* マージンを追記 */
-    padding: 0 10%; /* マージンで横にはみ出した部分を戻す */
+   justify-content: space-between;
+   font-family: 'Fredoka One', cursive;
+  }
+  #mare >p {
+    font-size:20px;
   }
 
-  #footer-logo {
-    background-color: rgba(0, 0, 255, 0.822);
+  #triplecrownhorse-photograph {
     text-align: center;
-    margin: 0 -10%; /* マージンを追記 */
-    padding: 0 10%; /* マージンで横にはみ出した部分を戻す */
-  }
-  /* スマホ用ナビを非表示 */
-  #nav-sp,
-  #menu-sp {
-    display: none;
+   justify-content: space-between;
+   padding-left: 50px;
   }
 
-  /*=== 矢印が動いてスクロールを促す  ====*/
+  #triplecrownmare-photograph {
+    text-align: center;
+    justify-content: space-between;
+    padding-left: 50px;
+  }
 
-/*スクロールダウン全体の場所*/
-.scrolldown4{
-  /*描画位置※位置は適宜調整してください*/
-position:absolute;
-bottom:1%;
-right:50%;
-  /*矢印の動き1秒かけて永遠にループ*/
-animation: arrowmove 1s ease-in-out infinite;
-}
+  #jobs {
+    text-align: center;
+    justify-content: space-between;
+    font-family: 'Fredoka One', cursive;
+  }
 
-/*下からの距離が変化して全体が下→上→下に動く*/
-@keyframes arrowmove{
-    0%{bottom:1%;}
-    50%{bottom:3%;}
-   100%{bottom:1%;}
-}
-
-/*Scrollテキストの描写*/
-.scrolldown4 span{
-  /*描画位置*/
-position: absolute;
-left:-20px;
-bottom:10px;
-  /*テキストの形状*/
-color: #eee;
-font-size: 0.7rem;
-letter-spacing: 0.05em;
-/*縦書き設定*/
--ms-writing-mode: tb-rl;
-  -webkit-writing-mode: vertical-rl;
-  writing-mode: vertical-rl;
-}
-
-/* 矢印の描写 */
-.scrolldown4:before {
-  content: "";
-  /*描画位置*/
-  position: absolute;
-  bottom: 0;
-  right: -6px;
-  /*矢印の形状*/
-  width: 1px;
-  height: 20px;
-  background: #eee;
-  transform: skewX(-31deg);
-}
-
-.scrolldown4:after{
-content:"";
-  /*描画位置*/
-position: absolute;
-bottom:0;
-right:0;
-  /*矢印の形状*/
-width:1px;
-height: 60px;
-background:#eee;
-}
-
-/* video */
-.video{
-  width: 125%;
-  height: 429vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  z-index: -1;
+  #jobs > p {
+    font-size: 20px;
+    font-family: 'Fredoka One', cursive;
+  }
   
-}
-
-.video::after{
-  content: '';
-  width: 100%;
-  height: 100%;
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: .3;
-}
-
-.video video{
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-}
-}
- 
-
-
-/*====================
-  スマートフォン用のスタイル
-  =====================*/
-  @media screen and (max-width: 767px) {
-    body {
-      min-width: 375px;
-      margin: 0;
-      width: auto;
-    }
-  
-    /* PC用ナビゲーション非表示 */
-    #nav-pc {
-      display: none;
-    }
-  
-    /* ハンバーガーメニュー */
-    #menu-sp {
-      float: right;
-      padding: 0;
-    }
-     /* スマホ用ナビゲーションの表示切替 */
-   /* 初期状態、レイアウトと非表示設定 */
-   #nav-sp {
-    background-color: #4b7ff0;
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    display: none;
-    z-index: 100;
-  }
-
-    /* ×ボタン */
-   #close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-  }
-
-  /* ナビゲーションメニュー用ロゴ */
-  #logo-sp {
-    margin: 80px 0 30px 20px;
-  }
-  /* ナビゲーションのリンクの装飾設定 */
-  #nav-sp > a {
-    display: block;
-  }
-  #nav-sp > a:link {
-    color: #ffffff;
-  }
-  #nav-sp > a:visited {
-    color: #ffffff;
-  }
-  #nav-sp > a:hover {
-    color: #ffffff;
-    text-decoration: underline;
-  }
-  #nav-sp > a:active {
-    color: #ffffff;
-  }
-  #nav-sp > .menu {
-    text-decoration: none;
-    display: block;
-    margin: 0 20px 0 20px;
-    height: 44px;
-    font-size: 16px;
-    background-image: url("images/arrow.png");
-    background-repeat: no-repeat;
-    background-position: right top;
-  }
-  #sns {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-  }
-  #sns > a {
-    margin-right: 30px;
-  }
-  /* メインビジュアル */
-  #main-visual {
-    position: relative;
-    height: 600px;
-    width: 100%;
-    overflow: hidden;
-    background-image: url(images/topweb.jpeg);
-    background-size: cover;
-    background-position: center;
-  }
-  #main-message > div {
-    top: 0;
-    left: 0;
-    color: white;
-    height: 150px;
-    width: 100%;
-  }
-  #main-message > h1 {
-    font-size: 4rem;
-    position: absolute;
-    margin: 50px 0 0 10px;
-    height: 100px;
-    color: white;
-  }
-
-  #main-message > p {
-    margin: 415px 50px 0 0;
-    position: absolute;
-    color:white;
-  }
-
-  #topweb {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    display: none;
-  }
-
-   /* サービスセクションの調整*/
-   #section-Service {
-    margin: 50px 0 100px 0;
-    border-radius: 5px;
-    box-shadow: 5px 2px 5px 1px rgba(0, 0, 0, 0.1);
-   }
- 
-  #Service-System {
-    margin: 5px 0 0 15px;
-    width: 100%;
-   }
-   .pc {
-    display: none;
-  }
- 
-   .container {
-     margin:0;
-     width: 100%;
-     overflow-wrap: normal;
-     font-size: 15px;
-   }
-   #outsourcing {
-    margin: 0 0 0 -25px;
-    width: 100%;
-   }
- 
-  #outsourcing-sentence {
-   margin: 0;
-   font-size: 15px;
-  }
- 
-
- 
-   #ec-sentence {
-     margin: 0px 0 200px 0px;
-     font-size: 15px;
-   }
- 
-  #businessphone {
-     margin: -155px 180px 15px  -40px;
-     width: 100%;
-    }
-    
-
-  #businessphone-sentence {
-     margin: -120px 0 10px 0;
-     font-size: 15px;
-  }
-  footer {
+  #youtube1 {
     text-align: center;
-    padding: 60px 20px -90px 20px;
+   justify-content: space-between;
+   padding-left: 80PX;
   }
-
-  #footer-link {
+  #youtube2{
     text-align: center;
-    width: 100%;
-    margin: 100px 0 -90px 190px;
+   justify-content: space-between;
+   padding-left: 100PX;
   }
 
-  #footer-logo {
+
+  #movie-h1{
     text-align: center;
-    background-color: rgba(0, 0, 255, 0.822);
-    margin: 0 -10%; /* マージンを追記 */
-    padding: 0 10%; /* マージンで横にはみ出した部分を戻す */
+    justify-content: space-between;
+    padding-left: 100PX;
+  }
+  #movie {
+    text-align: center;
+    justify-content: space-between;
+    padding-left: 100PX;
   }
 
-    /*=== 矢印が動いてスクロールを促す  ====*/
-
-/*スクロールダウン全体の場所*/
-.scrolldown4{
-  /*描画位置※位置は適宜調整してください*/
-position:absolute;
-bottom:1%;
-right:50%;
-  /*矢印の動き1秒かけて永遠にループ*/
-animation: arrowmove 1s ease-in-out infinite;
-}
-
-/*下からの距離が変化して全体が下→上→下に動く*/
-@keyframes arrowmove{
-    0%{bottom:1%;}
-    50%{bottom:3%;}
-   100%{bottom:1%;}
-}
-
-/*Scrollテキストの描写*/
-.scrolldown4 span{
-  /*描画位置*/
-position: absolute;
-left:-20px;
-bottom:10px;
-  /*テキストの形状*/
-color: #eee;
-font-size: 0.7rem;
-letter-spacing: 0.05em;
-/*縦書き設定*/
--ms-writing-mode: tb-rl;
-  -webkit-writing-mode: vertical-rl;
-  writing-mode: vertical-rl;
-}
-
-/* 矢印の描写 */
-.scrolldown4:before {
-  content: "";
-  /*描画位置*/
-  position: absolute;
-  bottom: 0;
-  right: -6px;
-  /*矢印の形状*/
-  width: 1px;
-  height: 20px;
-  background: #eee;
-  transform: skewX(-31deg);
-}
-
-.scrolldown4:after{
-content:"";
-  /*描画位置*/
-position: absolute;
-bottom:0;
-right:0;
-  /*矢印の形状*/
-width:1px;
-height: 50px;
-background:#eee;
-}
-
-/* video */
-.video{
-  width: 100%;
-  height: 350vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  z-index: -1;
-  background-color: #eee;
-}
-
-.video::after{
-  content: '';
-  width: 100%;
-  height: 100%;
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: .3;
-}
-
-.video video{
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-}
-}
+  #last-message {
+    text-align: center;
+    justify-content: space-between;
+    font-family: 'Fredoka One', cursive;
+    padding-top: 30px;
+  }
+ 

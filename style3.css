@@ -1,0 +1,20 @@
+body {
+    max-width: 1080px;
+    min-width: 960px;
+    margin: 0 auto 0 auto;
+    background-image: url(images/白木目.jpeg);
+}
+
+
+#section {
+    text-align: center;
+    justify-content: space-between;
+}
+
+#ticketbuy {
+    text-align: center;
+    justify-content: space-between;
+    background-image: url(images/文字背景.jpeg);
+    font-family: 'Fredoka One', cursive;
+    font-size: 20px;
+}

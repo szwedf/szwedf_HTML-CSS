@@ -1,0 +1,48 @@
+body {
+    max-width: 1080px;
+    min-width: 960px;
+    margin: 0 auto 0 auto;
+    background-image: url(images/白木目.jpeg);
+}
+
+#history-main {
+    text-align: center;
+    text-align: center; justify-content: space-evenly;
+}
+
+#Derby-potograph {
+    padding-top: 0px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#Yasuda-photograph {
+    justify-content: space-evenly;
+    padding-right: 200px;
+}
+
+#Yasuda-photograph > p {
+    text-align: center;
+    justify-content:space-between;
+  
+}
+.flex-container {
+    display: flex;
+}
+
+.image-wrap{
+    margin: 10px 5px;
+}
+
+#Derby2022-potograph {
+    padding-right: 200px;
+    padding-left: 200px;
+}
+
+#footer-link {
+    padding-top: 50px;
+}
+
+main {
+    background-image: url(images/文字背景1.jpeg);
+}
