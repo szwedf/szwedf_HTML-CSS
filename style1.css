@@ -1,48 +1,129 @@
-body {
-    max-width: 1080px;
-    min-width: 960px;
-    margin: 0 auto 0 auto;
-    background-image: url(images/白木目.jpeg);
-}
+/*================
+ PC用のスタイル 
+=================*/
+@media screen and (min-width: 768px) {
 
-#history-main {
-    text-align: center;
-    text-align: center; justify-content: space-evenly;
-}
-
-#Derby-potograph {
-    padding-top: 0px;
+    /* ヘッダー */
+  header {
     display: flex;
-    justify-content: space-evenly;
-}
+    justify-content: space-between;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+  }
 
-#Yasuda-photograph {
-    justify-content: space-evenly;
-    padding-right: 200px;
-}
+   /* ナビゲーションのレイアウト */
+   #nav-pc {
+    font-size: 14px;
+    padding-top: 15px;
+    
+  }
+   /* ナビゲーションのリンクの装飾設定 */
+   #nav-pc > a {
+    text-decoration: none;
+    margin-left: 20px;
+    text-align: left;
+    word-spacing: 20px;
+  }
+  #nav-pc > a:link {
+    color: #0d0d0d;
+  }
+  #nav-pc > a:visited {
+    color: rgba(0, 81, 255, 0.637);
+  }
+  #nav-pc > a:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+  #nav-pc > a:active {
+    color: aqua;
+  }
 
-#Yasuda-photograph > p {
+   #Message {
     text-align: center;
-    justify-content:space-between;
-  
-}
-.flex-container {
-    display: flex;
-}
+   }
+   #Message >h1 {
+    font-size: 25px;
+   }
 
-.image-wrap{
-    margin: 10px 5px;
-}
+   #Message >p {
+    margin: 20px 0 0 0;
+    font-size:15px;
+   }
+   #sign {
+    margin: 30px 0 0 900px;
+   }
 
-#Derby2022-potograph {
-    padding-right: 200px;
-    padding-left: 200px;
-}
+   #AboutAs {
+    text-align: center;
+   
+   }
+   #company-table {
+    width: 100%;
+    text-align: center;
+  }
+ 
+  .tableheader {
+    text-align: left;
+    padding: 20px;
+    border-bottom-color: #2710d5;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    width: 100px;
+  }
+ 
+  .tableheader-first {
+    text-align: left;
+    padding: 20px;
+    border-bottom-color: #2710d5;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-top-color: #2710d5;
+    border-top-width: 1px;
+    border-top-style: solid;
+    width: 100px;
+  }
+ 
+  .cell {
+    
+    padding: 30px;
+    border-bottom-color: #f7f5f5;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+  }
+ 
+  .cell-first {
+    padding: 30px;
+    border-bottom-color: #f7f5f5;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-top-color: #f7f5f5;
+    border-top-width: 1px;
+    border-top-style: solid;
+  }
 
-#footer-link {
-    padding-top: 50px;
-}
+   /* フッターの調整*/
+   #nav-footer{
+    justify-content: space-between;
+    text-align: center;
+    margin: 45px 0 0 0;
+  }
 
-main {
-    background-image: url(images/文字背景1.jpeg);
+  #nav-footer > a:link {
+    color: #0d0d0d;
+  }
+  #nav-footer > a:visited {
+    color: rgba(0, 81, 255, 0.637);
+  }
+  #nav-footer > a:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+  #nav-footer> a:active {
+    color: aqua;
+  }
+  #footer-logo {
+    background-color: rgba(0, 0, 255, 0.822);
+    text-align: center;
+    padding: 50px 0 0 0;
+  }
 }
