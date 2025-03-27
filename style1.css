@@ -1,129 +1,54 @@
-/*================
- PC用のスタイル 
-=================*/
-@media screen and (min-width: 768px) {
+/* リセット */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    /* ヘッダー */
-  header {
+/* 全体デザイン */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #000;
+    color: #fff;
+}
+
+/* ヘッダー */
+header {
     display: flex;
     justify-content: space-between;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-  }
-
-   /* ナビゲーションのレイアウト */
-   #nav-pc {
-    font-size: 14px;
-    padding-top: 15px;
-    
-  }
-   /* ナビゲーションのリンクの装飾設定 */
-   #nav-pc > a {
-    text-decoration: none;
-    margin-left: 20px;
-    text-align: left;
-    word-spacing: 20px;
-  }
-  #nav-pc > a:link {
-    color: #0d0d0d;
-  }
-  #nav-pc > a:visited {
-    color: rgba(0, 81, 255, 0.637);
-  }
-  #nav-pc > a:hover {
-    color: blue;
-    text-decoration: underline;
-  }
-  #nav-pc > a:active {
-    color: aqua;
-  }
-
-   #Message {
-    text-align: center;
-   }
-   #Message >h1 {
-    font-size: 25px;
-   }
-
-   #Message >p {
-    margin: 20px 0 0 0;
-    font-size:15px;
-   }
-   #sign {
-    margin: 30px 0 0 900px;
-   }
-
-   #AboutAs {
-    text-align: center;
-   
-   }
-   #company-table {
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(0, 0, 0, 0.8);
     width: 100%;
-    text-align: center;
-  }
- 
-  .tableheader {
-    text-align: left;
-    padding: 20px;
-    border-bottom-color: #2710d5;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    width: 100px;
-  }
- 
-  .tableheader-first {
-    text-align: left;
-    padding: 20px;
-    border-bottom-color: #2710d5;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-top-color: #2710d5;
-    border-top-width: 1px;
-    border-top-style: solid;
-    width: 100px;
-  }
- 
-  .cell {
-    
-    padding: 30px;
-    border-bottom-color: #f7f5f5;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-  }
- 
-  .cell-first {
-    padding: 30px;
-    border-bottom-color: #f7f5f5;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-top-color: #f7f5f5;
-    border-top-width: 1px;
-    border-top-style: solid;
-  }
+}
 
-   /* フッターの調整*/
-   #nav-footer{
-    justify-content: space-between;
-    text-align: center;
-    margin: 45px 0 0 0;
-  }
+nav ul {
+    list-style: none;
+    display: flex;
+}
 
-  #nav-footer > a:link {
-    color: #0d0d0d;
-  }
-  #nav-footer > a:visited {
-    color: rgba(0, 81, 255, 0.637);
-  }
-  #nav-footer > a:hover {
-    color: blue;
-    text-decoration: underline;
-  }
-  #nav-footer> a:active {
-    color: aqua;
-  }
-  #footer-logo {
-    background-color: rgba(0, 0, 255, 0.822);
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* ヒーロー */
+.hero {
+    height: 100vh;
+    background: url('https://source.unsplash.com/1600x900/?gaming') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 50px 0 0 0;
-  }
+}
+
+/* コンテンツ */
+.projects, .news {
+    padding: 50px;
+    text-align: center;
 }

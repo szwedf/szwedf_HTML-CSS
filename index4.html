@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Café Lumière</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <link rel="stylesheet" href="style2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Noto+Sans+JP&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <!-- Navigation -->
+    <nav :class="{ open: navOpen }">
+      <div class="nav-container">
+        <div class="logo">Café Lumière</div>
+        <div class="menu-toggle" @click="navOpen = !navOpen">
+          <span></span><span></span><span></span>
+        </div>
+        <ul :class="{ show: navOpen }">
+          <li><a href="#about">{{ lang === 'jp' ? 'このカフェについて' : 'About' }}</a></li>
+          <li><a href="#menu">{{ lang === 'jp' ? 'メニュー' : 'Menu' }}</a></li>
+          <li><a href="#access">{{ lang === 'jp' ? 'アクセス' : 'Access' }}</a></li>
+          <li class="lang-switch">
+            <button @click="lang = 'jp'">JP</button>
+            <button @click="lang = 'en'">EN</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <header>
+      <h1>Café Lumière</h1>
+      <p>{{ lang === 'jp' ? '表参道の静かな路地裏で、上質なひとときを。' : 'A serene escape in the heart of Omotesando.' }}</p>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="reveal">
+      <h2>{{ lang === 'jp' ? 'このカフェについて' : 'About the Cafe' }}</h2>
+      <p>{{ lang === 'jp' ? 'Café Lumièreは、表参道の落ち着いた空間で、こだわりのコーヒーや紅茶、軟食、スイーツをお楽しみいただけるカフェです。'
+        : 'Café Lumière offers premium coffee, tea, light meals, and desserts in a calm, stylish atmosphere in Omotesando.' }}</p>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu" class="reveal">
+      <h2>{{ lang === 'jp' ? 'メニュー' : 'Menu' }}</h2>
+      <div class="menu-categories">
+        <button
+          v-for="cat in categories"
+          :key="cat.jp"
+          :class="{ active: currentCategory === cat.jp }"
+          @click="currentCategory = cat.jp"
+        >
+          {{ lang === 'jp' ? cat.jp : cat.en }}
+        </button>
+      </div>
+      <div class="menu-items">
+        <div class="menu-item" v-for="item in filteredMenu" :key="item.name.jp">
+          <h3>{{ lang === 'jp' ? item.name.jp : item.name.en }}</h3>
+          <p>{{ lang === 'jp' ? item.description.jp : item.description.en }}</p>
+          <strong>{{ item.price }}円</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- Access -->
+    <section id="access" class="reveal">
+      <h2>{{ lang === 'jp' ? 'アクセス' : 'Access' }}</h2>
+      <p>{{ lang === 'jp' ? '〒150-0001 東京都渋谷区神宮前4-12-8 表参道駅 徒歩5分'
+        : '4-12-8 Jingumae, Shibuya-ku, Tokyo 150-0001 (5 min walk from Omotesando Station)' }}</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <h4>{{ lang === 'jp' ? '店舗情報' : 'Store Info' }}</h4>
+      <p>{{ lang === 'jp' ? '営業時間: 10:00〜22:00' : 'Open: 10:00 - 22:00' }}</p>
+      <p>{{ lang === 'jp' ? '住所: 東京都渋谷区神宮前4-12-8' : 'Address: 4-12-8 Jingumae, Shibuya, Tokyo' }}</p>
+      <p>{{ lang === 'jp' ? '電話番号: 03-1234-5678' : 'Phone: +81-3-1234-5678' }}</p>
+      <p>&copy; 2025 Café Lumière</p>
+    </footer>
+  </div>
+
+ <!-- Vue data update only -->
+<script>
+    new Vue({
+      el: '#app',
+      data: {
+        lang: 'jp',
+        navOpen: false,
+        categories: [
+          { jp: '朝食', en: 'Breakfast' },
+          { jp: 'ランチ', en: 'Lunch' },
+          { jp: 'ディナー', en: 'Dinner' },
+          { jp: 'サイドメニュー', en: 'Side Menu' },
+          { jp: 'デザート', en: 'Dessert' },
+          { jp: 'ドリンク', en: 'Drinks' }
+        ],
+        currentCategory: '朝食',
+        menu: [
+          // 朝食メニュー
+          {
+            category: '朝食',
+            name: { jp: 'アボカドトースト', en: 'Avocado Toast' },
+            description: { jp: 'ライ麦パンにアボカドとポーチドエッグを添えて', en: 'Rye toast with avocado and poached egg' },
+            price: 780
+          },
+          {
+          category: '朝食',
+          name: { jp: 'たまごサンドウィッチ', en: 'Egg Sandwich' },
+          description: { jp: 'ふんわり卵を使用したサンドウィッチ', en: 'Fluffy egg sandwich' },
+          price: 750
+        },
+        {
+          category: '朝食',
+          name: { jp: 'ハムサンド', en: 'Ham Sandwich' },
+          description: { jp: 'ジューシーなハムと新鮮なレタスのサンド', en: 'Juicy ham and fresh lettuce sandwich' },
+          price: 800
+        },
+        {
+          category: '朝食',
+          name: { jp: 'オムレツ', en: 'Omelette' },
+          description: { jp: 'ふわふわ卵のシンプルなオムレツ', en: 'Simple fluffy omelette' },
+          price: 820
+        },
+        {
+          category: '朝食',
+          name: { jp: 'シナモンロール', en: 'Cinnamon Roll' },
+          description: { jp: 'シナモン香るしっとりロールパン', en: 'Moist cinnamon-scented roll bread' },
+          price: 680
+        },
+          // ランチ
+          {
+            category: 'ランチ',
+            name: { jp: 'グリルチーズサンド', en: 'Grilled Cheese Sandwich' },
+            description: { jp: '濃厚チーズとキャラメルオニオンを全粒粉パンで', en: 'Rich cheese and caramelized onion on whole grain bread' },
+            price: 880
+          },
+          {
+            category: 'ランチ',
+            name: { jp: 'マカロニ＆チーズ', en: 'Mac & Cheese' },
+            description: { jp: 'チーズたっぷりの定番コンフォートフード', en: 'Classic comfort food with creamy cheese sauce' },
+            price: 950
+          },
+          {
+            category: 'ランチ',
+            name: { jp: 'シーザーサラダ', en: 'Caesar Salad' },
+            description: { jp: 'ロメインレタスにパルメザンチーズとクルトン', en: 'Romaine lettuce with parmesan and croutons' },
+            price: 900
+          },
+          {
+            category: 'ランチ',
+            name: { jp: 'ボロネーゼ', en: 'Bolognese' },
+            description: { jp: '牛ひき肉たっぷりの濃厚ミートソースパスタ', en: 'Rich meat sauce pasta with minced beef' },
+            price: 1080
+          },
+          {
+            category: 'ランチ',
+            name: { jp: 'カルボナーラ', en: 'Carbonara' },
+            description: { jp: 'クリーミーな卵とベーコンのパスタ', en: 'Creamy egg and bacon pasta' },
+            price: 1100
+          },
+          {
+            category: 'ランチ',
+            name: { jp: 'ハンバーグ', en: 'Hamburger Steak' },
+            description: { jp: '松坂牛100%使用のジューシーなハンバーグ', en: 'Juicy hamburger steak made with 100% Matsusaka beef' },
+            price: 1280
+          },
+          {
+          category: 'サイドメニュー',
+          name: { jp: 'フレンチフライ', en: 'French Fries' },
+          description: { jp: 'カリッと揚げたサイドの定番', en: 'Crispy classic side dish' },
+          price: 450
+        },
+        {
+          category: 'サイドメニュー',
+          name: { jp: 'スモークベーコン', en: 'Smoked Bacon' },
+          description: { jp: '香ばしい香りが食欲をそそる', en: 'Savory and aromatic bacon' },
+          price: 500
+        },
+        {
+          category: 'サイドメニュー',
+          name: { jp: 'ウインナー', en: 'Sausage' },
+          description: { jp: 'ジューシーなウインナー', en: 'Juicy sausage' },
+          price: 480
+        },
+        {
+          category: 'サイドメニュー',
+          name: { jp: 'ホイップクリーム', en: 'Whipped Cream' },
+          description: { jp: 'デザートにぴったりのトッピング', en: 'Perfect topping for desserts' },
+          price: 200
+        },
+          // ディナー
+          {
+            category: 'ディナー',
+            name: { jp: '真鯛のポワレ ブイヤベース風', en: 'Pan-Fried Red Sea Bream Bouillabaisse Style' },
+            description: { jp: '香ばしく焼き上げた真鯛に魚介の旨味たっぷりのソースを添えて', en: 'Pan-seared red sea bream served with seafood bouillabaisse-style sauce' },
+            price: 1680
+          },
+          {
+            category: 'ディナー',
+            name: { jp: '豚フィレのシュニッツェル', en: 'Pork Fillet Schnitzel' },
+            description: { jp: '豚フィレ肉の薄焼きカツに焦がしバターソースを添えて', en: 'Thinly fried pork fillet cutlet with brown butter sauce' },
+            price: 1580
+          },
+          {
+            category: 'ディナー',
+            name: { jp: 'チキンのグリル 香草風味', en: 'Herb Grilled Chicken' },
+            description: { jp: '香草でマリネしたジューシーなグリルチキン', en: 'Juicy grilled chicken marinated in herbs' },
+            price: 1480
+          },
+          {
+            category: 'ディナー',
+            name: { jp: 'ビーフステーキ 赤ワインソース', en: 'Beef Steak with Red Wine Sauce' },
+            description: { jp: '赤ワインとバターで仕上げた濃厚なソース', en: 'Rich red wine and butter sauce with grilled steak' },
+            price: 1980
+          },
+          {
+            category: 'ディナー',
+            name: { jp: 'ペペロンチーノ', en: 'Peperoncino' },
+            description: { jp: 'ガーリックと唐辛子のシンプルなパスタ', en: 'Simple garlic and chili pepper pasta' },
+            price: 980
+          },
+          {
+            category: 'ディナー',
+            name: { jp: 'トマトとモッツァレラのパスタ', en: 'Tomato & Mozzarella Pasta' },
+            description: { jp: 'トマトの酸味とチーズのコクの絶妙なバランス', en: 'Perfect balance of tomato acidity and mozzarella richness' },
+            price: 1080
+          },
+          {
+            category: 'ディナー',
+            name: { jp: 'ハンバーグ', en: 'Hamburger Steak' },
+            description: { jp: '松坂牛100%使用のジューシーなハンバーグ', en: 'Juicy hamburger steak made with 100% Matsusaka beef' },
+            price: 1380
+          },
+          // デザート
+          {
+            category: 'デザート',
+            name: { jp: 'レモンタルト', en: 'Lemon Tart' },
+            description: { jp: '爽やかなレモンの酸味とサクサクタルト', en: 'Zesty lemon tart with a buttery crust' },
+            price: 650
+          },
+          {
+            category: 'デザート',
+            name: { jp: 'バターミルクパンケーキ', en: 'Buttermilk Pancakes' },
+            description: { jp: 'ふわふわのクラシックパンケーキ', en: 'Fluffy classic pancakes' },
+            price: 880
+          },
+          {
+            category: 'デザート',
+            name: { jp: 'NYチーズケーキ', en: 'NY Cheesecake' },
+            description: { jp: '濃厚でなめらかな定番チーズケーキ', en: 'Rich and smooth New York cheesecake' },
+            price: 720
+          },
+          {
+            category: 'デザート',
+            name: { jp: 'チョコレートスフレケーキ', en: 'Chocolate Soufflé Cake' },
+            description: { jp: 'しっとり濃厚なスフレタイプのチョコケーキ', en: 'Moist and rich chocolate soufflé cake' },
+            price: 750
+          },
+          {
+            category: 'デザート',
+            name: { jp: 'クレームブリュレ', en: 'Crème Brûlée' },
+            description: { jp: '表面パリッと中はとろける濃厚プリン', en: 'Caramelized surface and creamy inside' },
+            price: 780
+          },
+          {
+            category: 'デザート',
+            name: { jp: 'アイスバニラ', en: 'Vanilla Ice Cream' },
+            description: { jp: '濃厚バニラのシンプルなアイスクリーム', en: 'Simple rich vanilla ice cream' },
+            price: 500
+          },
+          {
+            category: 'デザート',
+            name: { jp: 'チョコアイス', en: 'Chocolate Ice Cream' },
+            description: { jp: 'チョコ好きにはたまらない濃厚アイス', en: 'Decadent chocolate ice cream for chocolate lovers' },
+            price: 500
+          },
+          {
+            category: 'デザート',
+            name: { jp: 'パフェ', en: 'Parfait' },
+            description: { jp: 'フルーツとクリームたっぷりの贅沢パフェ', en: 'Luxurious parfait with fruits and cream' },
+            price: 880
+          },
+          {
+            category: 'デザート',
+            name: { jp: 'プリン', en: 'Custard Pudding' },
+            description: { jp: '昔ながらのなめらかプリン', en: 'Classic smooth custard pudding' },
+            price: 580
+          },
+          // サイドメニュー（追加があればここに）
+          {
+            category: 'ランチ',
+            name: { jp: 'フレンチフライ', en: 'French Fries' },
+            description: { jp: 'カリッと揚げたサイドの定番', en: 'Crispy classic side dish' },
+            price: 450
+          },
+          {
+            category: 'ランチ',
+            name: { jp: 'スモークベーコン', en: 'Smoked Bacon' },
+            description: { jp: '香ばしい香りが食欲をそそる', en: 'Savory and aromatic bacon' },
+            price: 500
+          },
+          {
+            category: 'ランチ',
+            name: { jp: 'ウインナー', en: 'Sausage' },
+            description: { jp: 'ジューシーなウインナー', en: 'Juicy sausage' },
+            price: 480
+          },
+          {
+            category: 'ランチ',
+            name: { jp: 'ホイップクリーム', en: 'Whipped Cream' },
+            description: { jp: 'デザートにぴったりのトッピング', en: 'Perfect topping for desserts' },
+            price: 200
+          },
+           // ドリンク
+        {
+          category: 'ドリンク',
+          name: { jp: 'カフェラテ', en: 'Cafe Latte' },
+          description: { jp: 'ホットまたはアイスのミルク入りコーヒー', en: 'Hot or iced coffee with milk' },
+          price: 800
+        },
+        {
+          category: 'ドリンク',
+          name: { jp: 'アールグレイティー', en: 'Earl Grey Tea' },
+          description: { jp: '香り高いベルガモットのフレーバーティー', en: 'Aromatic black tea with bergamot flavor' },
+          price: 880
+        },
+        {
+          category: 'ドリンク',
+          name: { jp: 'ダージリンティー', en: 'Darjeeling Tea' },
+          description: { jp: '芳醇な香りの紅茶の女王', en: 'The queen of teas with rich aroma' },
+          price: 880
+        },
+        {
+          category: 'ドリンク',
+          name: { jp: 'アイスティー（アールグレイ）', en: 'Iced Earl Grey Tea' },
+          description: { jp: '冷たく爽やかなベルガモットの香り', en: 'Chilled tea with refreshing bergamot flavor' },
+          price: 800
+        },
+        {
+          category: 'ドリンク',
+          name: { jp: 'ジンジャーエール', en: 'Ginger Ale' },
+          description: { jp: '炭酸の効いた爽快ドリンク', en: 'Crisp and refreshing ginger soda' },
+          price: 740
+        },
+        {
+          category: 'ドリンク',
+          name: { jp: 'コーラ', en: 'Cola' },
+          description: { jp: 'おなじみの炭酸飲料', en: 'Classic carbonated drink' },
+          price: 740
+        },
+        {
+          category: 'ドリンク',
+          name: { jp: 'ミルク（ホット／アイス）', en: 'Milk (Hot / Iced)' },
+          description: { jp: 'あたたかくても冷たくても楽しめるミルク', en: 'Milk served hot or iced' },
+          price: 740
+        },
+        {
+          category: 'ドリンク',
+          name: { jp: 'オレンジジュース', en: 'Orange Juice' },
+          description: { jp: '100%フレッシュオレンジジュース', en: '100% fresh orange juice' },
+          price: 740
+        },
+        {
+          category: 'ドリンク',
+          name: { jp: 'KIRIN プレミアム（ドラフト）', en: 'KIRIN Premium (Draft)' },
+          description: { jp: 'キリンの上質なドラフトビール', en: 'High-quality draft beer by KIRIN' },
+          price: 950
+        },
+        {
+          category: 'ドリンク',
+          name: { jp: 'ノンアルコールビール', en: 'Non-Alcohol Beer' },
+          description: { jp: 'アルコールゼロでも満足の味わい', en: 'Satisfying taste without alcohol' },
+          price: 810
+        },
+        {
+          category: 'ドリンク',
+          name: { jp: 'クラシックハイボール', en: 'Classic Highball' },
+          description: { jp: 'ウイスキーとソーダの爽快な一杯', en: 'Refreshing whisky and soda' },
+          price: 950
+        },
+        {
+          category: 'ドリンク',
+          name: { jp: 'ジントニック', en: 'Gin & Tonic' },
+          description: { jp: 'ジンとトニックの定番カクテル', en: 'Classic gin and tonic cocktail' },
+          price: 950
+        },
+        {
+          category: 'ドリンク',
+          name: { jp: 'アペロールスプリッツ', en: 'Aperol Spritz' },
+          description: { jp: 'アペロール、白ワイン、ソーダの爽やかカクテル', en: 'Aperol, white wine, and soda' },
+          price: 950
+        },
+        {
+          category: 'ドリンク',
+          name: { jp: 'グレープフルーツパロマ', en: 'Grapefruit Paloma' },
+          description: { jp: 'グレープフルーツ、テキーラ、ライムのカクテル', en: 'Grapefruit juice, tequila, and lime' },
+          price: 1100
+        },
+        {
+          category: 'ドリンク',
+          name: { jp: 'ペアーコリンズ', en: 'Pear Collins' },
+          description: { jp: '洋梨ピューレ、ジン、レモンの爽やかカクテル', en: 'Pear puree, gin, tonic, and lemon juice' },
+          price: 1100
+        },
+        {
+          category: 'ドリンク',
+          name: { jp: 'サングリア', en: 'Sangria' },
+          description: { jp: '果実とワインのマリアージュ', en: 'Blend of fruit and wine' },
+          price: 990
+        }
+      ]
+          },
+      computed: {
+        filteredMenu() {
+          return this.menu.filter(item => item.category === this.currentCategory);
+        }
+      },
+      mounted() {
+        ScrollReveal().reveal('.reveal', {
+          distance: '50px',
+          duration: 800,
+          easing: 'ease-in-out',
+          origin: 'bottom',
+          interval: 200
+        });
+      }
+    });
+  </script>
+  
+  
+</body>
+</html>
