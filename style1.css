@@ -1,54 +1,48 @@
-/* リセット */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* 全体デザイン */
 body {
-    font-family: 'Arial', sans-serif;
-    background: #000;
-    color: #fff;
+    max-width: 1080px;
+    min-width: 960px;
+    margin: 0 auto 0 auto;
+    background-image: url(images/白木目.jpeg);
 }
 
-/* ヘッダー */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background: rgba(0, 0, 0, 0.8);
-    width: 100%;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-}
-
-/* ヒーロー */
-.hero {
-    height: 100vh;
-    background: url('https://source.unsplash.com/1600x900/?gaming') no-repeat center center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#history-main {
     text-align: center;
+    text-align: center; justify-content: space-evenly;
 }
 
-/* コンテンツ */
-.projects, .news {
-    padding: 50px;
+#Derby-potograph {
+    padding-top: 0px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#Yasuda-photograph {
+    justify-content: space-evenly;
+    padding-right: 200px;
+}
+
+#Yasuda-photograph > p {
     text-align: center;
+    justify-content:space-between;
+  
+}
+.flex-container {
+    display: flex;
+}
+
+.image-wrap{
+    margin: 10px 5px;
+}
+
+#Derby2022-potograph {
+    padding-right: 200px;
+    padding-left: 200px;
+}
+
+#footer-link {
+    padding-top: 50px;
+}
+
+main {
+    background-image: url(images/文字背景1.jpeg);
 }
