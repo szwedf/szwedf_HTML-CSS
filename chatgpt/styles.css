@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #111;
+    color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #222;
+    padding: 10px 20px;
+}
+
+header .logo img {
+    height: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.slider {
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+}
+
+#news, #games, #recruit {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.game-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.game-item {
+    text-align: center;
+}
+
+.game-item img {
+    width: 150px;
+    height: auto;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #222;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #e50914;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}

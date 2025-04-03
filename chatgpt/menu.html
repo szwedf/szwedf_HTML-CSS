@@ -1,0 +1,49 @@
+<!-- menu.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メニュー | 表参道カフェ</title>
+  <link rel="stylesheet" href="style4.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <nav class="navbar">
+        <a href="index4.html" class="logo">Omotesando Cafe</a>
+        <ul>
+          <li><a href="index4.html">トップ</a></li>
+          <li><a href="menu.html">メニュー</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="menu">
+      <h1 class="reveal">{{ lang === 'jp' ? 'メニュー' : 'Menu' }}</h1>
+
+      <div class="language-toggle">
+        <button @click="lang = 'jp'">JP</button>
+        <button @click="lang = 'en'">EN</button>
+      </div>
+
+      <div class="categories">
+        <button v-for="category in categories" :key="category.jp" @click="currentCategory = category.jp">
+          {{ lang === 'jp' ? category.jp : category.en }}
+        </button>
+      </div>
+
+      <div class="menu-items">
+        <div v-for="item in filteredMenu" :key="item.name.jp" class="menu-item reveal">
+          <h3>{{ item.name[lang] }}</h3>
+          <p>{{ item.description[lang] }}</p>
+          <span>\{{ item.price }}</span>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="menu-data.js"></script>
+ </body>
+</html>

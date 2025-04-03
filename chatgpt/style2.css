@@ -1,0 +1,164 @@
+
+  .hero-image {
+    position: relative;
+    text-align: center;
+    background: url('images/cafe.jpg') center center / cover no-repeat;
+    padding: 140px 20px 80px;
+  }
+  
+  .hero-image h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+    margin: 0;
+  }
+  
+  .hero-image p {
+    font-size: 1.2rem;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    margin-top: 10px;
+  }
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fff8f0;
+    color: #333;
+  }
+  
+  .menu-link {
+    display: block;
+    width: fit-content;
+    margin: 40px auto 10px;
+    padding: 12px 24px;
+    background-color: #d3a675;
+    color: #fff;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: background-color 0.3s ease;
+  }
+  
+  .menu-link:hover {
+    background-color: #b98a5f;
+  }
+  
+  .menu-description {
+    text-align: center;
+    font-size: 1rem;
+    color: #666;
+    margin-top: 5px;
+    margin-bottom: 40px;
+    padding: 0 20px;
+  }
+  
+  .map-container {
+    margin: 20px auto;
+    max-width: 800px;
+    width: 90%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  iframe {
+    border: none;
+  }
+  
+  nav {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    z-index: 1000;
+  }
+  
+  nav .nav-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  nav .logo {
+    display: none;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #444;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    background-color: #eee;
+  }
+  
+  header {
+    text-align: center;
+    padding: 60px 20px 20px;
+    background: #fdf5ef;
+  }
+  
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #a67c52;
+  }
+  
+  header p {
+    font-size: 1.1rem;
+    color: #666;
+  }
+  
+  section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  section h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #a67c52;
+  }
+  
+  footer {
+    background-color: #f4e9df;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 60px;
+  }
+  
+  .lang-switch button {
+    margin-left: 8px;
+    padding: 4px 10px;
+    border: none;
+    background: #d3a675;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .lang-switch button:hover {
+    background-color: #b98a5f;
+  }

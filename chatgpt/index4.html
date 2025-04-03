@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Café Lumière</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <link rel="stylesheet" href="style2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Noto+Sans+JP&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+    <!-- Hero -->
+<header class="hero-image">
+    <h1>Café Lumière</h1>
+    <p>{{ lang === 'jp' ? '表参道の静かな路地裏で、上質なひとときを。' : 'A serene escape in the heart of Omotesando.' }}</p>
+  
+    <!-- Navigation -->
+    <nav :class="{ open: navOpen }">
+      <div class="nav-container">
+        <div class="logo">Café Lumière</div>
+        <div class="menu-toggle" @click="navOpen = !navOpen">
+          <span></span><span></span><span></span>
+        </div>
+        <ul :class="{ show: navOpen }">
+          <li><a href="#about">{{ lang === 'jp' ? 'このカフェについて' : 'About' }}</a></li>
+          <li><a href="menu.html">{{ lang === 'jp' ? 'メニュー' : 'Menu' }}</a></li>
+          <li><a href="#access">{{ lang === 'jp' ? 'アクセス' : 'Access' }}</a></li>
+          <li class="lang-switch">
+            <button @click="lang = 'jp'">JP</button>
+            <button @click="lang = 'en'">EN</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+</header>
+    <!-- About -->
+    <section id="about" class="reveal">
+      <h2>{{ lang === 'jp' ? 'このカフェについて' : 'About the Cafe' }}</h2>
+      <p>{{ lang === 'jp' ? 'Café Lumièreは、表参道の落ち着いた空間で、こだわりのコーヒーや紅茶、軟食、スイーツをお楽しみいただけるカフェです。'
+        : 'Café Lumière offers premium coffee, tea, light meals, and desserts in a calm, stylish atmosphere in Omotesando.' }}</p>
+    </section>
+
+    <!-- Menu -->
+    <a href="menu.html" class="menu-link">{{ lang === 'jp' ? 'メニューを見る' : 'View Menu' }}</a>
+    <p class="menu-description">{{ lang === 'jp' ? 'Café Lumièreでは、朝食からディナーまで、季節の素材を使った多彩な料理とドリンクをご用意しております。' : 'From breakfast to dinner, Café Lumière offers a wide range of dishes and drinks made with seasonal ingredients.' }}</p>
+
+    <!-- Access -->
+    <section id="access" class="reveal">
+      <h2>{{ lang === 'jp' ? 'アクセス' : 'Access' }}</h2>
+      <p>{{ lang === 'jp' ? '〒150-0001 東京都渋谷区神宮前4-12-8 表参道駅 徒歩5分'
+        : '4-12-8 Jingumae, Shibuya-ku, Tokyo 150-0001 (5 min walk from Omotesando Station)' }}</p>
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.5399207771793!2d139.70998727563928!3d35.66401497259209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cae85e1e999%3A0xe352f1cf362f45dc!2z44CSMTUwLTAwMDEg5p2x5Lqs6YO95riL6LC35Yy65p2x5Lqs5Yy65p2x5Lqs77yR5LiB55uu77yR4oiS77yTIOODluODqeODs-ODvOOCueOCpOODkOODvOODiQ!5e0!3m2!1sja!2sjp!4v1711590627895!5m2!1sja!2sjp" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <h4>{{ lang === 'jp' ? '店舗情報' : 'Store Info' }}</h4>
+      <p>{{ lang === 'jp' ? '営業時間: 8:00〜22:00' : 'Open: 8:00 - 22:00' }}</p>
+      <p>{{ lang === 'jp' ? '住所: 東京都渋谷区神宮前4-12-8' : 'Address: 4-12-8 Jingumae, Shibuya, Tokyo' }}</p>
+      <p>{{ lang === 'jp' ? '電話番号: 03-1234-5678' : 'Phone: +81-3-1234-5678' }}</p>
+      <p>&copy; 2025 Café Lumière</p>
+    </footer>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        lang: 'jp',
+        navOpen: false
+      }
+    });
+  </script>
+</body>
+</html>
