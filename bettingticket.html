@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>馬券ガイド | 買い方・払戻・種類をやさしく整理</title>
+    <meta name="description" content="競馬初心者向けに、馬券の買い方（競馬場・WINS・ネット投票）、払い戻し方法、馬券の種類をカードと折りたたみで読みやすく整理。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <h1 class="logo">競馬ブログ</h1>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="メニューを開閉">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+        <nav id="primary-nav" class="nav" data-collapsible>
+          <ul class="nav__list">
+            <li><a class="nav__link" href="index_refactored.html">TOP</a></li>
+            <li><a class="nav__link" href="history.html">歴史</a></li>
+            <li><a class="nav__link" href="Racecourse.html">競馬場</a></li>
+            <li><a class="nav__link" href="bettingticket.html">馬券</a></li>
+            <li><a class="nav__link" href="classicroute.html">クラシック路線</a></li>
+            <li><a class="nav__link" href="tiararoute.html">ティアラ路線</a></li>
+            <li><a class="nav__link" href="bloodline.html">血統解説</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__text">
+          <h2 id="hero-title" class="hero__title">馬券の買い方・払い戻し・種類</h2>
+          <p class="hero__lead">長文をカード＆折りたたみで再構成。初めてでも迷わない導線です。</p>
+        </div>
+        <figure class="hero__media">
+          <img src="images/マークシート.png" alt="JRAのマークシート（マークカード）" width="800" height="600" loading="lazy" decoding="async" />
+          <figcaption class="sr-only">JRAのマークシート</figcaption>
+        </figure>
+      </section>
+
+      <!-- TOC -->
+      <aside class="toc" aria-labelledby="toc-title">
+        <h2 id="toc-title" class="toc__title">目次</h2>
+        <nav aria-label="ページ内目次">
+          <ol class="toc__list">
+            <li><a href="#howto">馬券の買い方（3つ）</a></li>
+            <li><a href="#payout">払い戻し</a></li>
+            <li><a href="#types">馬券の種類</a></li>
+            <li><a href="#videos">参考動画</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <!-- HOW TO BUY -->
+      <section id="howto" class="section">
+        <h2>馬券の買い方（3つ）</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>1. 競馬場で購入</h3>
+            <p>現地でレースや馬を見ながら購入できる<strong>王道の楽しみ方</strong>。雰囲気も含めて満喫したい人向け。</p>
+            <details class="accordion">
+              <summary>手順とポイント</summary>
+              <ul>
+                <li>マークカード（マークシート）に記入し自動発売機で購入</li>
+                <li>その場で観戦→払い戻しまで完結</li>
+              </ul>
+              <figure class="figure figure--bleed">
+                <img src="images/マークシート.png" alt="マークカードのサンプル画像" loading="lazy" />
+              </figure>
+            </details>
+          </article>
+
+          <article class="card">
+            <h3>2. WINSで購入</h3>
+            <p>全国にある場外馬券売り場。近くに競馬場がない人の選択肢。</p>
+            <details class="accordion">
+              <summary>手順とポイント</summary>
+              <ul>
+                <li>競馬場と同じくマークカードで購入</li>
+                <li>開催日以外の週末でも開場している拠点が多い</li>
+              </ul>
+            </details>
+          </article>
+
+          <article class="card">
+            <h3>3. スマホ・ネット投票</h3>
+            <p>JRAの即PAT／A-PAT／JRAダイレクトなど。<strong>最速で始めやすい</strong>のは即PAT。</p>
+            <details class="accordion">
+              <summary>手順とポイント</summary>
+              <ul>
+                <li>口座連携→数分で投票開始（即PAT）</li>
+                <li>ニュースやレース情報は「netkeiba」アプリ等が便利</li>
+              </ul>
+              <figure class="figure figure--bleed">
+                <img src="images/netkeiba.png" alt="netkeibaの画面イメージ" loading="lazy" />
+              </figure>
+            </details>
+          </article>
+        </div>
+      </section>
+
+      <!-- PAYOUT -->
+      <section id="payout" class="prose section">
+        <h2>払い戻し</h2>
+        <p>当日現地での払戻しはもちろん、後日別会場やWINSでも可能。ネット投票は口座へ出金できます。</p>
+
+        <div class="grid grid--2">
+          <details class="accordion">
+            <summary>当日に競馬場で払戻す</summary>
+            <p>各競馬場に払い戻し機が多数設置。観戦後にそのまま換金できます。</p>
+          </details>
+
+          <details class="accordion">
+            <summary>後日、他の競馬場やWINSで払戻す</summary>
+            <p>当日換金できなくても、別会場で払戻し可能。週末開場の拠点が多いです。</p>
+          </details>
+        </div>
+
+        <div class="video" style="margin-top:12px;">
+          <iframe src="https://www.youtube.com/embed/5h7d2pZ6jr4" title="【高額払戻】イクイノックス有馬記念ほか払い戻し金" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+
+        <p class="tip" style="margin-top:12px;">ネット投票なら「入出金メニュー」から好きなタイミングで出金操作が可能。</p>
+        <figure class="figure figure--bleed">
+          <img src="images/PAT投票画面入出金メニュー.jpg" alt="PAT投票画面の入出金メニュー" loading="lazy" />
+        </figure>
+      </section>
+
+      <!-- TYPES -->
+      <section id="types" class="section">
+        <h2>馬券の種類</h2>
+        <p class="muted">代表的な10種類を画像＋テキストで確認。画像が読みにくい人のために、種類名も一覧で用意しています。</p>
+
+        <div class="cards">
+          <figure class="card figure figure--bleed"><img src="images/単勝.png" alt="単勝のイメージ" loading="lazy" /></figure>
+          <figure class="card figure figure--bleed"><img src="images/複勝.png" alt="複勝のイメージ" loading="lazy" /></figure>
+          <figure class="card figure figure--bleed"><img src="images/応援.png" alt="応援馬券のイメージ" loading="lazy" /></figure>
+          <figure class="card figure figure--bleed"><img src="images/枠連.png" alt="枠連のイメージ" loading="lazy" /></figure>
+          <figure class="card figure figure--bleed"><img src="images/馬連.png" alt="馬連のイメージ" loading="lazy" /></figure>
+          <figure class="card figure figure--bleed"><img src="images/馬単.png" alt="馬単のイメージ" loading="lazy" /></figure>
+          <figure class="card figure figure--bleed"><img src="images/ワイド.png" alt="ワイドのイメージ" loading="lazy" /></figure>
+          <figure class="card figure figure--bleed"><img src="images/三連複.png" alt="三連複のイメージ" loading="lazy" /></figure>
+          <figure class="card figure figure--bleed"><img src="images/三連単.png" alt="三連単のイメージ" loading="lazy" /></figure>
+          <figure class="card figure figure--bleed"><img src="images/win.png" alt="WIN5のイメージ" loading="lazy" /></figure>
+        </div>
+
+        <details class="accordion" style="margin-top:12px;">
+          <summary>テキスト版の一覧</summary>
+          <p>単勝／複勝／応援馬券／枠連／馬連／馬単／ワイド／三連複／三連単／WIN5</p>
+        </details>
+      </section>
+
+      <!-- VIDEOS -->
+      <section id="videos" class="section">
+        <h2>参考動画</h2>
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/nHDHEn1QzwE" title="【競馬初心者講座】Part2 馬券の種類 | JRA公式" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </section>
+    </main>
+
+    <button class="to-top" aria-label="ページ上部に戻る">▲</button>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small><a href="index_refactored.html" style="text-decoration:none;color:inherit;">TOPへ戻る</a></small>
+      </div>
+    </footer>
+
+    <script src="main.js" defer></script>
+  </body>
+</html>

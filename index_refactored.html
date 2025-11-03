@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  
+  <head>
+    <meta charset="UTF-8" />
+    <title>中央競馬ガイド | 読みやすく整理した入門</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet" />
+    <!-- ここ、必ず ./style.css に。大文字小文字も完全一致で -->
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./main.js?v=20251101" defer></script>
+  </head>
+  
+
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <h1 class="logo">競馬ブログ</h1>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="メニューを開閉">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+        <nav id="primary-nav" class="nav" data-collapsible>
+          <ul class="nav__list">
+            <li><a class="nav__link" href="history.html">歴史</a></li>
+            <li><a class="nav__link" href="Racecourse.html">競馬場</a></li>
+            <li><a class="nav__link" href="bettingticket.html">馬券</a></li>
+            <li><a class="nav__link" href="classicroute.html">クラシック路線</a></li>
+            <li><a class="nav__link" href="tiararoute.html">ティアラ路線</a></li>
+            <li><a class="nav__link" href="bloodline.html">血統解説</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__text">
+          <h2 id="hero-title" class="hero__title">中央競馬100周年記念</h2>
+          <p class="hero__lead">初心者でも分かる「競馬の基本」から「予想の考え方」まで。長文は折りたたみでサクッと読めます。</p>
+        </div>
+        <figure class="hero__media">
+          <img
+            src="images/ソダシ.webp"
+            alt="白毛の名馬ソダシの写真"
+            width="800"
+            height="600"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption class="sr-only">名馬ソダシの写真</figcaption>
+        </figure>
+      </section>
+
+      <!-- TOC -->
+      <aside class="toc" aria-labelledby="toc-title">
+        <h2 id="toc-title" class="toc__title">目次</h2>
+        <nav aria-label="ページ内目次">
+          <ol class="toc__list">
+            <li><a href="#basics">競馬の基本</a></li>
+            <li><a href="#grades">レースの種類・グレード</a></li>
+            <li><a href="#distance">距離ガイド</a></li>
+            <li><a href="#going">馬場状態</a></li>
+            <li><a href="#running-style">脚質（逃げ・先行・差し・追込）</a></li>
+            <li><a href="#classic-colt">牡馬クラシック</a></li>
+            <li><a href="#classic-filly">牝馬クラシック</a></li>
+            <li><a href="#jobs">競馬に関わる仕事</a></li>
+            <li><a href="#videos">参考動画</a></li>
+            <li><a href="#closing">あとがき</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <!-- BASICS -->
+      <section id="basics" class="prose section">
+        <h2>まず競馬の基本</h2>
+
+        <details class="accordion" open>
+          <summary>1. 開催日・入場</summary>
+          <p>競馬は基本的に毎週<strong>土・日・祝</strong>に開催。全国10か所のJRA競馬場で行われ、入場料は<strong>200円</strong>です。</p>
+        </details>
+
+        <details class="accordion">
+          <summary>2. 馬券の買い方と払い戻し</summary>
+          <ul>
+            <li>競馬場の自動発売機</li>
+            <li>WINS（場外馬券売場）</li>
+            <li>ネット投票（スマホ・PC）</li>
+          </ul>
+        </details>
+
+        <details class="accordion">
+          <summary>3. 競馬の魅力（スポーツ×公営ギャンブル）</summary>
+          <p>競馬は農林水産省の管轄で行われる公営競技。時速60kmで駆ける馬と騎手の迫力は<strong>生観戦だけでも価値あり</strong>。お金を賭けなくてもエンタメとして十分楽しめます。</p>
+        </details>
+      </section>
+
+      <!-- GRADES -->
+      <section id="grades" class="prose section">
+        <h2>レースの種類・グレード</h2>
+        <div id="gradeSplit">
+          <!-- 左：図 -->
+          <figure class="figure figure--narrow cardify">
+            <img src="images/レース体系.jpg" alt="JRAレース体系の図" loading="lazy" />
+            <figcaption>レースにはクラスやグレードがあり、賞金・年齢・性別などの条件で編成されます。</figcaption>
+          </figure>
+            <aside class="card grade-notes">
+              <h3 class="grade-notes__title">レースの“クイック解説”</h3>
+              <dl class="grade-list grade-list--compact">
+                <dt>GⅠ</dt><dd>年間の頂点。地力＋適性。近走の“重賞水準”を満たす馬を素直に。</dd>
+                <dt>GⅡ</dt><dd>GⅠ前哨戦。格上挑戦/叩きが混在。相手弱化と本気度の差で取捨。</dd>
+                <dt>GⅢ</dt><dd>ハンデ戦多めで波乱域。軽ハンデ＋先行/立ち回り巧者に妙味。</dd>
+                <dt>リステッド</dt><dd>重賞の一歩手前。昇級初戦の試金石。通過ラップが重賞水準なら◎。</dd>
+                <dt>オープン特別</dt><dd>条件巧者の舞台。コース替わり・展開利・騎手の乗替で上振れ。</dd>
+                <dt>3勝クラス</dt><dd>準オープン。上がり馬の通過試験。持ち時計と通過ラップを精査。</dd>
+                <dt>2勝クラス</dt><dd>基礎力帯。距離短縮×先行が安定。昇級2戦目の上積みを評価。</dd>
+                <dt>1勝クラス</dt><dd>条件替えで一変あり。枠×脚質×馬場の噛み合わせで勝負。</dd>
+                <dt>新馬・未勝利</dt><dd>仕上げと血統適性。調教時計＋パドック気配で初戦評価。</dd>
+              </dl>
+        
+            <details class="accordion" style="margin-top:8px;">
+              <summary>ベットの視点（要点3つ）</summary>
+              <ul class="prose">
+                <li>格が上がるほど“ブレは小さく”、実力差が出やすい。</li>
+                <li>ハンデ戦・GⅢは“展開と位置取り”の比重が上がる。</li>
+                <li>昇級初戦の上がり馬は、通過ラップと持ち時計で重賞水準を確認。</li>
+              </ul>
+            </details>
+          </aside>
+        </div>
+        
+      </section>
+
+      <!-- DISTANCE -->
+      <section id="distance" class="section">
+        <h2>距離ガイド</h2>
+
+        <div class="cards">
+          <article class="card">
+            <h3>短距離（1000m・1200m）</h3>
+            <p>いわゆるスプリント戦。<strong>瞬発力とスピード</strong>が命。新潟1000mの直線競馬は要チェック。</p>
+            <p class="muted">主なG1：高松宮記念、中山スプリンターズS</p>
+            <figure class="figure figure--bleed">
+              <img src="images/k_1995104427.jpg" alt="短距離戦を走る馬" loading="lazy" width="1200" height="800" />
+            </figure>
+            <details class="accordion">
+              <summary>詳しい説明</summary>
+              <p>競走馬の本質であるスピード自慢が集結。人間でいう100m走のような世界です。</p>
+            </details>
+          </article>
+
+          <article class="card">
+            <h3>マイル（1400–1800m）</h3>
+            <p>短距離と中距離の間。<strong>スピード＋少しのスタミナ</strong>が必要。現代日本競馬で重要なレンジ。</p>
+            <p class="muted">主なG1：マイルCS／代表馬：モーリス、グランアレグリア</p>
+            <figure class="figure figure--bleed">
+              <img src="images/maurice.webp" alt="モーリスの走り" loading="lazy" width="1200" height="800" />
+            </figure>
+            <details class="accordion">
+              <summary>詳しい説明</summary>
+              <p>マイル適性のある馬は中距離にも対応できることが多いです。</p>
+            </details>
+          </article>
+
+          <article class="card">
+            <h3>中距離（2000–2500m）</h3>
+            <p><strong>スピードとスタミナのバランス</strong>が問われる花形。日本ダービーはこの距離帯の頂点。</p>
+            <p class="muted">主なG1：天皇賞（秋）、日本ダービー</p>
+            <figure class="figure figure--bleed">
+              <img src="images/ikui.jpg" alt="中距離戦を走るイクイノックス" loading="lazy" width="1200" height="800" />
+            </figure>
+            <details class="accordion">
+              <summary>詳しい説明</summary>
+              <p>日本競馬の中心はここ。賞金水準も高いです。</p>
+            </details>
+          </article>
+
+          <article class="card">
+            <h3>長距離（3000–3600m）</h3>
+            <p>スタミナ勝負。現代は施行機会が少ないが、伝統のレースが残ります。</p>
+            <p class="muted">主なG1：菊花賞、天皇賞（春）</p>
+            <figure class="figure figure--bleed">
+              <img src="images/m_1987107235.jpg" alt="長距離を走るステイヤー" loading="lazy" width="1200" height="800" />
+            </figure>
+            <details class="accordion">
+              <summary>詳しい説明</summary>
+              <p>スピードより持久力。名ステイヤーの系譜が光る世界です。</p>
+            </details>
+          </article>
+        </div>
+      </section>
+
+      <!-- GOING -->
+      <section id="going" class="prose section">
+        <h2>馬場状態（良／稍重／重／不良）</h2>
+        <p>芝・ダートの含水率で変化。踏査や含水率をもとにJRAが発表します。</p>
+        <details class="accordion">
+          <summary>判断基準を詳しく見る</summary>
+          <ul>
+            <li><strong>芝・良</strong>：踏みしめても表面はほとんど変化しない</li>
+            <li><strong>芝・稍重</strong>：踏みしめるとやや凹む</li>
+            <li><strong>芝・重</strong>：踏みしめると水が染み出る</li>
+            <li><strong>芝・不良</strong>：表面や足跡に水が浮く</li>
+          </ul>
+          <ul>
+            <li><strong>ダート・良</strong>：クッション砂は固まりにくい</li>
+            <li><strong>ダート・稍重</strong>：握ると団子状に固まる</li>
+            <li><strong>ダート・重</strong>：踏みしめると水が染み出る</li>
+            <li><strong>ダート・不良</strong>：表面や足跡に水が浮く</li>
+          </ul>
+        </details>
+        <p class="tip">悪天候の日は「重・不良の鬼」を狙うのも戦略。渋った馬場でパフォーマンスが上がるタイプがいます。</p>
+
+        <div class="video">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/XfQIA8vSSPE"
+            title="印象的だった不良馬場のレースランキング"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+      </section>
+
+      <!-- RUNNING STYLE -->
+      <section id="running-style" class="prose section">
+        <h2>脚質（逃げ・先行・差し・追い込み）</h2>
+        <p>脚質は「その馬の得意な走り方」。性格や気性とも関係します。</p>
+
+        <div class="grid grid--2">
+          <details class="accordion">
+            <summary>逃げ：レース全体のペースメーカー</summary>
+            <p>序盤から先頭。<strong>ハイペース</strong>になりやすく、他の脚質にも影響。</p>
+          </details>
+          <details class="accordion">
+            <summary>先行：勝率が高い安定脚質</summary>
+            <p>逃げの直後で終盤に先頭へ。展開に左右されにくく<strong>堅実</strong>。</p>
+          </details>
+          <details class="accordion">
+            <summary>差し：瞬発力で中団から抜け出す</summary>
+            <p>中団〜後方から加速。<strong>展開依存</strong>だが破壊力あり。</p>
+          </details>
+          <details class="accordion">
+            <summary>追い込み：最後方からの豪脚</summary>
+            <p>最も展開の影響を受けるが、<strong>直線の逆転劇</strong>は最大の魅力。</p>
+          </details>
+        </div>
+
+        <div class="video-list">
+         <!-- 脚質その1 -->
+<div class="video video--narrow">
+  <iframe src="https://www.youtube-nocookie.com/embed/JjnGDUhWCl8" title="ゴルシ先生の競馬教室 脚質その1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+<!-- 脚質その2 -->
+<div class="video video--narrow">
+  <iframe src="https://www.youtube-nocookie.com/embed/t9_0i-luijg" title="ゴルシ先生の競馬教室 脚質その2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+        </div>
+      </section>
+
+      <!-- CLASSICS COLT -->
+      <section id="classic-colt" class="section">
+        <h2>牡馬クラシック（三冠）</h2>
+        <p class="muted">皐月賞（中山2000m）→ 日本ダービー（東京2400m）→ 菊花賞（京都3000m）。すべてを制した馬が三冠馬。</p>
+        <figure class="figure figure--center">
+          <img src="images/コントレイル.jpg" alt="三冠馬コントレイル" loading="lazy" width="1200" height="800" />
+          <figcaption>コントレイル：無敗の三冠達成。</figcaption>
+        </figure>
+      </section>
+
+      <!-- CLASSICS FILLY -->
+      <section id="classic-filly" class="section">
+        <h2>牝馬クラシック（三冠）</h2>
+        <p class="muted">桜花賞（阪神1600m）→ オークス（東京2400m）→ 秋華賞（京都2000m）。牝馬限定の三冠路線。</p>
+        <figure class="figure figure--center">
+          <img src="images/ジェンティルドンナ.jpg" alt="牝馬三冠を走るジェンティルドンナ" loading="lazy" width="1200" height="800" />
+          <figcaption>ジェンティルドンナ：名牝の代表格。</figcaption>
+        </figure>
+      </section>
+
+      <!-- JOBS -->
+      <section id="jobs" class="prose section">
+        <h2>競馬に関わる人たち</h2>
+
+        <details class="accordion">
+          <summary>厩務員</summary>
+          <p>担当馬の世話・健康管理・飼養管理・調教準備など。競走馬を支える重要職。</p>
+          <figure class="figure figure--bleed">
+            <img src="images/今浪.jpg" alt="今浪厩務員の写真" loading="lazy" width="1200" height="800" />
+          </figure>
+          <figure class="figure figure--bleed">
+            <img src="images/ゴールドシップ.jpg" alt="ゴールドシップの写真" loading="lazy" width="1200" height="800" />
+          </figure>
+          <div class="video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/Va6lgjAnvoU"
+              title="ソダシ密着 今浪厩務員視点カメラ"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+        </details>
+
+        <details class="accordion">
+          <summary>調教助手</summary>
+          <p>厩舎に所属し調教と調教師の補佐を行う。調教師不在時の指示代行や騎手交代の手配なども担う。</p>
+          <figure class="figure figure--bleed">
+            <img src="images/競馬助手.jpg" alt="調教助手の写真" loading="lazy" width="1200" height="800" />
+          </figure>
+        </details>
+      </section>
+
+      <!-- VIDEOS -->
+      <section id="videos" class="section">
+        <h2>桜花賞 ジョッキーカメラ</h2>
+        <div class="video">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/V8GuEbz3hAQ"
+            title="2023年 桜花賞 ジョッキーカメラ"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+      </section>
+
+      <!-- CLOSING -->
+      <section id="closing" class="prose section">
+        <h2>あとがき</h2>
+        <p>知れば知るほど奥が深いのが競馬。推し馬を見つけて、現地の空気もぜひ味わってみてください。</p>
+      </section>
+    </main>
+
+    <button class="to-top" aria-label="ページ上部に戻る">▲</button>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small>© Central Horse Racing Guide</small>
+      </div>
+      <small>
+        本サイトは非公式ファンサイトです。掲載の固有名詞・商標・ロゴ等は各権利者に帰属します。
+        画像・動画はライセンスに基づき利用しており、出典を各所に明示しています。
+      </small>
+    </footer>
+
+    <script src="main.js" defer></script>
+  </body>
+</html>

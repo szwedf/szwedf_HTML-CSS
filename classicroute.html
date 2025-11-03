@@ -1,11 +1,219 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-    <body>
-        <head>
-            <meta charset="utf-8">
-            <meta name="description" content="クラシック路線の道のり紹介">
-            <title>クラシックについて</title>
-            
-        </head>
-    </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>クラシック路線ガイド | 3歳三冠の完全マップ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+  <script src="./main.js" defer></script>
+
+  <!-- セクション単位で“横並び”を確実にする軽いパッチ（他CSSに邪魔されないようID指定） -->
+  <style>
+    /* 左図 + 右解説：2カラムを安定して維持 */
+    #classic-colt, #classic-filly {
+      display: grid !important;
+      gap: 16px !important;
+      grid-template-columns: clamp(320px, 42vw, 620px) minmax(380px, 1fr) !important;
+      align-items: start !important;
+    }
+    @media (max-width: 900px){
+      #classic-colt, #classic-filly { grid-template-columns: 1fr !important; }
+    }
+    #classic-colt .figure--narrow,
+    #classic-filly .figure--narrow { max-width: 100% !important; }
+
+    /* テーブルの最小スタイル（読みやすさ優先） */
+    .table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .table th, .table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.7;
+    }
+    .table thead th {
+      background: #0f1522;
+      color: #cbd5e1;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    .table tr:last-child td { border-bottom: 0; }
+
+    /* コンパクト用語リスト（2行で省略） */
+    .grade-list--compact{
+      display:grid;
+      grid-template-columns: 7em minmax(0,1fr);
+      column-gap:12px; row-gap:8px; margin:0; padding:0;
+    }
+    .grade-list--compact dt{
+      margin:0; padding:.25em .6em; text-align:center; font-weight:700;
+      border:1px solid var(--border); border-radius:999px; background:#0f1522;
+    }
+    .grade-list--compact dd{
+      margin:0; color:var(--muted); line-height:1.75;
+      display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">競馬ブログ</h1>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <nav id="primary-nav" class="nav" aria-hidden="true">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="history.html">歴史</a></li>
+          <li><a class="nav__link" href="Racecourse.html">競馬場</a></li>
+          <li><a class="nav__link" href="bettingticket.html">馬券</a></li>
+          <li><a class="nav__link" href="classicroute.html">クラシック路線</a></li>
+          <li><a class="nav__link" href="tiararoute.html">ティアラ路線</a></li>
+          <li><a class="nav__link" href="bloodline.html">血統解説</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding:28px 0 40px;">
+    <!-- Title -->
+    <section class="section">
+      <h2 style="margin:0 0 8px;">クラシック路線ガイド</h2>
+      <p class="prose muted">3歳限定の<strong>三冠（牡馬）を中心に、春〜秋の王道路線と主なトライアルをまとめました。長文になりがちなテーマを、図＋要点でサクサク確認できます。</p>
+    </section>
+
+    <!-- 目次 -->
+    <aside class="toc">
+      <p class="toc__title">このページの内容</p>
+      <ul class="toc__list">
+        <li><a href="#colt">牡馬三冠（皐月賞・日本ダービー・菊花賞）</a></li>
+        <li><a href="#timeline">年間ロードマップ</a></li>
+        <li><a href="#trials">主要トライアル一覧</a></li>
+        <li><a href="#bet">ベットの視点</a></li>
+      </ul>
+    </aside>
+
+    <!-- 牡馬三冠 -->
+    <section id="colt" class="section">
+      <h3 style="margin:0 0 12px;">牡馬三冠（皐月賞・日本ダービー・菊花賞）</h3>
+
+      <div id="classic-colt">
+        <!-- 左：図（画像は差し替え可。無ければ枠だけでも成立） -->
+        <figure class="figure figure--narrow cardify">
+          <img src="images/コントレイル.jpg" alt="牡馬三冠の路線図（皐月賞→ダービー→菊花賞）" loading="lazy" />
+          <figcaption>春は<strong>速さ×完成度</strong>、初夏は<strong>総合力</strong>、秋は<strong>配分とスタミナ</strong>。距離と舞台が変わるため“勝ち筋”が切り替わる。</figcaption>
+        </figure>
+
+        <!-- 右：要点 -->
+        <aside class="card grade-notes">
+          <h4 class="grade-notes__title">レースの“要点だけ”</h4>
+          <dl class="grade-list grade-list--compact">
+            <dt>皐月賞</dt><dd>4月・中山2000m。完成度勝負。コーナー巧者と先行力の地力が光る。</dd>
+            <dt>ダービー</dt><dd>5月末・東京2400m。直線の末脚＋立ち回り。総合力の頂点決定戦。</dd>
+            <dt>菊花賞</dt><dd>10月・京都3000m。配分と折り合い。ステイヤー資質で“逆転”も。</dd>
+          </dl>
+
+          <details class="accordion" style="margin-top:10px;">
+            <summary>ローテの型（代表例）</summary>
+            <ul class="prose">
+              <li><strong>弥生賞/スプリングS</strong> → 皐月賞 → ダービー</li>
+              <li>皐月賞（回避/凡走）→ <strong>青葉賞/京都新聞杯</strong> → ダービー</li>
+              <li>夏休養 → <strong>神戸新聞杯/セントライト記念</strong> → 菊花賞</li>
+            </ul>
+          </details>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 年間ロードマップ -->
+    <section id="timeline" class="section">
+      <h3 style="margin:0 0 12px;">年間ロードマップ（2歳秋 → 3歳秋）</h3>
+      <div class="card">
+        <table class="table">
+          <thead>
+            <tr><th style="width:9em;">時期</th><th>主なレース / ねらい</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2歳秋</td><td>東スポ杯2歳S、デイリー杯2歳S、札幌2歳Sほか。将来性と基礎スピードを計測。</td></tr>
+            <tr><td>2歳暮れ</td><td>朝日杯FS（阪神1600）、ホープフルS（中山2000）。世代の第一次勢力図。</td></tr>
+            <tr><td>3歳前半</td><td>共同通信杯、弥生賞、きさらぎ賞、スプリングS。クラシック出走権の確保。</td></tr>
+            <tr><td>春本番</td><td>皐月賞→ダービー。</td></tr>
+            <tr><td>夏</td><td>休養〜成長促進。夏の上積みで秋は逆転も。</td></tr>
+            <tr><td>秋前哨</td><td>神戸新聞杯、セントライト記念。適性の再確認。</td></tr>
+            <tr><td>秋本番</td><td>菊花賞。資質と配分で最終回答。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 主要トライアル -->
+    <section id="trials" class="section">
+      <h3 style="margin:0 0 12px;">主要トライアル一覧（距離・コース・月）</h3>
+      <div class="cards">
+        <div class="card">
+          <h4 style="margin:0 0 8px;">皐月賞TR</h4>
+          <dl class="grade-list">
+            <dt>弥生賞</dt><dd>中山2000・3月 / コース適性が直結。</dd>
+            <dt>スプリングS</dt><dd>中山1800・3月 / 機動力戦で先行有利。</dd>
+            <dt>若葉S</dt><dd>阪神2000・3月 / 上がり馬の抜けチェック。</dd>
+          </dl>
+        </div>
+        <div class="card">
+          <h4 style="margin:0 0 8px;">ダービーTR</h4>
+          <dl class="grade-list">
+            <dt>青葉賞</dt><dd>東京2400・4月末 / 本番同舞台。末脚の質を確認。</dd>
+            <dt>京都新聞杯</dt><dd>京都2200・5月 / 成長力での上積み評価。</dd>
+          </dl>
+        </div>
+        <div class="card">
+          <h4 style="margin:0 0 8px;">菊花賞TR</h4>
+          <dl class="grade-list">
+            <dt>神戸新聞杯</dt><dd>京都外2400・9月 / 休み明けの仕上がり。</dd>
+            <dt>セントライト記念</dt><dd>中山2200・9月 / 配分力と立ち回り。</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ベットの視点 -->
+    <section id="bet" class="section">
+      <h3 style="margin:0 0 12px;">ベットの視点（要点3つ）</h3>
+      <div class="cards">
+        <div class="card"><strong>本番の“狙い月”を把握</strong><br><span class="muted">叩き台⇔勝負掛かりの見極め。厩舎コメントと馬体写真・追い切りで上書き。</span></div>
+        <div class="card"><strong>舞台替わりは適性の再評価</strong><br><span class="muted">中山→東京→京都で問われる能力が変化。ラップと上がりの裏取りを。</span></div>
+        <div class="card"><strong>成長カーブに賭ける</strong><br><span class="muted">春→夏→秋で別馬に。休養明け2戦目＆距離延長/短縮の“噛み合い”が妙味。</span></div>
+      </div>
+    </section>
+
+    <!-- ページフッターのナビ -->
+    <section class="section">
+      <div class="cards">
+        <a class="card nav__link" href="./index_refactored.html">← トップへ戻る</a>
+        <a class="card nav__link" href="./betting%20ticket.html">馬券の基礎へ →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2025 Keiba Guide
+    </div>
+  </footer>
+
+  <button class="to-top" aria-label="ページ上部へ">↑</button>
+</body>
 </html>

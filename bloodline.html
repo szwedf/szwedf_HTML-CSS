@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>血統解説ガイド | 3分で“読める・使える”血統の見方</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+  <script src="./main.js" defer></script>
+
+  <style>
+    #pedigree-core, #pedigree-reading, #nick-examples, #cross-basics, #course-table-wrap {
+      display: grid !important;
+      gap: 16px !important;
+      grid-template-columns: clamp(320px, 42vw, 620px) minmax(400px, 1fr) !important;
+      align-items: start !important;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 900px){
+      #pedigree-core, #pedigree-reading, #nick-examples, #cross-basics, #course-table-wrap {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    #pedigree-core .figure--narrow,
+    #pedigree-reading .figure--narrow,
+    #nick-examples .figure--narrow,
+    #cross-basics .figure--narrow,
+    #course-table-wrap .figure--narrow { max-width: 100% !important; }
+
+    .table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .table th, .table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.7;
+    }
+    .table thead th {
+      background: #0f1522;
+      color: #cbd5e1;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    .table tr:last-child td { border-bottom: 0; }
+
+    .mini-dl{
+      display:grid; grid-template-columns: 8.5em minmax(0,1fr);
+      column-gap:12px; row-gap:8px; margin:0; padding:0;
+    }
+    .mini-dl dt{
+      margin:0; padding:.25em .6em; text-align:center; font-weight:700;
+      border:1px solid var(--border); border-radius:999px; background:#0f1522;
+    }
+    .mini-dl dd{ margin:0; color:var(--muted); line-height:1.75; }
+
+    .tip{ font-size:.92rem; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">競馬ブログ</h1>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <nav id="primary-nav" class="nav" aria-hidden="true">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="./index_refactored.html">トップ</a></li>
+          <li><a class="nav__link" href="history.html">歴史</a></li>
+          <li><a class="nav__link" href="Racecourse.html">競馬場</a></li>
+          <li><a class="nav__link" href="bettingticket.html">馬券</a></li>
+          <li><a class="nav__link" href="classicroute.html">クラシック路線</a></li>
+          <li><a class="nav__link" href="tiararoute.html">ティアラ路線</a></li>
+          <li><a class="nav__link" href="bloodline.html">血統解説</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding:28px 0 40px;">
+    <section class="section">
+      <h2 style="margin:0 0 8px;">血統解説ガイド</h2>
+      <p class="prose muted">
+        予想で“最後に迷う”のが血統。ここでは<strong>読む順番</strong>と<strong>使いどころ</strong>を
+        図＋表で最短整理。サイアーライン（父系）のキャラクター、母父の補正、クロス（インブリード）とニックスまで、
+        実戦向けにコンパクトにまとめました。
+      </p>
+    </section>
+
+    <section class="section">
+      <h3 style="margin:0 0 12px;">主要系統マップ（まず“方向性”を掴む）</h3>
+      <div id="pedigree-core">
+        <figure class="figure figure--narrow cardify">
+          <img src="images/pedigree_map.png" alt="主要系統マップ（サンデー系／ミスプロ系／ノーザンダンサー系／ナスルーラ系 など）" loading="lazy" />
+          <figcaption class="tip">国内主流は<strong>サンデーサイレンス系</strong>（瞬発〜万能）。<strong>ミスプロ系</strong>（Kingmambo/フォーティナイナー等）はスピード・ダートにも強く、
+            <strong>ノーザンダンサー系</strong>は持続力や洋芝、<strong>ナスルーラ〜ブラッシンググルーム系</strong>は先行力や機動力などの個性が出やすい。</figcaption>
+        </figure>
+        <aside class="card">
+          <h4 class="grade-notes__title">系統の“ざっくり性格”</h4>
+          <dl class="mini-dl">
+            <dt>サンデー系</dt><dd>瞬発〜総合力。芝中距離の頂点決定戦に強い。成長は早〜中。</dd>
+            <dt>ミスプロ系</dt><dd>スピードと先行力。芝短中〜ダートでアベレージ高め。時計勝負歓迎。</dd>
+            <dt>ノーザンダンサー系</dt><dd>持続力・底力。洋芝や消耗戦に耐性。欧州色が濃い系統はパワー寄り。</dd>
+            <dt>ナスルーラ系</dt><dd>機動力と先行力。小回り・内回りで立ち回り上手。ペース嵌りで激走も。</dd>
+            <dt>ヘイルトゥリーズン系</dt><dd>（サンデーの祖系）。折り合いと器用さ。日本の馬場適性にマッチ。</dd>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3 style="margin:0 0 12px;">血統はこの順で読む（迷わない手順）</h3>
+      <div id="pedigree-reading">
+        <figure class="figure figure--narrow cardify">
+          <img src="images/pedigree_steps.png" alt="血統の読む順番：父→母父→母→配合" loading="lazy" />
+          <figcaption class="tip">迷ったら<strong>父 → 母父 → 母系 → 配合（クロス/ニックス）</strong>。舞台（距離・コース・馬場）に対して“ズレてないか”を確認。</figcaption>
+        </figure>
+        <aside class="card">
+          <table class="table">
+            <thead><tr><th style="width:9em;">要素</th><th>見るポイント</th><th style="width:12em;">よく効く場面</th></tr></thead>
+            <tbody>
+              <tr><td>父</td><td>距離適性（短/マイル/中/長）、脚質傾向（先行/差し）、芝ダート、成長曲線。</td><td>初対戦の舞台、重賞の格上げ。</td></tr>
+              <tr><td>母父</td><td>父の弱点を補うタイプか。気性/先行力/スタミナの“補正方向”。</td><td>距離延長・短縮、コース替わり。</td></tr>
+              <tr><td>母系</td><td>兄姉の傾向、生産牧場の育成色。繁殖力（走る仔を出す母か）。</td><td>未勝利〜1勝クラス、条件替え。</td></tr>
+              <tr><td>配合</td><td>クロス濃度（3×4 等）と質、ニックス（好相性の組合せ）。</td><td>素質馬の上振れ、重賞での裏付け。</td></tr>
+            </tbody>
+          </table>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3 style="margin:0 0 12px;">よく見る“ニックス”と使いどころ</h3>
+      <div id="nick-examples">
+        <figure class="figure figure--narrow cardify">
+          <img src="images/pedigree_nick.png" alt="ニックス例：Kingmambo×SS、SS×欧州パワー系 など" loading="lazy" />
+          <figcaption class="tip">ニックス＝相性の良い組合せ。データは流行や頭数の偏りにも左右されるため、
+            コース・距離・季節の文脈で“効く場面”を限定して使う。</figcaption>
+        </figure>
+        <aside class="card">
+          <dl class="mini-dl">
+            <dt>Kingmambo×SS</dt><dd>スピード×瞬発の黄金配合。東京/京都の瞬発戦で強く、ダービー路線で度々主役。</dd>
+            <dt>SS×欧州持続力</dt><dd>サンデーの切れにノーザンダンサー系の底力を足す。タフ馬場や消耗戦で信頼度UP。</dd>
+            <dt>ミスプロ×パワー</dt><dd>ダートや高速馬場の先行力に寄与。時計勝負・前有利日にハマりやすい。</dd>
+            <dt>クロスの使い方</dt><dd>3×4程度までが一般的。スピード強化（Northern Dancer 等）／気性強化（Halo 等）など質を重視。</dd>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section id="cross" class="section">
+      <h3 style="margin:0 0 12px;">配合の基礎（クロスの効き方）</h3>
+      <div id="cross-basics">
+        <figure class="figure figure--narrow cardify">
+          <img src="images/pedigree_cross.png" alt="クロスの見方（3×4/4×4など）" loading="lazy" />
+          <figcaption class="tip">表記例<strong>3×4</strong>＝3代目と4代目に同じ祖先がいる。<strong>数が小さいほど濃い</strong>。効き方は“どの祖先を濃くしたか”＝<strong>質＞量</strong>で解釈。</figcaption>
+        </figure>
+        <aside class="card">
+          <table class="table">
+            <thead><tr><th style="width:10em;">濃度目安</th><th>傾向</th><th style="width:12em;">注意点</th></tr></thead>
+            <tbody>
+              <tr><td>3×3</td><td>強い個性が出やすい。スピード/気性/体力がハッキリ。</td><td>体質・気性リスク増。中長期の安定性は要確認。</td></tr>
+              <tr><td>3×4 / 4×3</td><td>実戦で最も多い。狙いを明確に出しやすい。</td><td>過度な固有傾向に寄りすぎないかチェック。</td></tr>
+              <tr><td>4×4 / 5×4</td><td>穏やかに強化。土台固めに向く。</td><td>効果が薄いと感じたら他の要素（母父/母系）で補う。</td></tr>
+            </tbody>
+          </table>
+          <div class="tip" style="margin-top:8px;">
+            代表例：<strong>Northern Dancer</strong>系のクロス→持続力・器用さ強化／<strong>Halo</strong>クロス→勝負根性・前向きさ強化（反面テンションに注意）。
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="course" class="section">
+      <h3 style="margin:0 0 12px;">コース別で効く系統 早見表（芝中心）</h3>
+      <div id="course-table-wrap">
+        <figure class="figure figure--narrow cardify">
+          <img src="images/course_map.png" alt="主要コースのイメージ図（直線長・高低・コーナー数）" loading="lazy" />
+          <figcaption class="tip">“直線の長さ・高低差・コーナー数”で求められる資質が変わる。コース×季節×馬場で評価を上書き。</figcaption>
+        </figure>
+        <aside class="card">
+          <table class="table">
+            <thead>
+              <tr><th style="width:12em;">コース（代表距離）</th><th>効きやすい系統・配合のヒント</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>東京 1600/2400</td><td><strong>ディープ/SS系の瞬発</strong>、<strong>Kingmambo</strong>などミスプロのスピード。直線長い＝上がり性能重視。</td></tr>
+              <tr><td>中山 1800/2000</td><td><strong>ナスルーラ〜ブラッシンググルーム系</strong>の機動力、<strong>ノーザンダンサー</strong>の持続。コーナー4回で先行有利。</td></tr>
+              <tr><td>京都 2000/3000</td><td>スピード＋配分。<strong>SS×欧州持続力</strong>の配合で菊花は安定。下り→直線で加速できるタイプ。</td></tr>
+              <tr><td>阪神 1600外/2000内</td><td>外回り＝瞬発（SS/ディープ）。内回り＝機動力とパワー（ナスルーラ/ミスプロ）。</td></tr>
+              <tr><td>中京 1200/2000</td><td>持続ラップ対応の<strong>ミスプロ系</strong>。坂が効く＝パワー型ノーザンダンサーの出番も。</td></tr>
+              <tr><td>新潟 外回り1600/2000</td><td>超ロング直線＝<strong>末脚の質</strong>。ディープ/Kingmamboの瞬発寄りが好相性。</td></tr>
+              <tr><td>札幌・函館（洋芝）</td><td><strong>欧州ノーザンダンサー</strong>のパワー・持続。道悪耐性も評価アップ。</td></tr>
+              <tr><td>小倉 1800/2000</td><td>小回りで<strong>機動力型</strong>（ナスルーラ系）。先行×内枠の地の利が大きい。</td></tr>
+            </tbody>
+          </table>
+          <div class="tip" style="margin-top:8px;">
+            Dirtメモ：ダートは<strong>ミスプロ/A.P. Indy/ボールドルーラー</strong>など米国型のパワーと先行力が基本線。
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3 style="margin:0 0 12px;">実戦チェックリスト（保存版）</h3>
+      <div class="cards">
+        <div class="card"><strong>舞台に合うか？</strong><br><span class="muted">“今日は中山2000/稍重/先行有利”など、<u>当日の条件</u>に血統の性格が噛むかを評価。</span></div>
+        <div class="card"><strong>距離延長・短縮の適性</strong><br><span class="muted">父系と母父で方向性が一致しているか。真逆なら評価を割り引く。</span></div>
+        <div class="card"><strong>成長曲線を読む</strong><br><span class="muted">サンデー系は春完成〜夏充電、ミスプロ系は早熟〜持続など“旬”を意識。</span></div>
+        <div class="card"><strong>データの偏りに注意</strong><br><span class="muted">流行血統は出走頭数が多く勝率/連対率が見かけ上上がる。<u>回収率</u>も併記で確認。</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3 style="margin:0 0 12px;">ミニ用語集</h3>
+      <div class="card">
+        <dl class="mini-dl">
+          <dt>サイアーライン</dt><dd>父系の流れ。距離・脚質・成長の“方向性”を掴むのに最短。</dd>
+          <dt>母父（BMS）</dt><dd>Broodmare Sire。父の弱点補正や距離レンジの広げ役になることが多い。</dd>
+          <dt>クロス</dt><dd>インブリード。特定祖先の血を濃くする配合。濃すぎは気性・体質のリスクも。</dd>
+          <dt>アウトブリード</dt><dd>近いクロスを避ける配合。体質・気性が安定しやすい反面、突出力は控えめ。</dd>
+          <dt>ニックス</dt><dd>統計的に好相性の組合せ。コース・季節・母系力など“条件依存”で解釈。</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="cards">
+        <a class="card nav__link" href="./index_refactored.html">← トップへ戻る</a>
+        <a class="card nav__link" href="./classicroute.html">クラシック路線へ →</a>
+        <a class="card nav__link" href="./tiararoute.html">ティアラ路線へ →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2025 Keiba Guide
+    </div>
+  </footer>
+
+  <button class="to-top" aria-label="ページ上部へ">↑</button>
+</body>
+</html>

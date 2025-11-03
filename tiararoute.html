@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ティアラ路線ガイド | 牝馬三冠（桜花賞・オークス・秋華賞）</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+  <script src="./main.js" defer></script>
+
+  <!-- 横並びレイアウトを安定させる軽いパッチ（IDスコープ） -->
+  <style>
+    #tiara-core, #tiara-alternative {
+      display: grid !important;
+      gap: 16px !important;
+      grid-template-columns: clamp(320px, 42vw, 620px) minmax(400px, 1fr) !important;
+      align-items: start !important;
+    }
+    @media (max-width: 900px){
+      #tiara-core, #tiara-alternative { grid-template-columns: 1fr !important; }
+    }
+    #tiara-core .figure--narrow,
+    #tiara-alternative .figure--narrow { max-width: 100% !important; }
+
+    /* 最小テーブル（既存テーマに寄せる） */
+    .table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .table th, .table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.7;
+    }
+    .table thead th {
+      background: #0f1522;
+      color: #cbd5e1;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    .table tr:last-child td { border-bottom: 0; }
+
+    /* コンパクト定義リスト（2行省略） */
+    .pair-list{
+      display:grid;
+      grid-template-columns: 7em minmax(0,1fr);
+      column-gap:12px; row-gap:8px; margin:0; padding:0;
+    }
+    .pair-list dt{
+      margin:0; padding:.25em .6em; text-align:center; font-weight:700;
+      border:1px solid var(--border); border-radius:999px; background:#0f1522;
+    }
+    .pair-list dd{
+      margin:0; color:var(--muted); line-height:1.75;
+      display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">競馬ブログ</h1>
+      <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <nav id="primary-nav" class="nav" aria-hidden="true">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="./index_refactored.html">トップ</a></li>
+          <li><a class="nav__link" href="history.html">歴史</a></li>
+          <li><a class="nav__link" href="Racecourse.html">競馬場</a></li>
+          <li><a class="nav__link" href="bettingticket.html">馬券</a></li>
+          <li><a class="nav__link" href="classicroute.html">クラシック路線</a></li>
+          <li><a class="nav__link" href="tiararoute.html">ティアラ路線</a></li>
+          <li><a class="nav__link" href="bloodline.html">血統解説</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding:28px 0 40px;">
+    <!-- Title -->
+    <section class="section">
+      <h2 style="margin:0 0 8px;">ティアラ路線ガイド（牝馬三冠）</h2>
+      <p class="prose muted">3歳牝馬の<strong>桜花賞・オークス・秋華賞</strong>に向けた主要ローテとトライアルを、図＋要点で一気見。気性・輸送・馬体の変動がパフォーマンスに直結するのが牝馬路線の肝です。</p>
+    </section>
+
+    <!-- コア3冠：桜花賞→オークス→秋華賞 -->
+    <section class="section">
+      <h3 style="margin:0 0 12px;">コア3冠（桜花賞 → オークス → 秋華賞）</h3>
+      <div id="tiara-core">
+        <figure class="figure figure--narrow cardify">
+          <img src="images/リバティアイランド.jpg" alt="ティアラ路線図：桜花賞→オークス→秋華賞" loading="lazy" />
+          <figcaption>春は<strong>マイルの瞬発力</strong>、初夏は<strong>持久力と折り合い</strong>、秋は<strong>立ち回りと機動力</strong>。舞台替わりで“勝ち筋”がシフトする。</figcaption>
+        </figure>
+        <aside class="card">
+          <h4 class="grade-notes__title">レースの“要点だけ”</h4>
+          <dl class="pair-list">
+            <dt>桜花賞</dt><dd>4月・阪神1600m。瞬発力＋位置取り。チューリップ賞での適性が本番へ直結。</dd>
+            <dt>オークス</dt><dd>5月末・東京2400m。長い直線で末脚勝負。折り合い・体力配分が最重要。</dd>
+            <dt>秋華賞</dt><dd>10月・京都2000m。コーナー4回の機動力戦。枠順と隊列形成がカギ。</dd>
+          </dl>
+          <details class="accordion" style="margin-top:10px;">
+            <summary>典型ローテ</summary>
+            <ul class="prose">
+              <li><strong>チューリップ賞/フィリーズR</strong> → 桜花賞 → オークス</li>
+              <li>春マイル路線 → 夏で距離延長 → <strong>ローズS/紫苑S</strong> → 秋華賞</li>
+            </ul>
+          </details>
+        </aside>
+      </div>
+    </section>
+
+    <!-- もう一つの選択肢（NHKマイルCなど） -->
+    <section class="section">
+      <h3 style="margin:0 0 12px;">分岐ローテ（NHKマイルC／スプリント寄り）</h3>
+      <div id="tiara-alternative">
+        <figure class="figure figure--narrow cardify">
+          <img src="images/グランアレグリア.jpg" alt="牝馬の分岐ローテ：桜花賞→NHKマイルC など" loading="lazy" />
+          <figcaption>スピード性能が突出している牝馬は<strong>NHKマイルC</strong>へ進む選択肢も。夏以降に距離延長して秋華賞へ合流するルートもある。</figcaption>
+        </figure>
+        <aside class="card">
+          <h4 class="grade-notes__title">分岐の“見極め”</h4>
+          <dl class="pair-list">
+            <dt>NHKマイルC</dt><dd>東京1600m。純スピードの頂点。桜花賞好走馬がそのまま通用しやすい。</dd>
+            <dt>スプリント寄り</dt><dd>函館/札幌の短距離経由で夏は古馬と対戦。秋に1800〜2000へ戻す選択肢も。</dd>
+            <dt>合流パターン</dt><dd>夏の上積み→<strong>ローズS/紫苑S</strong>経由で秋華賞へ。成長曲線で逆転が起きやすい。</dd>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 年間ロードマップ（牝馬版） -->
+    <section class="section">
+      <h3 style="margin:0 0 12px;">年間ロードマップ（牝馬）</h3>
+      <div class="card">
+        <table class="table">
+          <thead>
+            <tr><th style="width:9em;">時期</th><th>主なレース / ねらい</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2歳秋</td><td>アルテミスS、ファンタジーSほか。素質とマイル適性の計測。</td></tr>
+            <tr><td>2歳暮れ</td><td>阪神JF（阪神1600）。牝馬世代の第一次勢力図。</td></tr>
+            <tr><td>3歳前半</td><td>チューリップ賞、フィリーズR、クイーンC。桜花賞へ向けた優先出走権確保。</td></tr>
+            <tr><td>春本番</td><td>桜花賞 → オークス。</td></tr>
+            <tr><td>夏</td><td>休養〜成長促進。馬体・気性の安定化が秋の鍵。</td></tr>
+            <tr><td>秋前哨</td><td>ローズS、紫苑S。距離延長/短縮の適性再評価。</td></tr>
+            <tr><td>秋本番</td><td>秋華賞。機動力と位置取りの最適解に賭ける。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 主なトライアル（牝馬） -->
+    <section class="section">
+      <h3 style="margin:0 0 12px;">主要トライアル（牝馬）</h3>
+      <div class="cards">
+        <div class="card">
+          <h4 style="margin:0 0 8px;">桜花賞TR</h4>
+          <dl class="pair-list">
+            <dt>チューリップ賞</dt><dd>阪神1600・3月 / 本番直結。</dd>
+            <dt>フィリーズR</dt><dd>阪神1400・3月 / 先行力チェック。</dd>
+            <dt>クイーンC</dt><dd>東京1600・2月 / 直線長い舞台の適性。</dd>
+          </dl>
+        </div>
+        <div class="card">
+          <h4 style="margin:0 0 8px;">オークスTR</h4>
+          <dl class="pair-list">
+            <dt>フローラS</dt><dd>東京2000・4月 / 本番前哨戦の最重要。</dd>
+            <dt>スイートピーS</dt><dd>東京1800・5月 / 牝馬限定OP。末脚の質を確認。</dd>
+            <dt>忘れな草賞</dt><dd>京都2000・4月 / ローカル経由の合流口。</dd>
+          </dl>
+        </div>
+        <div class="card">
+          <h4 style="margin:0 0 8px;">秋華賞TR</h4>
+          <dl class="pair-list">
+            <dt>ローズS</dt><dd>京都1800・9月 / 休養明けの上昇度と機動力。</dd>
+            <dt>紫苑S</dt><dd>中山2000・9月 / コース替わりで一変に注意。</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ベットの視点（牝馬版） -->
+    <section class="section">
+      <h3 style="margin:0 0 12px;">ベットの視点（牝馬版・要点3つ）</h3>
+      <div class="cards">
+        <div class="card"><strong>気性と輸送でブレる</strong><br><span class="muted">入れ込み・馬体減はパフォ低下要因。落ち着きと馬体写真で最終判断。</span></div>
+        <div class="card"><strong>舞台替わりで“勝ち筋”が変わる</strong><br><span class="muted">桜（瞬発）→オークス（持久）→秋華（機動）。距離とコースで評価を上書き。</span></div>
+        <div class="card"><strong>夏の成長が上振れ源泉</strong><br><span class="muted">筋肉量・フォーム改善で別馬化。夏明け2戦目と距離延長に妙味。</span></div>
+      </div>
+    </section>
+
+    <!-- ページフッターのナビ -->
+    <section class="section">
+      <div class="cards">
+        <a class="card nav__link" href="./index_refactored.html">← トップへ戻る</a>
+        <a class="card nav__link" href="./classicroute.html">クラシック路線へ →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      &copy; 2025 Keiba Guide
+    </div>
+  </footer>
+
+  <button class="to-top" aria-label="ページ上部へ">↑</button>
+</body>
+</html>

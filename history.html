@@ -1,59 +1,127 @@
 <!DOCTYPE html>
-<html lamg="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>歴史</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <link rel="stylesheet" href="style1.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
-      </head>
-    <body>
-        <main>
-          <article>
-            <section>
-              <div id="history-main">
-              <h1>日本の競馬歴史</h1>
-              <h2>日本競馬はちょうど100年を迎えます</h2>
-              <p>ちょうど今から100年前(1923年)に安田伊左衛門という人により競馬法や現在のクラシック五大レースの原型が作られました
-                日本ダービー(東京優駿)をつくったのも安田伊左衛門なのです
-                安田記念(東京マイル1600m)はこの人が由来なのです
-              </p>
-              <p>令和5年（2023年）は、大正12年（1923年）に競馬法が制定されてから100周年を迎えます。
-                JRAでは、競馬法100周年を記念して、競馬や勝馬投票の歩みを振り返り、広く発信をしていくとともに、今日の競馬を支えていただいているお客様への感謝をお伝えしていく各種記念事業を実施します。
-                
-                なお、本事業では、以下の日に焦点を当てた様々な取組みを展開してまいります。
-                
-                ・	4月9日（日曜）〔1923年4月10日に競馬法が公布されたことから〕
-                ・	6月4日（日曜）〔競馬法の制定に尽力した安田伊左衛門翁の名を冠した安田記念が行われることから〕
-                ・	7月1日（土曜）〔1923年7月1日に競馬法が施行されたことから〕
-                ・	8月26日（土曜）・27日（日曜）〔1923年8月24日から26日にかけて、競馬法施行後初の競馬開催が札幌競馬場で行われたことから〕
-                ・	9月18日（祝日・月曜）〔JRAアニバーサリー〕</p>
-              </div>
-            <div  class="flex-container"> 
-              <div id="Yasuda-photograph">
-                <img src="images/安田伊左衛門.jpg">
-                <p>安田伊左衛門</p>
-              </div>
-               <div id="Derby-potograph">
-                <img src="images/東京優駿.jpg">
-              </div>
-              <div id="Derby2022-potograph">
-                <img src="images/2022.jpg">
-                <p>2022年のダービー馬ドウデュースと武豊騎手
-                </p>
-              </div>
-            </div>
-            </section>
-          </article>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>日本競馬の歴史 | 100年の歩みをコンパクトに</title>
+    <meta name="description" content="競馬法の制定から100年。安田伊左衛門と日本ダービー、記念事業のキーデーまで、長文をタイムラインと折りたたみで読みやすく整理。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <h1 class="logo">競馬ブログ</h1>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="メニューを開閉">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+        <nav id="primary-nav" class="nav" data-collapsible>
+          <ul class="nav__list">
+            <li><a class="nav__link" href="./index_refactored.html">トップ</a></li>
+            <li><a class="nav__link" href="history.html">歴史</a></li>
+            <li><a class="nav__link" href="Racecourse.html">競馬場</a></li>
+            <li><a class="nav__link" href="bettingticket.html">馬券</a></li>
+            <li><a class="nav__link" href="classicroute.html">クラシック路線</a></li>
+            <li><a class="nav__link" href="tiararoute.html">ティアラ路線</a></li>
+            <li><a class="nav__link" href="bloodline.html">血統解説</a></li>
+          </ul>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-        </main>
-        <footer>
-            <div id="footer-link">
-                <a href="index.html" alt="TOPへ戻る">TOPへ戻る</a>
-            </div>
-        </footer> 
-    </body>
+    <main class="container">
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__text">
+          <h2 id="hero-title" class="hero__title">日本の競馬の歴史</h2>
+          <p class="hero__lead">1923年の競馬法制定から始まる100年。要点→詳細の順に、すっきり整理。</p>
+        </div>
+        <figure class="hero__media">
+          <img src="images/東京優駿.jpg" alt="東京優駿（日本ダービー）の様子" width="800" height="600" loading="lazy" decoding="async" />
+          <figcaption class="sr-only">東京優駿の写真</figcaption>
+        </figure>
+      </section>
 
+      <!-- TOC -->
+      <aside class="toc" aria-labelledby="toc-title">
+        <h2 id="toc-title" class="toc__title">目次</h2>
+        <nav aria-label="ページ内目次">
+          <ol class="toc__list">
+            <li><a href="#overview">100年の概観</a></li>
+            <li><a href="#yasuda">安田伊左衛門とクラシック</a></li>
+            <li><a href="#keydays">記念事業（主な日付）</a></li>
+            <li><a href="#gallery">ギャラリー</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <!-- OVERVIEW -->
+      <section id="overview" class="prose section">
+        <h2>100年の概観</h2>
+        <p>令和5年（2023年）は、大正12年（1923年）の競馬法制定から<strong>100周年</strong>。JRAは、競馬と勝馬投票の歩みを振り返る記念事業を実施しました。</p>
+      </section>
+
+      <!-- YASUDA / CLASSICS -->
+      <section id="yasuda" class="prose section">
+        <h2>安田伊左衛門とクラシック</h2>
+        <p>安田伊左衛門は、競馬法の整備に尽力し、<strong>日本ダービー（東京優駿）</strong>やクラシック五大競走の原型づくりに関わりました。<strong>安田記念</strong>のレース名は氏の名に由来します。</p>
+        <div class="grid grid--2">
+          <figure class="figure figure--bleed">
+            <img src="images/安田伊左衛門.jpg" alt="安田伊左衛門の写真" loading="lazy" />
+            <figcaption>安田伊左衛門</figcaption>
+          </figure>
+          <figure class="figure figure--bleed">
+            <img src="images/2022.jpg" alt="2022年 ダービー馬ドウデュースと武豊騎手" loading="lazy" />
+            <figcaption>2022年のダービー馬ドウデュースと武豊騎手</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- KEY DAYS -->
+      <section id="keydays" class="section">
+        <h2>記念事業の主な日付（2023）</h2>
+        <details class="accordion" open>
+          <summary>主要トピック</summary>
+          <ul class="prose">
+            <li>4月9日（日）… 競馬法公布（1923/4/10）にちなんだ日</li>
+            <li>6月4日（日）… 安田記念の施行日（安田伊左衛門にちなむ）</li>
+            <li>7月1日（土）… 競馬法施行日（1923/7/1）</li>
+            <li>8月26・27日 … 競馬法施行後、初の競馬開催（札幌、1923/8/24–26）</li>
+            <li>9月18日（祝・月）… JRAアニバーサリー</li>
+          </ul>
+        </details>
+      </section>
+
+      <!-- GALLERY -->
+      <section id="gallery" class="section">
+        <h2>ギャラリー</h2>
+        <div class="cards">
+          <figure class="card figure figure--bleed">
+            <img src="images/東京優駿.jpg" alt="東京優駿の写真" loading="lazy" />
+          </figure>
+          <figure class="card figure figure--bleed">
+            <img src="images/2022.jpg" alt="2022年のダービー馬ドウデュースと武豊騎手" loading="lazy" />
+          </figure>
+          <figure class="card figure figure--bleed">
+            <img src="images/安田伊左衛門.jpg" alt="安田伊左衛門のポートレート" loading="lazy" />
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <button class="to-top" aria-label="ページ上部に戻る">▲</button>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small><a href="index_refactored.html" style="text-decoration:none;color:inherit;">TOPへ戻る</a></small>
+      </div>
+    </footer>
+
+    <script src="main.js" defer></script>
+  </body>
 </html>
