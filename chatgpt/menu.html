@@ -1,49 +1,97 @@
-<!-- menu.html -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>メニュー | 表参道カフェ</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Café Lumière | Menu</title>
   <link rel="stylesheet" href="style4.css">
-  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-  <script src="https://unpkg.com/scrollreveal"></script>
+  <a class="home-link" href="index4.html">
+    {{ lang === 'jp' ? '← トップへ' : '← Home' }}
+  </a>
+  <h1>{{ lang === 'jp' ? 'メニュー' : 'Menu' }}</h1>
+  <p>{{ lang === 'jp' ? '朝食からディナーまで、季節の一皿とドリンクを。' : 'From breakfast to dinner with seasonal dishes and drinks.' }}</p>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
 </head>
 <body>
   <div id="app">
-    <header>
-      <nav class="navbar">
-        <a href="index4.html" class="logo">Omotesando Cafe</a>
-        <ul>
-          <li><a href="index4.html">トップ</a></li>
-          <li><a href="menu.html">メニュー</a></li>
-        </ul>
-      </nav>
+    <header class="menu-header">
+      <h1>{{ lang === 'jp' ? 'メニュー' : 'Menu' }}</h1>
+      <p>{{ lang === 'jp' ? '朝食からディナーまで、季節の一皿とドリンクを。' : 'From breakfast to dinner with seasonal dishes and drinks.' }}</p>
     </header>
 
     <main class="menu">
-      <h1 class="reveal">{{ lang === 'jp' ? 'メニュー' : 'Menu' }}</h1>
-
       <div class="language-toggle">
-        <button @click="lang = 'jp'">JP</button>
-        <button @click="lang = 'en'">EN</button>
+        <button :class="{active: lang==='jp'}" @click="lang='jp'">JP</button>
+        <button :class="{active: lang==='en'}" @click="lang='en'">EN</button>
       </div>
 
       <div class="categories">
-        <button v-for="category in categories" :key="category.jp" @click="currentCategory = category.jp">
-          {{ lang === 'jp' ? category.jp : category.en }}
+        <button v-for="c in categories" :key="c.id"
+                :class="{active: currentCategory===c.id}"
+                @click="currentCategory=c.id">
+          {{ c.label[lang] }}
         </button>
       </div>
 
-      <div class="menu-items">
-        <div v-for="item in filteredMenu" :key="item.name.jp" class="menu-item reveal">
-          <h3>{{ item.name[lang] }}</h3>
-          <p>{{ item.description[lang] }}</p>
-          <span>\{{ item.price }}</span>
-        </div>
+      <div class="menu-grid">
+        <article v-for="item in filteredMenu" :key="item.name.jp + item.price" class="menu-card">
+          <div class="menu-card__head">
+            <h3 class="menu-card__title">{{ item.name[lang] }}</h3>
+            <span class="menu-card__price">¥{{ item.price }}</span>
+          </div>
+          <p class="menu-card__desc" v-if="item.description && item.description[lang]">
+            {{ item.description[lang] }}
+          </p>
+        </article>
       </div>
     </main>
   </div>
-  <script src="menu-data.js"></script>
- </body>
+<button class="to-top" :class="{ show: showTop }" @click="scrollTop" aria-label="Back to top">▲</button>
+
+  <!-- データを先に読み込む -->
+  <script src="./menu-data.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        lang: 'jp',
+        currentCategory: 'lunch',
+        showTop: false, 
+        categories: [
+          { id:'breakfast', label:{jp:'朝食', en:'Breakfast'} },
+          { id:'lunch',     label:{jp:'ランチ', en:'Lunch'} },
+          { id:'dinner',    label:{jp:'ディナー', en:'Dinner'} },
+          { id:'desserts',  label:{jp:'デザート', en:'Desserts'} },
+          { id:'sides',     label:{jp:'サイドメニュー', en:'Sides'} },
+          { id:'drinks',    label:{jp:'ドリンク', en:'Drinks'} },
+        ],
+      },
+      computed:{
+        filteredMenu(){
+          const D = window.MENU_DATA || {};
+          const id = this.currentCategory;
+          if(id==='breakfast') return D.breakfast || [];
+          if(id==='lunch')     return D.lunch || [];
+          if(id==='dinner')    return D.dinner || [];
+          if(id==='desserts')  return D.desserts || [];
+          if(id==='sides')     return D.sides || [];
+          if(id==='drinks'){
+            const secs = D.drinks_sections || [];
+            return secs.reduce((a,s)=>a.concat(s.items||[]),[]);
+          }
+          return [];
+        },
+        mounted() {
+      window.addEventListener('scroll', () => {
+        this.showTop = window.scrollY > 300; // 300px超で表示
+      });
+      },
+        methods: {
+      scrollTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    }
+      }
+    }); 
+  </script>
+</body>
 </html>

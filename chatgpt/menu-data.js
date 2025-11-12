@@ -1,164 +1,95 @@
-new Vue({
-    el: '#app',
-    data: {
-      lang: 'jp',
-      navOpen: false,
-      categories: [
-        { jp: '朝食', en: 'Breakfast' },
-        { jp: 'ランチ', en: 'Lunch' },
-        { jp: 'ディナー', en: 'Dinner' },
-        { jp: 'デザート', en: 'Dessert' },
-        { jp: 'ドリンク', en: 'Drinks' },
-        { jp: 'サイドメニュー', en: 'Side Menu' }
-      ],
-      currentCategory: '朝食',
-      menu: [
-        { category: '朝食', name: { jp: 'アボカドトースト', en: 'Avocado Toast' }, description: { jp: 'ライ麦パンにアボカドとポーチドエッグを添えて', en: 'Rye toast with avocado and poached egg' }, price: 780 },
-        { category: '朝食', name: { jp: 'たまごサンドウィッチ', en: 'Egg Sandwich' }, description: { jp: 'ふわふわたまごの優しい味わい', en: 'Fluffy egg with gentle taste' }, price: 750 },
-        { category: '朝食', name: { jp: 'ハムサンド', en: 'Ham Sandwich' }, description: { jp: 'ハムとチーズの定番サンド', en: 'Classic ham and cheese sandwich' }, price: 780 },
-        { category: '朝食', name: { jp: 'オムレツ', en: 'Omelette' }, description: { jp: 'ふんわりと仕上げたオムレツ', en: 'Fluffy and soft omelette' }, price: 800 },
-        { category: '朝食', name: { jp: 'シナモンロール', en: 'Cinnamon Roll' }, description: { jp: '香り豊かなシナモンの朝の定番', en: 'Fragrant cinnamon morning classic' }, price: 700 },
-  
-        { category: 'ランチ', name: { jp: 'グリルチーズサンド', en: 'Grilled Cheese Sandwich' }, description: { jp: '濃厚チーズとキャラメルオニオンを全粒粉パンで', en: 'Rich cheese and caramelized onion on whole grain bread' }, price: 880 },
-        { category: 'ランチ', name: { jp: 'マカロニ＆チーズ', en: 'Mac & Cheese' }, description: { jp: 'チーズたっぷりの定番コンフォートフード', en: 'Classic comfort food with creamy cheese sauce' }, price: 950 },
-        { category: 'ランチ', name: { jp: 'シーザーサラダ', en: 'Caesar Salad' }, description: { jp: 'ロメインレタスにパルメザンチーズとクルトン', en: 'Romaine lettuce with parmesan and croutons' }, price: 900 },
-        { category: 'ランチ', name: { jp: 'ボロネーゼ', en: 'Bolognese' }, description: { jp: '牛ひき肉たっぷりの濃厚ミートソースパスタ', en: 'Rich meat sauce pasta with minced beef' }, price: 1080 },
-        { category: 'ランチ', name: { jp: 'カルボナーラ', en: 'Carbonara' }, description: { jp: 'クリーミーな卵とベーコンのパスタ', en: 'Creamy egg and bacon pasta' }, price: 1100 },
-        { category: 'ランチ', name: { jp: 'ペペロンチーノ', en: 'Peperoncino' }, description: { jp: 'ガーリックと唐辛子のシンプルパスタ', en: 'Simple pasta with garlic and chili' }, price: 980 },
-        { category: 'ランチ', name: { jp: 'トマトとモッツァレラパスタ', en: 'Tomato & Mozzarella Pasta' }, description: { jp: 'トマトの酸味とモッツァレラのコクが絶妙', en: 'Tomato acidity and mozzarella richness' }, price: 1050 },
-        { category: 'ランチ', name: { jp: 'ハンバーグ', en: 'Hamburger Steak' }, description: { jp: '松坂牛100%使用のジューシーなハンバーグ', en: 'Juicy hamburger steak made with 100% Matsusaka beef' }, price: 1280 },
-  
-        { category: 'ディナー', name: { jp: 'ハンバーグ', en: 'Hamburger Steak' }, description: { jp: '松坂牛100%使用のジューシーなハンバーグ', en: 'Juicy hamburger steak made with 100% Matsusaka beef' }, price: 1480 },
-        { category: 'ディナー', name: { jp: 'ボロネーゼ', en: 'Bolognese' }, description: { jp: '牛ひき肉たっぷりの濃厚ミートソースパスタ', en: 'Rich meat sauce pasta with minced beef' }, price: 1200 },
-        { category: 'ディナー', name: { jp: 'カルボナーラ', en: 'Carbonara' }, description: { jp: 'クリーミーな卵とベーコンのパスタ', en: 'Creamy egg and bacon pasta' }, price: 1200 },
-        { category: 'ディナー', name: { jp: 'ペペロンチーノ', en: 'Peperoncino' }, description: { jp: 'ガーリックと唐辛子のシンプルパスタ', en: 'Simple pasta with garlic and chili' }, price: 1050 },
-        { category: 'ディナー', name: { jp: 'トマトとモッツァレラパスタ', en: 'Tomato & Mozzarella Pasta' }, description: { jp: 'トマトの酸味とモッツァレラのコクが絶妙', en: 'Tomato acidity and mozzarella richness' }, price: 1150 },
-  
-        { category: 'デザート', name: { jp: 'バターミルクパンケーキ', en: 'Buttermilk Pancakes' }, description: { jp: 'ふわふわで優しい甘さ', en: 'Fluffy and gently sweet' }, price: 880 },
-        { category: 'デザート', name: { jp: 'NYチーズケーキ', en: 'NY Cheesecake' }, description: { jp: '濃厚でなめらかな味わい', en: 'Rich and smooth flavor' }, price: 920 },
-        { category: 'デザート', name: { jp: 'チョコレートスフレケーキ', en: 'Chocolate Soufflé Cake' }, description: { jp: '口溶けの良いチョコレートケーキ', en: 'Melt-in-your-mouth chocolate cake' }, price: 890 },
-        { category: 'デザート', name: { jp: 'クレームブリュレ', en: 'Crème Brûlée' }, description: { jp: 'パリッとした表面と滑らかな中身', en: 'Crispy top and smooth inside' }, price: 850 },
-        { category: 'デザート', name: { jp: 'アイスバニラ', en: 'Vanilla Ice Cream' }, description: { jp: '定番のバニラ風味', en: 'Classic vanilla flavor' }, price: 500 },
-        { category: 'デザート', name: { jp: 'チョコアイス', en: 'Chocolate Ice Cream' }, description: { jp: '濃厚なチョコレートアイス', en: 'Rich chocolate ice cream' }, price: 500 },
-        { category: 'デザート', name: { jp: 'パフェ', en: 'Parfait' }, description: { jp: 'フルーツたっぷりの華やかなパフェ', en: 'Colorful parfait with lots of fruit' }, price: 980 },
-        { category: 'デザート', name: { jp: 'プリン', en: 'Pudding' }, description: { jp: '優しい甘さの自家製プリン', en: 'Homemade pudding with gentle sweetness' }, price: 600 },
-  
-        { category: 'サイドメニュー', name: { jp: 'フレンチフライ', en: 'French Fries' }, description: { jp: 'カリッと揚げたサイドの定番', en: 'Crispy classic side dish' }, price: 450 },
-        { category: 'サイドメニュー', name: { jp: 'スモークベーコン', en: 'Smoked Bacon' }, description: { jp: '香ばしい香りが食欲をそそる', en: 'Savory and aromatic bacon' }, price: 500 },
-        { category: 'サイドメニュー', name: { jp: 'ウインナー', en: 'Sausage' }, description: { jp: 'ジューシーなウインナー', en: 'Juicy sausage' }, price: 480 },
-        { category: 'サイドメニュー', name: { jp: 'ホイップクリーム', en: 'Whipped Cream' }, description: { jp: 'デザートにぴったりのトッピング', en: 'Perfect topping for desserts' }, price: 200 },
-         // ドリンク
-         
-            {category: 'ドリンク',
-            name: { jp: 'カフェラテ', en: 'Cafe Latte' },
-            description: { jp: 'ホットまたはアイスのミルク入りコーヒー', en: 'Hot or iced coffee with milk' },
-            price: 800
-          },
-          {
-            category: 'ドリンク',
-            name: { jp: 'アールグレイティー', en: 'Earl Grey Tea' },
-            description: { jp: '香り高いベルガモットのフレーバーティー', en: 'Aromatic black tea with bergamot flavor' },
-            price: 880
-          },
-          {
-            category: 'ドリンク',
-            name: { jp: 'ダージリンティー', en: 'Darjeeling Tea' },
-            description: { jp: '芳醇な香りの紅茶の女王', en: 'The queen of teas with rich aroma' },
-            price: 880
-          },
-          {
-            category: 'ドリンク',
-            name: { jp: 'アイスティー（アールグレイ）', en: 'Iced Earl Grey Tea' },
-            description: { jp: '冷たく爽やかなベルガモットの香り', en: 'Chilled tea with refreshing bergamot flavor' },
-            price: 800
-          },
-          {
-            category: 'ドリンク',
-            name: { jp: 'ジンジャーエール', en: 'Ginger Ale' },
-            description: { jp: '炭酸の効いた爽快ドリンク', en: 'Crisp and refreshing ginger soda' },
-            price: 740
-          },
-          {
-            category: 'ドリンク',
-            name: { jp: 'コーラ', en: 'Cola' },
-            description: { jp: 'おなじみの炭酸飲料', en: 'Classic carbonated drink' },
-            price: 740
-          },
-          {
-            category: 'ドリンク',
-            name: { jp: 'ミルク（ホット／アイス）', en: 'Milk (Hot / Iced)' },
-            description: { jp: 'あたたかくても冷たくても楽しめるミルク', en: 'Milk served hot or iced' },
-            price: 740
-          },
-          {
-            category: 'ドリンク',
-            name: { jp: 'オレンジジュース', en: 'Orange Juice' },
-            description: { jp: '100%フレッシュオレンジジュース', en: '100% fresh orange juice' },
-            price: 740
-          },
-          {
-            category: 'ドリンク',
-            name: { jp: 'KIRIN プレミアム（ドラフト）', en: 'KIRIN Premium (Draft)' },
-            description: { jp: 'キリンの上質なドラフトビール', en: 'High-quality draft beer by KIRIN' },
-            price: 950
-          },
-          {
-            category: 'ドリンク',
-            name: { jp: 'ノンアルコールビール', en: 'Non-Alcohol Beer' },
-            description: { jp: 'アルコールゼロでも満足の味わい', en: 'Satisfying taste without alcohol' },
-            price: 810
-          },
-          {
-            category: 'ドリンク',
-            name: { jp: 'クラシックハイボール', en: 'Classic Highball' },
-            description: { jp: 'ウイスキーとソーダの爽快な一杯', en: 'Refreshing whisky and soda' },
-            price: 950
-          },
-          {
-            category: 'ドリンク',
-            name: { jp: 'ジントニック', en: 'Gin & Tonic' },
-            description: { jp: 'ジンとトニックの定番カクテル', en: 'Classic gin and tonic cocktail' },
-            price: 950
-          },
-          {
-            category: 'ドリンク',
-            name: { jp: 'アペロールスプリッツ', en: 'Aperol Spritz' },
-            description: { jp: 'アペロール、白ワイン、ソーダの爽やかカクテル', en: 'Aperol, white wine, and soda' },
-            price: 950
-          },
-          {
-            category: 'ドリンク',
-            name: { jp: 'グレープフルーツパロマ', en: 'Grapefruit Paloma' },
-            description: { jp: 'グレープフルーツ、テキーラ、ライムのカクテル', en: 'Grapefruit juice, tequila, and lime' },
-            price: 1100
-          },
-          {
-            category: 'ドリンク',
-            name: { jp: 'ペアーコリンズ', en: 'Pear Collins' },
-            description: { jp: '洋梨ピューレ、ジン、レモンの爽やかカクテル', en: 'Pear puree, gin, tonic, and lemon juice' },
-            price: 1100
-          },
-          {
-            category: 'ドリンク',
-            name: { jp: 'サングリア', en: 'Sangria' },
-            description: { jp: '果実とワインのマリアージュ', en: 'Blend of fruit and wine' },
-            price: 990
-          }
-        ]
-    },
-    computed: {
-      filteredMenu() {
-        return this.menu.filter(item => item.category === this.currentCategory);
-      }
-    },
-    mounted() {
-      ScrollReveal().reveal('.reveal', {
-        distance: '50px',
-        duration: 800,
-        easing: 'ease-in-out',
-        origin: 'bottom',
-        interval: 200
-      });
-    }
-  });
-  
+// menu-data.js
+window.MENU_DATA = {
+  breakfast: [
+    { name:{jp:'たまごサンドウィッチ',en:'Egg Sandwich'}, price:780, description:{jp:'ふわふわ卵をたっぷりサンド。',en:'Fluffy egg filling.'}},
+    { name:{jp:'ハムサンド',en:'Ham Sandwich'}, price:820, description:{jp:'バター香る食パンで。',en:'Buttery toast.'}},
+    { name:{jp:'オムレツ',en:'Omelette'}, price:890, description:{jp:'チーズ入り/プレーン選べます。',en:'Cheese or plain.'}},
+    { name:{jp:'シナモンロール',en:'Cinnamon Roll'}, price:680, description:{jp:'焼きたてをどうぞ。',en:'Freshly baked.'}},
+  ],
+  lunch: [
+    { name:{jp:'松阪牛100%ハンバーグ',en:'Matsusaka Beef 100% Hamburger Steak'}, price:1680, description:{jp:'松阪牛100%使用。赤ワインソース。',en:'100% Matsusaka beef with red-wine sauce.'}},
+    { name:{jp:'ボロネーゼ',en:'Bolognese'}, price:1280, description:{jp:'濃厚ミートソース。',en:'Rich meat sauce.'}},
+    { name:{jp:'カルボナーラ',en:'Carbonara'}, price:1260, description:{jp:'パンチェッタと卵のコク。',en:'Pancetta & egg.'}},
+    { name:{jp:'ペペロンチーノ',en:'Aglio e Olio Peperoncino'}, price:1100, description:{jp:'ガーリック＆唐辛子。',en:'Garlic & chili.'}},
+    { name:{jp:'トマトとモッツァレラ',en:'Tomato & Mozzarella'}, price:1220, description:{jp:'バジル香るトマトソース。',en:'Tomato sauce with basil.'}},
+  ],
+  dinner: [
+    { name:{jp:'松阪牛100%ハンバーグ',en:'Matsusaka Beef 100% Hamburger Steak'}, price:1880, description:{jp:'松阪牛100%使用。グレイビーソース。',en:'100% Matsusaka beef with gravy.'}},
+    { name:{jp:'ボロネーゼ',en:'Bolognese'}, price:1380, description:{jp:'ランチより少しリッチに。',en:'A richer dinner portion.'}},
+    { name:{jp:'カルボナーラ',en:'Carbonara'}, price:1360, description:{jp:'濃厚ソース。',en:'Creamy sauce.'}},
+    { name:{jp:'ペペロンチーノ',en:'Aglio e Olio Peperoncino'}, price:1180, description:{jp:'辛さ調整可。',en:'Adjustable heat.'}},
+    { name:{jp:'トマトとモッツァレラ',en:'Tomato & Mozzarella'}, price:1320, description:{jp:'フレッシュバジル。',en:'Fresh basil.'}},
+  ],
+  desserts: [
+    { name:{jp:'バターミルクパンケーキ',en:'Buttermilk Pancakes'}, price:980, description:{jp:'メープル＆バター。',en:'Maple & butter.'}},
+    { name:{jp:'NYチーズケーキ',en:'NY Cheesecake'}, price:780, description:{jp:'濃厚クリームチーズ。',en:'Rich and creamy.'}},
+    { name:{jp:'チョコレートスフレケーキ',en:'Chocolate Soufflé Cake'}, price:820, description:{jp:'しっとり濃厚。',en:'Dark & moist.'}},
+    { name:{jp:'クレームブリュレ',en:'Crème Brûlée'}, price:760, description:{jp:'パリッと飴化。',en:'Caramelized top.'}},
+    { name:{jp:'アイス（バニラ）',en:'Vanilla Ice Cream'}, price:480, description:{jp:'シングル。',en:'Single scoop.'}},
+    { name:{jp:'チョコアイス',en:'Chocolate Ice Cream'}, price:480, description:{jp:'シングル。',en:'Single scoop.'}},
+    { name:{jp:'パフェ',en:'Parfait'}, price:900, description:{jp:'季節のフルーツ。',en:'Seasonal fruits.'}},
+    { name:{jp:'プリン',en:'Custard Pudding'}, price:580, description:{jp:'昔ながらの固め。',en:'Classic firm pudding.'}},
+  ],
+  sides: [
+    { name:{jp:'フレンチフライ',en:'French Fries'}, price:580, description:{jp:'ハーブソルト。',en:'Herb salt.'}},
+    { name:{jp:'スモークベーコン',en:'Smoked Bacon'}, price:520, description:{jp:'厚切り。',en:'Thick cut.'}},
+    { name:{jp:'ウインナー',en:'Sausages'}, price:520, description:{jp:'粒マスタード。',en:'With mustard.'}},
+    { name:{jp:'ホイップクリーム',en:'Whipped Cream'}, price:200, description:{jp:'トッピング用。',en:'Topping.'}},
+  ],
+  drinks_sections: [
+    { section:'Beer', items:[
+      { name:{jp:'KIRIN プレミアム（ドラフト）',en:'KIRIN PREMIUM (Draft)'}, price:950, description:{jp:'香り高いホップ。',en:'Aromatic hops.'}},
+      { name:{jp:'HEARTLAND（ボトル）',en:'HEARTLAND (Bottle)'}, price:950, description:{jp:'クリーンで爽快。',en:'Clean & crisp.'}},
+      { name:{jp:'ノンアルコールビール',en:'Non-Alcohol Beer'}, price:810, description:{jp:'すっきり後味。',en:'Light finish.'}},
+    ]},
+    { section:'Cocktails', items:[
+      { name:{jp:'クラシックハイボール',en:'Classic Highball'}, price:950, description:{jp:'ウイスキー&ソーダ。',en:'Whisky & soda.'}},
+      { name:{jp:'ジントニック',en:'Gin & Tonic'}, price:950, description:{jp:'ジン&トニック。',en:'Gin & tonic.'}},
+      { name:{jp:'アペロールスプリッツ',en:'Aperol Spritz'}, price:950, description:{jp:'アペロール/白ワイン/ソーダ。',en:'Aperol/white wine/soda.'}},
+      { name:{jp:'グレープフルーツ・パロマ',en:'Grapefruit Paloma'}, price:1100, description:{jp:'GFジュース/テキーラ/ライム/ソーダ。',en:'Grapefruit, tequila, lime, soda.'}},
+      { name:{jp:'ペアーコリンズ',en:'Pear Collins'}, price:1100, description:{jp:'洋梨ピューレ/ジン/トニック/レモン。',en:'Pear purée, gin, tonic, lemon.'}},
+      { name:{jp:'クランベリーホリデー',en:'Cranberry Holiday'}, price:1100, description:{jp:'クランベリー/ウォッカ/ライム。',en:'Cranberry, vodka, lime.'}},
+      { name:{jp:'クラシックミモザ',en:'Classic Mimosa'}, price:990, description:{jp:'オレンジ×スパークリング。',en:'Orange & sparkling.'}},
+      { name:{jp:'クラシックベリーニ',en:'Classic Bellini'}, price:990, description:{jp:'ピーチ×スパークリング。',en:'Peach & sparkling.'}},
+      { name:{jp:'フォーフラワーミモザ',en:'Four-Flower Mimosa'}, price:990, description:{jp:'4種ジュース×スパークリング。',en:'Four-juice & sparkling.'}},
+      { name:{jp:'ブランチパンチ',en:'Brunch Punch'}, price:1100, description:{jp:'OJ/パイン/ウォッカ/スパークリング/ジンジャー/果実。',en:'OJ, pineapple, vodka, sparkling, ginger ale, fruits.'}},
+      { name:{jp:'ブラッディメアリー',en:'Bloody Mary'}, price:1100, description:{jp:'トマト/ウォッカ/レモン/スパイス。',en:'Tomato, vodka, lemon, spices.'}},
+    ]},
+    { section:'Wine', items:[
+      { name:{jp:'ハウス スパークリング（グラス）',en:'House Sparkling (Glass)'}, price:990, description:{jp:'Spain',en:'Spain'}},
+      { name:{jp:'ハウス スパークリング（ボトル）',en:'House Sparkling (Bottle)'}, price:4800, description:{jp:'Spain',en:'Spain'}},
+      { name:{jp:'ノンアル スパークリング',en:'Non-Alcohol Sparkling'}, price:810, description:{jp:'-',en:'-'}},
+      { name:{jp:'サングリア',en:'Sangria'}, price:990, description:{jp:'季節果実。',en:'Seasonal fruits.'}},
+      { name:{jp:'ハウスワイン 白（グラス）',en:'House White (Glass)'}, price:990, description:{jp:'Chile',en:'Chile'}},
+      { name:{jp:'ハウスワイン 白（ボトル）',en:'House White (Bottle)'}, price:4800, description:{jp:'Chile',en:'Chile'}},
+      { name:{jp:'ルーツ ソーヴィニヨンブラン（ボトル）',en:'Roots Sauvignon Blanc (Bottle)'}, price:5200, description:{jp:'California',en:'California'}},
+      { name:{jp:'ストラタム ピノグリ（ボトル）',en:'Stratum Pinot Gris (Bottle)'}, price:6200, description:{jp:'Australia',en:'Australia'}},
+      { name:{jp:'ハウスワイン 赤（グラス）',en:'House Red (Glass)'}, price:990, description:{jp:'Chile',en:'Chile'}},
+      { name:{jp:'ハウスワイン 赤（ボトル）',en:'House Red (Bottle)'}, price:4800, description:{jp:'Chile',en:'Chile'}},
+      { name:{jp:'ランチ32 カベルネ（ボトル）',en:'Ranch 32 Cabernet (Bottle)'}, price:5200, description:{jp:'California',en:'California'}},
+      { name:{jp:'チブレオ サンジョベーゼ（ボトル）',en:'Cibreo Sangiovese (Bottle)'}, price:6500, description:{jp:'Italy',en:'Italy'}},
+    ]},
+    { section:'Soft / Coffee / Tea', items:[
+      { name:{jp:'フォーフラワージュース',en:'Four Flowers Juice'}, price:810, description:{jp:'オレンジ/パイン/バナナ/グレナデン',en:'Orange, pineapple, banana, grenadine'}},
+      { name:{jp:'オレンジジュレップ',en:'Orange Julep'}, price:810, description:{jp:'オレンジ/ミルク/はちみつ/バニラ',en:'Orange, milk, honey, vanilla'}},
+      { name:{jp:'レモネード（ホット/アイス）',en:'Lemonade (Hot/Iced)'}, price:810, description:{jp:'',en:''}},
+      { name:{jp:'チョコレートドリンク（ホット/アイス）',en:'Chocolate Drink (Hot/Iced)'}, price:810, description:{jp:'',en:''}},
+      { name:{jp:'コカ・コーラ ゼロ',en:'Coca Cola Zero'}, price:740, description:{jp:'',en:''}},
+      { name:{jp:'ジンジャーエール',en:'Ginger Ale'}, price:740, description:{jp:'',en:''}},
+      { name:{jp:'アップルタイザー',en:'Appletiser'}, price:810, description:{jp:'',en:''}},
+      { name:{jp:'ミネラルウォーター（スティル/スパークリング）',en:'Mineral Water (Still/Sparkling)'}, price:810, description:{jp:'',en:''}},
+      { name:{jp:'コーヒー（ホット/アイス）',en:'Coffee (Hot/Iced)'}, price:770, description:{jp:'NOGブレンド',en:'NOG blend'}},
+      { name:{jp:'エスプレッソ',en:'Espresso'}, price:770, description:{jp:'',en:''}},
+      { name:{jp:'アメリカーノ',en:'Americano'}, price:880, description:{jp:'',en:''}},
+      { name:{jp:'カフェラテ（ホット/アイス）',en:'Caffè Latte (Hot/Iced)'}, price:880, description:{jp:'※オーツミルク +110',en:'Oat milk +110'}},
+      { name:{jp:'カフェモカ（ホット/アイス）',en:'Caffè Mocha (Hot/Iced)'}, price:990, description:{jp:'',en:''}},
+      { name:{jp:'ダージリン',en:'Darjeeling'}, price:880, description:{jp:'Harney & Sons',en:'Harney & Sons'}},
+      { name:{jp:'アイスティー（アールグレイ）',en:'Iced Tea (Earl Grey)'}, price:880, description:{jp:'',en:''}},
+      { name:{jp:'アールグレイ',en:'Earl Grey'}, price:880, description:{jp:'',en:''}},
+      { name:{jp:'イングリッシュブレックファスト',en:'English Breakfast'}, price:880, description:{jp:'',en:''}},
+      { name:{jp:'ホットシナモン',en:'Hot Cinnamon'}, price:880, description:{jp:'',en:''}},
+      { name:{jp:'シーズナルティー',en:'Seasonal Tea'}, price:880, description:{jp:'',en:''}},
+      { name:{jp:'ノンカフェインティー',en:'Caffeine-Free Tea'}, price:880, description:{jp:'',en:''}},
+    ]},
+  ],
+};
