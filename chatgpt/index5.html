@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio Article | Shouta Sasaki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #f2f0ec;
+      --ink: #26263a;
+      --muted: #6a6a7a;
+      --accent: #313955;
+      --accent-soft: rgba(49,57,85,.08);
+      --radius: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+
+    /* 左の細いバー */
+    .side-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 68px;
+      height: 100vh;
+      border-right: 1px solid rgba(0,0,0,.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 0;
+      background: rgba(242,240,236,0.8);
+      backdrop-filter: blur(12px);
+      z-index: 50;
+    }
+
+    .side-bar .menu-btn {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      letter-spacing: .35em;
+      font-size: .7rem;
+      cursor: pointer;
+    }
+
+    .side-bar .scroll {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: .6rem;
+      opacity: .5;
+      letter-spacing: .5em;
+    }
+
+    /* コンテンツ */
+    .page {
+      margin-left: 68px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 0 1.5rem 4rem;
+    }
+
+    .article-wrap {
+      width: min(920px, 100%);
+      padding-top: 2.5rem;
+    }
+
+    /* header part */
+    .top-nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1.25rem;
+      font-size: .8rem;
+      color: var(--muted);
+      margin-bottom: 3rem;
+    }
+
+    .top-nav a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .bread {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .bread a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .meta-line {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .meta-line .date {
+      font-size: .75rem;
+      color: var(--muted);
+    }
+
+    .meta-line .tag {
+      background: var(--accent);
+      color: #fff;
+      font-size: .6rem;
+      padding: .35rem .9rem .4rem;
+      border-radius: var(--radius);
+      letter-spacing: .03em;
+    }
+
+    h1.article-title {
+      font-weight: 600;
+      font-size: clamp(1.7rem, 3vw, 2.25rem);
+      line-height: 1.35;
+      margin-bottom: 2rem;
+      letter-spacing: .03em;
+    }
+
+    .hero-fig {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.03);
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.025);
+    }
+
+    .hero-fig img {
+      width: 100%;
+      display: block;
+    }
+
+    article p {
+      margin-bottom: 1.5rem;
+    }
+
+    article h2 {
+      font-size: 1.15rem;
+      margin: 2.5rem 0 1.2rem;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: .7rem 1.4rem .75rem;
+      font-size: .75rem;
+      letter-spacing: .03em;
+      border: 1px solid transparent;
+      transition: .15s ease-out;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn.secondary {
+      background: #fff;
+      border-color: rgba(0,0,0,.05);
+      color: var(--ink);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    /* メニュー開くやつ（小画面） */
+    .drawer {
+      position: fixed;
+      top: 0;
+      left: 68px;
+      right: 0;
+      bottom: 0;
+      background: rgba(242,240,236,0.97);
+      backdrop-filter: blur(8px);
+      padding: 1.5rem 1.5rem 3rem;
+      display: none;
+      flex-direction: column;
+      gap: 1.5rem;
+      z-index: 80;
+    }
+
+    .drawer.active {
+      display: flex;
+    }
+
+    .drawer .close {
+      align-self: flex-end;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    .drawer nav a {
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 1.1rem;
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 900px) {
+      .page {
+        padding: 0 1rem 3.5rem;
+      }
+      .top-nav {
+        justify-content: flex-start;
+      }
+      .hero-fig {
+        border-radius: 14px;
+      }
+      .cta-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .side-bar {
+        width: 54px;
+      }
+      .page {
+        margin-left: 54px;
+      }
+      h1.article-title {
+        font-size: 1.55rem;
+      }
+      .cta-row .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 左の細いバー -->
+  <aside class="side-bar">
+    <div class="menu-btn" id="openMenu">MENU</div>
+    <div class="scroll">SCROLL</div>
+  </aside>
+
+  <!-- ドロワー（スマホで開くメニュー） -->
+  <div class="drawer" id="drawer">
+    <button class="close" id="closeMenu">&times;</button>
+    <nav>
+      <a href="#">TOP</a>
+      <a href="#">SERVICE</a>
+      <a href="#">WORKS</a>
+      <a href="#">CONTACT</a>
+    </nav>
+  </div>
+
+  <!-- メイン -->
+  <main class="page">
+    <div class="article-wrap">
+      <div class="top-nav">
+        <a href="#">ABOUT US</a>
+        <a href="#">SERVICE</a>
+        <a href="#">REPORT</a>
+        <a href="#">CONTACT</a>
+      </div>
+
+      <div class="bread">
+        トップ &gt; コラム &gt; Web制作ポートフォリオ
+      </div>
+
+      <div class="meta-line">
+        <span class="date">2025.11.09</span>
+        <span class="tag">DESIGN</span>
+      </div>
+
+      <h1 class="article-title">
+        シンプルで余白を活かしたコーポレート風ポートフォリオのサンプル
+      </h1>
+
+      <div class="hero-fig">
+        <!-- 好きな画像に差し替えOK -->
+        <img src="https://via.placeholder.com/1200x650/5B5BFF/FFFFFF?text=Portfolio+Visual" alt="portfolio visual">
+      </div>
+
+      <article>
+        <p>このページは、採用担当やクライアントが見たときに「余白の取り方と情報の並べ方が分かっているな」と伝えることを目的にした、1カラムのサンプルです。メインカラーを抑えめにし、文字サイズと行間を広めに設定して読みやすさを優先しています。</p>
+
+        <h2>デザインのポイント</h2>
+        <p>・背景にごく薄いグレーを敷き、カードや画像部分だけ白にすることで段差をつけています。<br>
+           ・見出し・日付・タグなどのメタ情報は小さめに、タイトルは大きくすることで視線を誘導します。<br>
+           ・左側の縦メニューはPCで見たときの“サイトっぽさ”を出すための装飾で、スマホではドロワーにしています。</p>
+
+        <h2>こういう案件に出せる</h2>
+        <p>シンプルなコラムページ、制作会社のニュースページ、BtoBサイトの実績紹介ページなど、文章量が多めで装飾は最小限のページにこのパターンをそのまま使えます。</p>
+      </article>
+
+      <div class="cta-row">
+        <a class="btn primary" href="#">このデザインで実装依頼をする</a>
+        <a class="btn secondary" href="#">他のページサンプルを見る →</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const drawer = document.getElementById('drawer');
+    const openBtn = document.getElementById('openMenu');
+    const closeBtn = document.getElementById('closeMenu');
+
+    openBtn.addEventListener('click', () => drawer.classList.add('active'));
+    closeBtn.addEventListener('click', () => drawer.classList.remove('active'));
+  </script>
+</body>
+</html>
