@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HOTEL AURELIA | フォトギャラリー</title>
+  <meta name="description" content="東京のラグジュアリーホテル『HOTEL AURELIA』のフォトギャラリー。客室、スイート、ダイニング、スパ、ウエディング、外観の写真をご覧ください。" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f8f7f2; /* アイボリー */
+      --paper:#ffffff;
+      --ink:#161616;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --accent:#bfa36b;  /* 上品なゴールド */
+      --accent-ink:#1a1a1a;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#0c0d10; --paper:#0f1116; --ink:#e8e8e8; --muted:#9aa0a6; --line:#202534; --accent:#d8bd7a; --accent-ink:#0b0c10; }
+    }
+    *,*::before,*::after{ box-sizing:border-box }
+    html,body{ height:100% }
+    body{
+      margin:0; background:var(--bg); color:var(--ink);
+      font-family: "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      line-height:1.75; letter-spacing:.02em; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    img{ max-width:100%; display:block }
+    a{ color:inherit; text-decoration:none }
+    .container{ width:min(1200px,92vw); margin-inline:auto }
+
+    /* Header */
+    header{ position:sticky; top:0; z-index:30; backdrop-filter:saturate(180%) blur(8px);
+      background:color-mix(in sRGB, var(--bg) 75%, transparent); border-bottom:1px solid var(--line);
+    }
+    .nav{ display:flex; align-items:center; justify-content:space-between; padding:18px 0 }
+    .brand{ font-family:"Noto Serif JP", Georgia, serif; font-weight:700; letter-spacing:.06em }
+    .brand a{ display:inline-block; padding:.35rem .7rem; border:1px solid var(--line); background:var(--paper); border-radius:999px }
+    .menu{ display:flex; gap:28px; font-size:14px; color:var(--muted) }
+    .menu a:hover{ color:var(--ink) }
+    .reserve{ display:inline-flex; align-items:center; gap:.6rem; padding:.55rem 1rem; border-radius:999px; background:var(--accent); color:var(--accent-ink); border:1px solid color-mix(in sRGB, var(--accent) 70%, var(--accent-ink)); font-weight:700 }
+
+    /* Crumbs */
+    .crumbs{ color:var(--muted); font-size:13px; margin-top:18px }
+
+    /* Hero */
+    .hero{ padding:40px 0 10px }
+    .hero h1{ font-family:"Noto Serif JP", Georgia, serif; font-size:clamp(28px,2.4vw + 18px,44px); margin:10px 0 8px; letter-spacing:.02em }
+    .lead{ color:var(--muted) }
+
+    /* Filters */
+    .filters{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:16px 0 8px }
+    .pill{ font-size:13px; letter-spacing:.08em; text-transform:uppercase; padding:.45rem .8rem; border:1px solid var(--line); border-radius:999px; background:var(--paper); color:var(--ink); cursor:pointer; }
+    .pill[aria-pressed="true"]{ background:var(--ink); color:#fff; border-color:var(--ink) }
+    .count{ color:var(--muted); font-size:12px; margin-left:.35rem }
+
+    /* Grid */
+    .grid{ display:grid; grid-template-columns:repeat(12,1fr); gap:12px; margin:18px 0 60px }
+    .item{ position:relative; border-radius:14px; overflow:hidden; border:1px solid var(--line); background:var(--paper); }
+    .item img{ width:100%; height:100%; object-fit:cover; object-position:center; }
+    .span-3{ grid-column: span 3 }
+    .span-4{ grid-column: span 4 }
+    .span-6{ grid-column: span 6 }
+    .row-1{ aspect-ratio: 4 / 3 }
+    .row-2{ aspect-ratio: 4 / 5 }
+    .row-3{ aspect-ratio: 21 / 9 }
+    @media (max-width: 1000px){ .span-6{ grid-column: span 12 } .span-4{ grid-column: span 6 } .span-3{ grid-column: span 6 } }
+    @media (max-width: 640px){ .span-3,.span-4,.span-6{ grid-column: span 12 } }
+    .badge{ position:absolute; left:10px; top:10px; font-size:12px; padding:.25rem .5rem; background:rgba(0,0,0,.55); color:#fff; border-radius:999px }
+
+    /* Lightbox */
+    .overlay{ position:fixed; inset:0; display:none; place-items:center; background:rgba(0,0,0,.7); z-index:40 }
+    .overlay.open{ display:grid }
+    .dialog{ width:min(1024px,94vw); background:var(--paper); border-radius:16px; overflow:hidden; border:1px solid var(--line); box-shadow:0 24px 60px rgba(0,0,0,.5) }
+    .viewer{ position:relative; background:#000; display:grid; place-items:center }
+    .viewer img{ width:100%; height:auto; max-height:72vh; object-fit:contain; }
+    .caption{ display:flex; justify-content:space-between; align-items:center; gap:14px; padding:12px 14px; font-size:14px; color:var(--muted); border-top:1px solid var(--line) }
+    .caption strong{ color:var(--ink) }
+    .ctr{ display:flex; align-items:center; gap:10px }
+    .iconbtn{ display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:8px; border:1px solid var(--line); background:var(--paper); cursor:pointer }
+    .navbtn{ position:absolute; top:50%; transform:translateY(-50%); width:42px; height:42px; border-radius:999px; border:1px solid #ffffff40; color:#fff; background:#00000066; display:grid; place-items:center; cursor:pointer }
+    .navbtn:hover{ background:#00000099 }
+    .prev{ left:10px } .next{ right:10px }
+    .close-x{ position:absolute; right:10px; top:10px }
+
+    footer{ padding:34px 0; border-top:1px solid var(--line); color:var(--muted); font-size:13px }
+    .hidden{ display:none !important }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav" role="navigation" aria-label="トップナビ">
+      <div class="brand"><a href="top.html">HOTEL AURELIA TOKYO</a></div>
+      <nav class="menu" aria-label="メニュー">
+        <a href="top.html">トップ</a>
+        <a href="#rooms">客室</a>
+        <a href="#dining">ダイニング</a>
+        <a href="#spa">スパ</a>
+        <a href="#wedding">ウエディング</a>
+        <a href="gallery.html" aria-current="page">ギャラリー</a>
+      </nav>
+      <a class="reserve" href="top.html#booking">ご予約</a>
+    </div>
+  </header>
+
+  <main class="container" id="gallery">
+    <nav class="crumbs" aria-label="パンくず">
+      <a href="top.html">ホーム</a> <span>写真＆ビデオ</span>
+    </nav>
+
+    <section class="hero">
+      <h1>写真＆ビデオ</h1>
+      <p class="lead">客室、スイート、ダイニング、スパ、ウエディング、外観など、ホテルの魅力をご覧ください。</p>
+    </section>
+
+    <!-- フィルター -->
+    <div class="filters" id="filters" role="tablist" aria-label="カテゴリ フィルター">
+      <!-- JSで生成 All/Rooms/Suites/Dining/Spa/Wedding/Exterior -->
+    </div>
+
+    <!-- グリッド -->
+    <div class="grid" id="grid" aria-live="polite"></div>
+  </main>
+
+  <!-- ライトボックス -->
+  <div class="overlay" id="overlay" aria-hidden="true" aria-label="フォトビューア">
+    <div class="dialog" role="dialog" aria-modal="true">
+      <div class="viewer">
+        <button class="navbtn prev" id="prev" aria-label="前へ">◀</button>
+        <img id="lightImg" alt="" />
+        <button class="navbtn next" id="next" aria-label="次へ">▶</button>
+        <button class="iconbtn close-x" id="close" aria-label="閉じる">✕</button>
+      </div>
+      <div class="caption">
+        <div><strong id="capTitle">Title</strong> <span id="capCat" class="count"></span></div>
+        <div class="ctr"><span id="counter">1 / 1</span></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">© <span id="y"></span> HOTEL AURELIA TOKYO</div>
+  </footer>
+
+  <script>
+    (() => {
+      // ===== カテゴリ & 写真（あなたの4枚） =====
+      const CATS = ["すべて","外観","客室","ウエディング","フィットネス"];
+      const PHOTOS = [
+        { src:"images/exterior-night.jpg", w:1600, h:900,  cat:"外観",
+          title:"エントランス（夜景）", span:6, row:"row-3" },
+        { src:"images/room-tokyo-night.jpg", w:1600, h:900, cat:"客室",
+          title:"デラックス キング（東京タワービュー）", span:6, row:"row-3" },
+        { src:"images/wedding-chapel.jpg", w:1200, h:1500, cat:"ウエディング",
+          title:"チャペル（キャンドル装飾）", span:4, row:"row-2" },
+        { src:"images/fitness-gym.jpg", w:1200, h:1500, cat:"フィットネス",
+          title:"フィットネスジム（シティビュー）", span:4, row:"row-2" }
+      ];
+    
+      // ===== 状態 =====
+      const filtersEl = document.getElementById('filters');
+      const grid      = document.getElementById('grid');
+      const state = { cat: 'すべて', list: PHOTOS, filtered: PHOTOS, current: 0 };
+    
+      // ===== フィルター生成 =====
+      const countBy = (cat) => cat === 'すべて' ? PHOTOS.length : PHOTOS.filter(p => p.cat === cat).length;
+      CATS.forEach(c => {
+        const btn = document.createElement('button');
+        btn.className = 'pill';
+        btn.role = 'tab';
+        btn.dataset.cat = c;
+        btn.setAttribute('aria-pressed', c === 'すべて' ? 'true' : 'false');
+        btn.innerHTML = `${c}<span class="count">${countBy(c)}</span>`;
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.pill').forEach(el => el.setAttribute('aria-pressed', 'false'));
+          btn.setAttribute('aria-pressed', 'true');
+          state.cat = c; applyFilter();
+        });
+        filtersEl.appendChild(btn);
+      });
+      // 右端に「トップへ戻る」ピル（任意）
+      const back = document.createElement('a');
+      back.className = 'pill'; back.href = 'top.html'; back.textContent = 'トップへ戻る';
+      back.style.marginLeft = 'auto'; filtersEl.appendChild(back);
+    
+      // ===== グリッド描画 =====
+      function render(list){
+        grid.innerHTML = '';
+        list.forEach((p, idx) => {
+          const card = document.createElement('article');
+          card.className = `item span-${p.span} ${p.row}`;
+          card.dataset.cat = p.cat; card.dataset.idx = idx;
+          card.innerHTML = `<img src="${p.src}" alt="${p.title}" loading="lazy" decoding="async" />
+                            <span class="badge">${p.cat}</span>`;
+          card.addEventListener('click', () => openLightbox(list.indexOf(p)));
+          grid.appendChild(card);
+        });
+      }
+      function applyFilter(){
+        state.filtered = state.cat === 'すべて' ? state.list : state.list.filter(p => p.cat === state.cat);
+        render(state.filtered);
+      }
+      applyFilter();
+    
+      // ===== ライトボックス =====
+      const overlay = document.getElementById('overlay');
+      const lightImg = document.getElementById('lightImg');
+      const capTitle = document.getElementById('capTitle');
+      const capCat = document.getElementById('capCat');
+      const counter = document.getElementById('counter');
+      const prevBtn = document.getElementById('prev');
+      const nextBtn = document.getElementById('next');
+      const closeBtn = document.getElementById('close');
+    
+      function openLightbox(i){ state.current = i; updateLightbox();
+        overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false'); closeBtn.focus(); }
+      function closeLightbox(){ overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); }
+      function updateLightbox(){
+        const item = state.filtered[state.current]; if(!item) return;
+        lightImg.src = item.src; lightImg.alt = item.title;
+        capTitle.textContent = item.title; capCat.textContent = `— ${item.cat}`;
+        counter.textContent = `${state.current+1} / ${state.filtered.length}`;
+      }
+      const next = () => { state.current = (state.current + 1) % state.filtered.length; updateLightbox(); };
+      const prev = () => { state.current = (state.current - 1 + state.filtered.length) % state.filtered.length; updateLightbox(); };
+    
+      nextBtn.addEventListener('click', next);
+      prevBtn.addEventListener('click', prev);
+      closeBtn.addEventListener('click', closeLightbox);
+      overlay.addEventListener('click', (e)=>{ if(e.target===overlay) closeLightbox(); });
+      window.addEventListener('keydown', (e)=>{ if(!overlay.classList.contains('open')) return;
+        if(e.key==='Escape') closeLightbox(); if(e.key==='ArrowRight') next(); if(e.key==='ArrowLeft') prev(); });
+    
+      // 年号
+      document.getElementById('y').textContent = new Date().getFullYear();
+    })();
+    </script>
+    </body>
+</html>
