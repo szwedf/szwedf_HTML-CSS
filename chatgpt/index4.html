@@ -7,70 +7,223 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
   <link rel="stylesheet" href="style2.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-    <!-- Hero -->
-<header class="hero-image">
-    <h1>Café Lumière</h1>
-    <p>{{ lang === 'jp' ? '表参道の静かな路地裏で、上質なひとときを。' : 'A serene escape in the heart of Omotesando.' }}</p>
-  
-    <!-- Navigation -->
-    <nav :class="{ open: navOpen }">
+  <div id="app" v-cloak>
+    <!-- ===== Nav ===== -->
+    <nav class="site-nav" :class="{ open: navOpen, scrolled: scrolled }">
       <div class="nav-container">
-        <div class="logo">Café Lumière</div>
-        <div class="menu-toggle" @click="navOpen = !navOpen">
+        <div class="logo">Café <span>Lumière</span></div>
+        <button class="menu-toggle" @click="navOpen = !navOpen" aria-label="toggle menu">
           <span></span><span></span><span></span>
-        </div>
+        </button>
         <ul :class="{ show: navOpen }">
-          <li><a href="#about">{{ lang === 'jp' ? 'このカフェについて' : 'About' }}</a></li>
-          <li><a href="menu.html">{{ lang === 'jp' ? 'メニュー' : 'Menu' }}</a></li>
-          <li><a href="#access">{{ lang === 'jp' ? 'アクセス' : 'Access' }}</a></li>
+          <li><a href="#about" @click="navOpen=false">{{ lang==='jp' ? 'このカフェについて' : 'About' }}</a></li>
+          <li><a href="menu.html" @click="navOpen=false">{{ lang==='jp' ? 'メニュー' : 'Menu' }}</a></li>
+          <li><a href="#access" @click="navOpen=false">{{ lang==='jp' ? 'アクセス' : 'Access' }}</a></li>
           <li class="lang-switch">
-            <button @click="lang = 'jp'">JP</button>
-            <button @click="lang = 'en'">EN</button>
+            <button @click="lang='jp'">JP</button>
+            <button @click="lang='en'">EN</button>
           </li>
         </ul>
       </div>
     </nav>
-</header>
-    <!-- About -->
-    <section id="about" class="reveal">
-      <h2>{{ lang === 'jp' ? 'このカフェについて' : 'About the Cafe' }}</h2>
-      <p>{{ lang === 'jp' ? 'Café Lumièreは、表参道の落ち着いた空間で、こだわりのコーヒーや紅茶、軟食、スイーツをお楽しみいただけるカフェです。'
-        : 'Café Lumière offers premium coffee, tea, light meals, and desserts in a calm, stylish atmosphere in Omotesando.' }}</p>
-    </section>
 
-    <!-- Menu -->
-    <a href="menu.html" class="menu-link">{{ lang === 'jp' ? 'メニューを見る' : 'View Menu' }}</a>
-    <p class="menu-description">{{ lang === 'jp' ? 'Café Lumièreでは、朝食からディナーまで、季節の素材を使った多彩な料理とドリンクをご用意しております。' : 'From breakfast to dinner, Café Lumière offers a wide range of dishes and drinks made with seasonal ingredients.' }}</p>
+    <!-- ===== Hero ===== -->
+    <header class="hero-image">
+      <span class="since-badge">Since 2025</span>
+      <h1>Café Lumière</h1>
+      <p>{{ lang==='jp' ? '表参道の静かな路地裏で、上質なひとときを。' : 'A serene escape in the heart of Omotesando.' }}</p>
+      <a href="menu.html" class="menu-cta">{{ lang==='jp' ? 'メニューを見る' : 'View Menu' }}</a>
+    </header>
 
-    <!-- Access -->
-    <section id="access" class="reveal">
-      <h2>{{ lang === 'jp' ? 'アクセス' : 'Access' }}</h2>
-      <p>{{ lang === 'jp' ? '〒150-0001 東京都渋谷区神宮前4-12-8 表参道駅 徒歩5分'
-        : '4-12-8 Jingumae, Shibuya-ku, Tokyo 150-0001 (5 min walk from Omotesando Station)' }}</p>
-      <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.5399207771793!2d139.70998727563928!3d35.66401497259209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cae85e1e999%3A0xe352f1cf362f45dc!2z44CSMTUwLTAwMDEg5p2x5Lqs6YO95riL6LC35Yy65p2x5Lqs5Yy65p2x5Lqs77yR5LiB55uu77yR4oiS77yTIOODluODqeODs-ODvOOCueOCpOODkOODvOODiQ!5e0!3m2!1sja!2sjp!4v1711590627895!5m2!1sja!2sjp" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- ===== Intro Icons (厚みのある導入帯) ===== -->
+    <section class="intro-band container">
+      <div class="intro-item">
+        <div class="icon">☕</div>
+        <h3>{{ lang==='jp' ? '自家焙煎' : 'House Roasted' }}</h3>
+        <p>{{ lang==='jp' ? '毎朝ロースト。香りを最大限に。' : 'Freshly roasted beans every morning.' }}</p>
+      </div>
+      <div class="intro-item">
+        <div class="icon">🥐</div>
+        <h3>{{ lang==='jp' ? '焼きたて' : 'Fresh Bakery' }}</h3>
+        <p>{{ lang==='jp' ? '店内工房から焼きたてを。' : 'Baked in-house daily.' }}</p>
+      </div>
+      <div class="intro-item">
+        <div class="icon">🌿</div>
+        <h3>{{ lang==='jp' ? '季節素材' : 'Seasonal' }}</h3>
+        <p>{{ lang==='jp' ? '旬の素材でメニューを更新。' : 'Menus rotate with seasons.' }}</p>
       </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ===== About ===== -->
+    <section id="about" class="reveal container">
+      <h2>{{ lang==='jp' ? 'このカフェについて' : 'About the Cafe' }}</h2>
+      <p class="lead">
+        {{ lang==='jp'
+          ? 'Café Lumièreは、表参道の落ち着いた空間で、こだわりのコーヒーや紅茶、軽食、デザートをお楽しみいただけるカフェです。'
+          : 'Café Lumière offers premium coffee, tea, light meals, and desserts in a calm, stylish atmosphere.' }}
+      </p>
+    </section>
+
+    <!-- ===== Signature Grid ===== -->
+    <section class="container">
+      <h3 class="section-title">{{ lang==='jp' ? 'シグネチャー' : 'Signature' }}</h3>
+      <div class="card-grid">
+        <article v-for="f in features" :key="f.key" class="card reveal">
+          <div class="card-image" :style="{ backgroundImage: 'url(' + f.img + ')' }"></div>
+          <div class="card-body">
+            <h4>{{ f.name[lang] }}</h4>
+            <p>{{ f.desc[lang] }}</p>
+            <a href="menu.html" class="card-link">{{ lang==='jp' ? '詳しく' : 'See menu' }} →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Parallax Banner ===== -->
+    <section class="story-banner">
+      <div class="banner-inner">
+        <h3>{{ lang==='jp' ? '豆の個性を引き出す焙煎' : 'Roasting to Reveal Character' }}</h3>
+        <p>{{ lang==='jp' ? '浅煎り〜中深煎りまで、素材に合わせて火入れを調整します。' : 'From light to medium-dark roasts tuned to each origin.' }}</p>
+      </div>
+    </section>
+
+    <!-- ===== Two-column Story ===== -->
+    <section class="container two-col">
+      <div class="col img" style="background-image:url('images/story.jpg')"></div>
+      <div class="col text">
+        <h3>{{ lang==='jp' ? 'サステナビリティへの取り組み' : 'Our Sustainability' }}</h3>
+        <p>
+          {{ lang==='jp'
+            ? 'フェアトレード豆の採用、再生紙パッケージ、食品ロス削減の取り組みを進めています。'
+            : 'We source fair-trade beans, use recycled packaging, and reduce food waste.' }}
+        </p>
+        <a href="menu.html" class="btn-outline">{{ lang==='jp' ? 'フード & ドリンクを見る' : 'See Food & Drinks' }}</a>
+      </div>
+    </section>
+
+    <!-- ===== News / Updates ===== -->
+    <section class="container">
+      <h3 class="section-title">{{ lang==='jp' ? 'お知らせ' : 'News' }}</h3>
+      <div class="news-grid">
+        <article v-for="n in news" :key="n.date" class="news-card reveal">
+          <time>{{ n.date }}</time>
+          <h4>{{ n.title[lang] }}</h4>
+          <p>{{ n.body[lang] }}</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== CTA Band ===== -->
+    <section class="cta-band">
+      <div class="container cta-inner">
+        <h3>{{ lang==='jp' ? 'ご来店をお待ちしています' : 'We look forward to serving you' }}</h3>
+        <div class="cta-actions">
+          <a href="menu.html" class="btn-solid">{{ lang==='jp' ? 'メニューを見る' : 'View Menu' }}</a>
+          <a href="#access" class="btn-outline">{{ lang==='jp' ? 'アクセス' : 'Access' }}</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Access ===== -->
+    <section id="access" class="reveal container">
+      <h2>{{ lang==='jp' ? 'アクセス' : 'Access' }}</h2>
+      <p>{{ lang==='jp' ? '〒150-0001 東京都渋谷区神宮前4-12-8 表参道駅 徒歩5分'
+           : '4-12-8 Jingumae, Shibuya-ku, Tokyo 150-0001 (5 min walk from Omotesando Station)' }}</p>
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.5399207771793!2d139.70998727563928!3d35.66401497259209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cae85e1e999%3A0xe352f1cf362f45dc!2z44CSMTUwLTAwMDEg5p2x5Lqs6YO95riL6LC35Yy65p2x5Lqs5Yy65p2x5Lqs77yR5LiB55uu77yR4oiS77yTIOODluODqeODs-ODvOOCueOCpOODkOODvOODiQ!5e0!3m2!1sja!2sjp!4v1711590627895!5m2!1sja!2sjp"
+          width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
     <footer>
-      <h4>{{ lang === 'jp' ? '店舗情報' : 'Store Info' }}</h4>
-      <p>{{ lang === 'jp' ? '営業時間: 8:00〜22:00' : 'Open: 8:00 - 22:00' }}</p>
-      <p>{{ lang === 'jp' ? '住所: 東京都渋谷区神宮前4-12-8' : 'Address: 4-12-8 Jingumae, Shibuya, Tokyo' }}</p>
-      <p>{{ lang === 'jp' ? '電話番号: 03-1234-5678' : 'Phone: +81-3-1234-5678' }}</p>
-      <p>&copy; 2025 Café Lumière</p>
+      <div class="container">
+        <h4>{{ lang==='jp' ? '店舗情報' : 'Store Info' }}</h4>
+        <p>{{ lang==='jp' ? '営業時間: 8:00〜22:00' : 'Open: 8:00 - 22:00' }}</p>
+        <p>{{ lang==='jp' ? '住所: 東京都渋谷区神宮前4-12-8' : 'Address: 4-12-8 Jingumae, Shibuya, Tokyo' }}</p>
+        <p>{{ lang==='jp' ? '電話番号: 03-1234-5678' : 'Phone: +81-3-1234-5678' }}</p>
+        <p>&copy; 2025 Café Lumière</p>
+      </div>
     </footer>
+
+    <a href="#" class="back-to-top" :class="{ show: showTop }" @click.prevent="toTop">↑</a>
   </div>
+
   <script>
     new Vue({
       el: '#app',
       data: {
         lang: 'jp',
-        navOpen: false
+        navOpen: false,
+        scrolled: false,
+        showTop: false,
+        features: [
+          {
+            key:'coffee',
+            img:'images/feature-coffee.jpg',
+            name:{jp:'ハンドドリップ', en:'Hand Drip Coffee'},
+            desc:{jp:'毎朝焙煎の浅煎りブレンド。', en:'Light roast house blend, hand-dripped.'}
+          },
+          {
+            key:'pancake',
+            img:'images/feature-pancake.jpg',
+            name:{jp:'バターミルクパンケーキ', en:'Buttermilk Pancakes'},
+            desc:{jp:'外カリ中ふわ、メープル添え。', en:'Crisp outside, fluffy inside with maple.'}
+          },
+          {
+            key:'burger',
+            img:'images/feature-burger.jpg',
+            name:{jp:'松阪牛100%ハンバーグ', en:'Matsusaka Beef Hamburg'},
+            desc:{jp:'赤ワインソースで。', en:'Served with red wine sauce.'}
+          },
+          {
+            key:'latte',
+            img:'images/feature-latte.jpg',
+            name:{jp:'カフェラテ', en:'Cafe Latte'},
+            desc:{jp:'ミルクの甘みと香りのバランス。', en:'Silky milk and aromatic espresso.'}
+          },
+          {
+            key:'dessert',
+            img:'images/feature-cheesecake.jpg',
+            name:{jp:'NYチーズケーキ', en:'NY Cheesecake'},
+            desc:{jp:'濃厚でなめらかな口どけ。', en:'Rich and velvety.'}
+          },
+          {
+            key:'spritz',
+            img:'images/feature-spritz.jpg',
+            name:{jp:'アペロールスプリッツ', en:'Aperol Spritz'},
+            desc:{jp:'白ワインとソーダで爽やかに。', en:'Aperol, white wine & soda.'}
+          }
+        ],
+        news: [
+          {
+            date:'2025-04-01',
+            title:{jp:'春限定ブレンド登場', en:'Spring Blend Arrived'},
+            body:{jp:'ストロベリーのような甘い酸味が特徴です。', en:'Sweet strawberry-like acidity.'}
+          },
+          {
+            date:'2025-03-15',
+            title:{jp:'パンケーキがリニューアル', en:'Pancakes Renewed'},
+            body:{jp:'発酵バターでコクUP、数量限定で提供。', en:'Now with cultured butter, limited daily.'}
+          }
+        ]
+      },
+      mounted() {
+        const onScroll = () => {
+          this.scrolled = window.scrollY > 10;
+          this.showTop = window.scrollY > 480;
+        };
+        window.addEventListener('scroll', onScroll);
+        onScroll();
+        if (window.ScrollReveal) {
+          ScrollReveal().reveal('.reveal', { distance: '24px', duration: 700, origin: 'bottom', interval: 80 });
+        }
+      },
+      methods: {
+        toTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
       }
     });
   </script>
