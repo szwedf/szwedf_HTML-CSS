@@ -1,372 +1,77 @@
-<!doctype html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ショウタ | エンジニア ポートフォリオ</title>
-  <meta name="description" content="インフラからWebへ。ショウタの自己紹介ポートフォリオ。" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "ショウタ",
-      "url": "https://github.com/szwedf",
-      "sameAs": ["https://github.com/szwedf"]
-    }
-    </script>
-    
-  <style>
-    :root{
-      --bg:#f6f5f2; --paper:#ffffff; --ink:#1f2937; --muted:#6b7280; --line:#e5e7eb; --accent:#4238d6;
-    }
-    @media (prefers-color-scheme: dark){
-      :root{ --bg:#0b0c10; --paper:#101218; --ink:#e5e7eb; --muted:#9aa0a6; --line:#202532; --accent:#7c84ff; }
-    }
-    *,*::before,*::after{ box-sizing:border-box }
-    html,body{ height:100% }
-    body{ margin:0; background:var(--bg); color:var(--ink); font-family:"Noto Sans JP",system-ui,-apple-system,Segoe UI,Roboto,"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif; line-height:1.75; letter-spacing:.02em }
-    a{ color:inherit; text-decoration:none } img{ max-width:100%; display:block }
-    .container{ width:min(1100px,92vw); margin-inline:auto }
+<!DOCTYPE html>
+<main id="main" class="container" style="padding:40px 16px;">
+<section class="grid grid-cols-2" aria-labelledby="lead">
+<div>
+<h2 id="lead">現場で勝つ、ブリッジワークスのSES/受託</h2>
+<p>社会やプロダクトの変化に素早く追従するため、私たちは「人×プロセス×品質」を仕組み化。現場の課題を構造化し、<strong>スピードと安定稼働</strong>を両立します。</p>
+<ul>
+<li>Web/業務システム開発（フロント/バック/テスト自動化）</li>
+<li>クラウド運用（AWS/GCP）、SRE/監視設計</li>
+<li>運用保守・改善提案（Evidence/Runbook/自動化）</li>
+</ul>
+</div>
+<figure class="card">
+<div class="ratio-16x9">
+<img src="images/topweb.png" alt="ネットワークのイメージ" loading="lazy" />
+</div>
+<figcaption style="margin-top:8px;color:#94a3b8">変化に強い体制で継続的に改善する。</figcaption>
+</figure>
+</section>
 
-    /* 左レール */
-    .rail{ position:fixed; inset:0 auto 0 12px; display:flex; flex-direction:column; justify-content:space-between; pointer-events:none }
-    .rail .block{ writing-mode:vertical-rl; transform:rotate(180deg); letter-spacing:.18em; font-size:12px; color:var(--muted); user-select:none }
-    .rail .menu-btn{ pointer-events:auto; writing-mode:vertical-rl; transform:rotate(180deg); display:flex; align-items:center; gap:.6rem; cursor:pointer }
-    .rail .burger{ width:18px; height:12px; position:relative }
-    .rail .burger::before,.rail .burger::after,.rail .burger span{ content:""; position:absolute; left:0; right:0; height:2px; background:var(--ink); border-radius:2px }
-    .rail .burger::before{ top:0 } .rail .burger span{ top:5px } .rail .burger::after{ bottom:0 }
 
-    /* ヘッダ */
-    header{ position:sticky; top:0; z-index:20; backdrop-filter:saturate(180%) blur(6px); border-bottom:1px solid var(--line); background:color-mix(in sRGB, var(--bg) 85%, transparent) }
-    .nav{ display:flex; align-items:center; justify-content:space-between; padding:20px 0 }
-    .brand{ font-weight:700; letter-spacing:.06em }
-    .brand a{ display:inline-block; padding:.25rem .5rem; border:1px solid var(--line); background:var(--paper); border-radius:999px }
-    .menu{ display:flex; gap:28px; font-size:14px; color:var(--muted) }
-    .menu a:hover{ color:var(--ink) }
+<!-- 追加: 事例 / 技術スタック / 取引の進め方 -->
+<section style="margin-top:48px" aria-labelledby="sec-more">
+<h2 id="sec-more">私たちの強み</h2>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:16px">
+<article class="card">
+<h3>導入事例</h3>
+<ul>
+<li>EC基盤のパフォーマンス改善（応答時間 -35%）</li>
+<li>監視整備＋Runbook化（復旧時間 1/3）</li>
+<li>フロント刷新（Core Web Vitals 改善）</li>
+</ul>
+</article>
+<article class="card">
+<h3>技術スタック</h3>
+<p>Vue / React / TypeScript / Laravel / Node.js / Python / MySQL / PostgreSQL / Redis / AWS / GCP / Terraform / Docker / k8s</p>
+</article>
+<article class="card">
+<h3>取引の進め方</h3>
+<ol>
+<li>要件ヒアリング（守秘契約）</li>
+<li>体制/見積り提示（スキル表・稼働計画）</li>
+<li>オンボーディング（成果物/指標の合意）</li>
+</ol>
+</article>
+</div>
+</section>
+</main>
 
-    /* パンくず/メタ */
-    .crumbs{ color:var(--muted); font-size:13px; margin-top:28px }
-    .meta{ display:flex; align-items:center; gap:16px; margin-top:14px; color:var(--muted); font-size:13px }
-    .pill{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; padding:.35rem .6rem; border:1px solid var(--line); border-radius:999px; background:var(--paper); color:var(--ink) }
 
-    /* ヒーロー */
-    .hero{ padding:56px 0 12px }
-    h1{ font-family:"Noto Serif JP",Georgia,serif; font-size:clamp(28px,2.4vw + 18px,46px); line-height:1.35; letter-spacing:.02em; margin:14px 0 10px }
-    .lead{ color:var(--muted); margin-top:6px }
+<footer>
+<div class="container" style="padding:24px 16px;display:grid;gap:12px">
+<nav aria-label="フッターナビ" style="display:flex;gap:12px;flex-wrap:wrap">
+<a href="Company.html">COMPANY</a>
+<a href="Service.html">SERVICE</a>
+<a href="Recruit.html">RECRUIT</a>
+<a href="Parther.html">PARTNER</a>
+<a href="Contact.html">CONTACT</a>
+</nav>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+<small>© <span id="y"></span> BridgeWorks Inc.</small>
+<a href="https://www.instagram.com/bridgeworks_official/" target="_blank" rel="noopener" aria-label="公式Instagram">
+<img src="images/logo_instagram.png" alt="Instagram" width="24" height="24" />
+</a>
+</div>
+</div>
+</footer>
 
-    /* カード */
-    article{ margin-top:24px; padding-bottom:80px }
-    .card{ background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:28px; box-shadow:0 12px 24px rgba(0,0,0,.04) }
-    .profile-grid{ display:grid; grid-template-columns:1.1fr 1.9fr; gap:28px; align-items:start }
-    .profile dl{ margin:0 } .profile dt{ color:var(--muted); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-top:6px } .profile dd{ margin:4px 0 10px 0 }
-    .cta-row{ margin-top:24px; display:flex; gap:12px; flex-wrap:wrap }
-    .btn{ display:inline-flex; align-items:center; gap:10px; padding:.7rem 1rem; border:1px solid var(--line); border-radius:999px; background:var(--paper); cursor:pointer }
-    .btn.primary{ background:var(--ink); color:#fff; border-color:transparent } .btn:hover{ transform:translateY(-1px) }
 
-    /* ビジュアル */
-    .visual{ aspect-ratio:16/10; border:1px dashed var(--line); border-radius:12px; background:
-      radial-gradient(60% 80% at 70% -10%, color-mix(in sRGB, var(--accent) 20%, transparent), transparent 60%),
-      radial-gradient(70% 70% at -10% 110%, color-mix(in sRGB, var(--accent) 18%, transparent), transparent 60%),
-      var(--paper);
-      display:grid; place-items:center; overflow:hidden }
-    .visual svg{ width:68%; height:auto; opacity:.95 }
-
-    /* 趣味チップ */
-    .chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px }
-    .chip{ display:inline-flex; align-items:center; gap:.5rem; padding:.45rem .7rem; border:1px solid var(--line); background:var(--paper); border-radius:999px; font-size:14px }
-    .chip .emoji{ font-size:18px; line-height:1 }
-
-    /* フッタ */
-    footer{ padding:40px 0; border-top:1px solid var(--line); color:var(--muted); font-size:13px }
-
-    /* オーバーレイメニュー（スマホ） */
-    .overlay{ position:fixed; inset:0; background:color-mix(in sRGB, var(--bg) 65%, #0000); backdrop-filter:blur(10px); display:none; z-index:30 }
-    .overlay.open{ display:block }
-    .overlay .panel{ width:min(320px,86vw); height:100%; margin-left:auto; background:var(--paper); border-left:1px solid var(--line); padding:28px; display:flex; flex-direction:column; gap:14px; box-shadow:-20px 0 40px rgba(0,0,0,.18) }
-    .overlay .close{ align-self:flex-end; cursor:pointer; padding:.4rem .6rem; border:1px solid var(--line); border-radius:8px }
-
-    /* アニメ */
-    .reveal{ opacity:0; transform:translateY(10px); transition:.6s ease } .reveal.in{ opacity:1; transform:none }
-
-    /* レスポンシブ */
-    @media (max-width:900px){ .menu{ display:none } .profile-grid{ grid-template-columns:1fr } .rail{ display:none } .hero{ padding-top:32px } }
-    .works-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px }
-.work{
-  border:1px solid var(--line); border-radius:14px; padding:18px; background:var(--paper);
-  transition: transform .15s ease;
-}
-.work:hover{ transform: translateY(-2px) }
-.work h3{ margin:0 0 6px 0; font-size:18px }
-.work p{ margin:6px 0 10px 0; color:var(--muted) }
-.work .links a{ margin-right:12px; text-decoration:underline }
-/* === Tabs === */
-.tabs{ display:flex; gap:8px; margin:8px 0 14px }
-.tab{
-  padding:.45rem .85rem; border:1px solid var(--line); border-radius:999px;
-  background:var(--paper); color:var(--muted); cursor:pointer; font-size:14px;
-}
-.tab[aria-selected="true"]{ color:var(--ink); border-color:var(--ink) }
-
-/* === Skills list === */
-.skills-list{ margin:0; padding-left:1.1rem }
-.skills-list li{ margin:.25rem 0 .25rem }
-.skill-note{ margin-top:.6rem; color:var(--muted); font-size:13px }
-
-  </style>
-</head>
-<body>
-  <!-- 左レール -->
-  <aside class="rail" aria-hidden="true">
-    <div class="menu-btn" id="openMenu" title="メニューを開く"><span class="block">MENU</span><span class="burger"><span></span></span></div>
-    <div class="block">SCROLL</div>
-  </aside>
-
-  <!-- ヘッダ -->
-  <header>
-    <div class="container nav" role="navigation" aria-label="トップナビゲーション">
-      <div class="brand"><a href="#">SHOTA PORTFOLIO</a></div>
-      <nav class="menu" aria-label="ページ内メニュー">
-        <a href="https://github.com/szwedf" target="_blank" rel="noopener noreferrer">GITHUB</a>
-        <a href="#about">ABOUT</a><a href="#skills">SKILLS</a><a href="#hobbies">HOBBIES</a><a href="#contact">CONTACT</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <nav class="crumbs" aria-label="パンくず"><a href="#">ホーム</a> › <span>自己紹介</span></nav>
-    <div class="meta"><time datetime="2025-11-09">2025.11.09</time><span class="pill">Profile</span></div>
-
-    <!-- ヒーロー -->
-    <section class="hero">
-      <h1>インフラからWebへ。私の自己紹介</h1>
-      <p class="lead">基盤保守で鍛えた土台力を武器に、フロントエンド／Webエンジニアへスライド中。</p>
-    </section>
-
-    <!-- 自己紹介カード -->
-    <article id="about" class="card reveal">
-      <div class="profile-grid">
-        <div class="visual" aria-hidden="true">
-          <svg viewBox="0 0 640 400" role="img" aria-label="開発イメージ">
-            <rect x="30" y="40" width="390" height="260" rx="12" fill="#eef1ff" />
-            <rect x="55" y="70" width="340" height="18" rx="4" fill="#cfd6ff"/>
-            <rect x="55" y="110" width="290" height="120" rx="8" fill="white" stroke="#cfd6ff"/>
-            <rect x="440" y="110" width="170" height="130" rx="16" fill="#eef1ff" />
-            <circle cx="525" cy="175" r="36" fill="#ffcc00" />
-            <text x="510" y="182" font-family="monospace" font-size="28" fill="#1f2937">B</text>
-            <rect x="220" y="320" width="240" height="18" rx="9" fill="#cfd6ff"/>
-          </svg>
-        </div>
-
-        <div class="profile">
-          <h2 style="margin-top:0; font-family:'Noto Serif JP', Georgia, serif;">自己紹介</h2>
-          <p>
-            東京都出身の27歳。エンジニア歴は7年目、現在はSESで<strong>インフラエンジニア（基盤保守）</strong>として従事しています。<br>
-            目標は<strong>Web領域</strong>。フロントエンド／Webエンジニアを目指し、自己学習で
-            <strong>JS / TS / PHP / HTML / CSS</strong> を学び、<em>そこそこのポートフォリオを自作できるレベル</em>まで上げてきました。<br>
-            現在は社内のキャリアチェンジを見据え<strong>基本情報技術者</strong>を学習中。<strong>副業のWeb案件</strong>も検討しています。<br>
-            宜しくお願いします！！
-          </p>
-
-          <dl>
-            <dt>拠点</dt><dd>東京</dd>
-            <dt>現在</dt><dd>SES / 基盤保守（運用・改善・自動化）</dd>
-            <dt>関心</dt><dd>フロントエンド開発 / UI設計 / 小さく作って早く出す</dd>
-            <dt>スタック</dt><dd>HTML, CSS, JavaScript, TypeScript, PHP, Shell, ksh, PowerShell</dd>
-          </dl>
-
-          <div class="cta-row">
-            <a class="btn primary" href="#contact">お問い合わせ</a>
-            <a class="btn" href="#skills">スキルを見る</a>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- スキル -->
-    <section id="skills" class="card reveal" style="margin-top:24px">
-      <h2 style="margin-top:0; font-family:'Noto Serif JP', Georgia, serif;">Skills</h2>
-      <p class="lead">実務で叩いたスキルと、個人で磨いているスキルを分けて可視化。</p>
-    
-      <!-- タブ -->
-      <div class="tabs" role="tablist" aria-label="スキルカテゴリ切替">
-        <button class="tab" role="tab" aria-selected="true" aria-controls="skills-pro" id="tab-pro">実務ベース</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="skills-self" id="tab-self">自己開発・研鑽</button>
-      </div>
-    
-      <!-- 実務ベース -->
-      <div id="skills-pro" role="tabpanel" aria-labelledby="tab-pro">
-        <ul class="skills-list">
-          <li><strong>インフラ運用・保守：</strong>監視／障害一次対応／容量・性能トラッキング</li>
-          <li><strong>ジョブ運用：</strong>JP1/AJS3（定例・月次・ジョブネット整備、証跡管理）</li>
-          <li><strong>スクリプト：</strong>ksh / Shell / PowerShell / bat（運用自動化・定型処理）</li>
-          <li><strong>OS：</strong>Linux（RHEL系）／Windows Server 2016–2022</li>
-          <li><strong>ミドル・周辺：</strong>Oracle 12c/19c 監視、HULFT、vCenter、Tera Term など</li>
-          <li><strong>ドキュメント：</strong>手順書・設計書・テスト証跡の作成／改訂</li>
-        </ul>
-        <div class="skill-note">◎ 強み：堅牢性・再現性重視の運用設計、トラシューの初動と切り分け。</div>
-      </div>
-    
-      <!-- 自己開発・研鑽 -->
-      <div id="skills-self" role="tabpanel" aria-labelledby="tab-self" hidden>
-        <ul class="skills-list">
-          <li><strong>フロント：</strong>HTML / CSS（BEM＋Utility）／レスポンシブ設計</li>
-          <li><strong>言語：</strong>JavaScript / TypeScript（モジュール・DOM・基本アルゴリズム）</li>
-          <li><strong>FW/ツール：</strong>Vue 3 / Vite / Tailwind CSS</li>
-          <li><strong>バックエンド基礎：</strong>PHP（軽量API／フォーム処理）</li>
-          <li><strong>運用：</strong>Git / GitHub、Netlify / Vercel デプロイ</li>
-          <li><strong>学習トピック：</strong>Three.js 入門、E2E（Playwright）</li>
-        </ul>
-        <div class="skill-note">◎ 目標：UI/UXの磨き込みと、小規模でも“出せる”API実装の反復。</div>
-      </div>
-    
-      <div class="cta-row" style="margin-top:18px">
-        <a class="btn" href="#works">制作物を見る</a>
-        <a class="btn" href="https://github.com/szwedf" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </div>
-    </section>
-    
-
-    <!-- 好きなこと / Hobbies -->
-    <section id="hobbies" class="card reveal" style="margin-top:24px">
-      <h2 style="margin-top:0; font-family:'Noto Serif JP', Georgia, serif;">Hobbies / Interests</h2>
-      <p class="lead">“人となり”が伝わる要約。求人票の「文化適合」に強いパート。</p>
-      <div class="chips" id="hobbyChips" aria-label="趣味の一覧"></div>
-      <details style="margin-top:14px; color:var(--muted)">
-        <summary>短い紹介文（応募用にそのまま使える）</summary>
-        <p style="margin:.6rem 0 0">
-          競馬や野球（巨人）、ゲーム、漫画・アニメが好きです。ミリタリー（装備や歴史）、ファッション、美容にも関心があり、
-          情報収集や比較検討が得意です。趣味で得た観察眼と分析癖は、要件整理やUI改善にも活きています。
-        </p>
-      </details>
-    </section>
-    <section id="works" class="card reveal" style="margin-top:24px">
-      <h2 style="margin-top:0; font-family:'Noto Serif JP', Georgia, serif;">Works</h2>
-      <p class="lead">作ったもの・コード置き場への動線。まずはGitHubと、過去のHTML/CSS集。</p>
-    
-      <div class="works-grid" aria-label="制作物一覧">
-        <!-- GitHub プロフィール -->
-        <article class="work">
-          <h3>GitHub Profile</h3>
-          <p>日々の学習や小さな実験、進行中のリポジトリを集約。</p>
-          <div class="links">
-            <a href="https://github.com/szwedf" target="_blank" rel="noopener noreferrer">Visit Profile</a>
-          </div>
-        </article>
-    
-        <!-- 過去のHTML/CSSリポジトリ -->
-        <article class="work">
-          <h3>HTML/CSS アーカイブ</h3>
-          <p>基礎から積み上げたマークアップの練習とスニペット集。</p>
-          <div class="links">
-            <a href="https://github.com/szwedf/szwedf_HTML-CSS" target="_blank" rel="noopener noreferrer">Repository</a>
-          </div>
-        </article>
-    
-        <!-- 追加したくなったら、この <article class="work"> をコピペして増やす -->
-      </div>
-    </section>
-
-    <!-- 連絡先 -->
-    <section id="contact" class="card reveal" style="margin-top:24px">
-      <h2 style="margin-top:0; font-family:'Noto Serif JP', Georgia, serif;">Contact</h2>
-      <p class="lead">案件のご相談・副業のご依頼など、お気軽に。</p>
-      <form onsubmit="event.preventDefault(); alert('送信ありがとうございます！');">
-        <label>お名前<br><input required type="text" name="name" style="width:100%;padding:.7rem;border:1px solid var(--line);border-radius:8px;background:var(--paper)"></label><br><br>
-        <label>メール<br><input required type="email" name="email" style="width:100%;padding:.7rem;border:1px solid var(--line);border-radius:8px;background:var(--paper)"></label><br><br>
-        <label>メッセージ<br><textarea required name="message" rows="5" style="width:100%;padding:.7rem;border:1px solid var(--line);border-radius:8px;background:var(--paper)"></textarea></label><br><br>
-        <button class="btn primary" type="submit">送信</button>
-      </form>
-    </section>
-  </main>
-
-  <footer><div class="container">© <span id="y"></span> Shota Portfolio. All rights reserved.</div></footer>
-
-  <!-- モバイルメニュー -->
-  <div class="overlay" id="overlay" aria-hidden="true">
-    <div class="panel" role="dialog" aria-label="メニュー">
-      <a href="https://github.com/szwedf" target="_blank" rel="noopener noreferrer">GITHUB</a>
-      <button class="close" id="closeMenu">閉じる</button>
-      <a href="#about">ABOUT</a><a href="#skills">SKILLS</a><a href="#hobbies">HOBBIES</a><a href="#contact">CONTACT</a>
-    </div>
-  </div>
-
-  <a href="#" class="btn" style="position:fixed; right:18px; bottom:18px; z-index:10; background:var(--paper)">TOPへ戻る</a>
-
-  <!-- ふるまい -->
-  <script type="module">
-    // 年号
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // メニュー
-    const overlay = document.getElementById('overlay');
-    document.getElementById('openMenu')?.addEventListener('click',()=>{ overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false'); });
-    document.getElementById('closeMenu')?.addEventListener('click',()=>{ overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); });
-    overlay?.addEventListener('click',(e)=>{ if(e.target===overlay){ overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); } });
-
-    // スムーズスクロール
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',(e)=>{
-        const id=a.getAttribute('href').slice(1); const el=document.getElementById(id);
-        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); overlay.classList.remove('open'); }
-      });
-    });
-
-    // Reveal
-    const io=new IntersectionObserver(es=>{
-      es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
-    },{threshold:.2});
-    document.querySelectorAll('.card, .visual').forEach(el=>{ el.classList.add('reveal'); io.observe(el); });
-
-    // 趣味チップ（あなたの“好き”をJSで生成）
-    const hobbies = [
-      { key:'keiba', label:'競馬', emoji:'🐎' },
-      { key:'game', label:'ゲーム', emoji:'🎮' },
-      { key:'baseball', label:'野球', emoji:'⚾' },
-      { key:'giants', label:'巨人', emoji:'🟠' },
-      { key:'manga', label:'漫画', emoji:'📚' },
-      { key:'anime', label:'アニメ', emoji:'🎞️' },
-      { key:'military', label:'ミリタリー（銃・装備）', emoji:'🛡️' },
-      { key:'fashion', label:'ファッション', emoji:'🧥' },
-      { key:'beauty', label:'美容', emoji:'💇' }
-    ];
-    const chips = document.getElementById('hobbyChips');
-    chips.innerHTML = hobbies.map(h => `
-      <span class="chip" data-key="${h.key}"><span class="emoji" aria-hidden="true">${h.emoji}</span>${h.label}</span>
-    `).join('');
-
-    // ===== Skills タブ切替 =====
-(function(){
-  const container = document.getElementById('skills');
-  if(!container) return;
-  const tabs   = container.querySelectorAll('.tab');
-  const panels = container.querySelectorAll('[role="tabpanel"]');
-  const key = 'skillsTab';
-
-  function show(id){
-    tabs.forEach(t=>{
-      const selected = t.id === id.replace('skills-','tab-');
-      t.setAttribute('aria-selected', String(selected));
-    });
-    panels.forEach(p=>{
-      p.hidden = (p.id !== id);
-    });
-    localStorage.setItem(key, id);
-  }
-
-  // クリックで切替
-  tabs.forEach(t=>{
-    t.addEventListener('click', ()=>{
-      const target = t.getAttribute('aria-controls'); // skills-pro / skills-self
-      if(target) show(target);
-    });
-  });
-
-  // 前回の選択を復元（デフォルトは実務）
-  const saved = localStorage.getItem(key);
-  if(saved && container.querySelector('#'+saved)){ show(saved); }
-})();
-
-  </script>  
+<script>
+const btn=document.getElementById('menuBtn');
+const navSp=document.getElementById('navSp')?.querySelector('#nav');
+btn?.addEventListener('click',()=>{const show=!navSp.classList.contains('show');navSp.classList.toggle('show',show);btn.setAttribute('aria-expanded',String(show));});
+document.getElementById('y').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>
