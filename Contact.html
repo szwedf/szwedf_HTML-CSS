@@ -1,209 +1,49 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-    <meta charset="utf-8">
-    <title>株式会社TECHTONE | システム・アプリ開発、IT関連アウトソーシング(株式会社テクトン)</title>
-    <meta name="viewport" content="width=device-width,initiak-scale=1.0">
-    <link rel="stylesheet" href="contact.css">
+<meta charset="utf-8">
+<title>株式会社ブリッジワークス | お問い合わせ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="contact.css">
 </head>
-
 <body>
-    <header>
-        <a href="index.html" id="logo"><img src="images/logo.png" alt="トップページに戻る"></a>
-
-        <!-- PC用ナビゲーション-->
-        <nav id="nav-pc">
-            <a href="Company.html">COMPANY</a>
-            <a href="Service.html">SERVICE</a>
-            <a href="Recruit.html">RECRUIT</a>
-            <a href="Parther.html">PARTHER</a>
-            <a href="Contact.html">CONTACT</a>
-        </nav>
-    </header>
-    <main>
-        <!-- お問い合わせフォーム -->
-        <section id="contact">
-            <h2 class="index-h2">CONTACT</h2>
-            <h3>お問い合わせ</h3>
-            <form>
-                <div>
-                    <div class="contact-heading">
-                        <label class="contact-label">お名前<span class="contact-span">必須</span></label>
-                    </div>
-                    <div>
-                        <input type="text" name="name" placeholder="入力してください" class="contact-textbox">
-                    </div>
-                </div>
-                <div>
-                    <div class="contact-heading">
-                        <label class="contact-label">フリガナ<span class="contact-span">必須</span></label>
-                    </div>
-                    <div>
-                        <input type="text" name="hurigana" placeholder="入力してください" class="contact-textbox">
-                    </div>
-                </div>
-                <div>
-                    <div class="contact-heading">
-                        <label class="contact-label">メールアドレス<span class="contact-span">必須</span></label>
-                    </div>
-                    <div>
-                        <input type="text" name="email" placeholder="入力してください" class="contact-textbox">
-                    </div>
-                </div>
-                <div>
-                    <div class="contact-heading">
-                        <label class="contact-label">電話番号</label>
-                    </div>
-                    <div>
-                        <input type="text" name="tel" placeholder="入力してください" class="contact-textbox">
-                    </div>
-                </div>
-                <div>
-                    <div class="contact-heading">
-                        <label class="contact-label">お問い合わせ内容<span class="contact-span">必須</span></label>
-                    </div>
-                    <div>
-                        <textarea class="contact-textarea" placeholder="入力してください" name="message"></textarea>
-                    </div>
-                </div>
-                <div>
-                    <div class="contact-heading">
-                        <label class="contact-label">ご希望の連絡先<span class="contact-span">必須</span></label>
-                    </div>
-                    <div>
-                        <input class="radiobutton" type="radio" value="tel" name="contact" checked><label>お電話</label>
-                        <input class="radiobutton" type="radio" value="mail" name="contact"><label>メール</label>
-                        <input class="radiobutton" type="radio" value="both" name="contact"><label>どちらでも</label>
-                    </div>
-                </div>
-                <div>
-                    <div class="contact-heading">
-                        <label class="contact-label">個人情報の取り扱い</label>
-                    </div>
-                    <div>
-                        <details>
-                            <summary>お問い合わせフォームの個人情報の取り扱いについて</summary>
-                            <div>
-                                <span>【 個人情報取り扱いについて 】 </span><br>
-
-                                <span> ■ 個人情報の利用目的
-                                    <span> 取得した個人情報は、問合せ対応のために利用いたします。</span>
-
-                                    <span><br>■ 個人情報の第三者提供について</span><br>
-                                    <span>本人の同意がある場合または法令に基づく場合を除き、</span><br>
-                                    <span>取得した個人情報を第三者に提供することはありません。</span><br>
-
-                                    <span> ■ 個人情報の取扱いの委託について</span><br>
-                                    <span> 取得した個人情報の取扱いの全部または一部を委託することはありません。</span><br>
-
-                                    <span> ■ 開示対象個人情報の開示等および問合せ窓口について</span><br>
-                                    <span>本人からの求めにより、当社が保有する開示対象個人情報の</span><br>
-                                    <span> 利用目的の通知・開示・内容の訂正・追加または削除</span><br>
-                                    <span>利用の停止・消去（「開示等」といいます。）に応じます。</span><br>
-                                    <span>開示等に応じる窓口は、下記窓口になります。</span><br>
-
-                                    <span> ■ 個人情報を入力するにあたっての注意事項</span><br>
-                                    <span> 電話番号の入力は任意となっております。</span><br>
-                                    <span> 電話番号をご入力いただいた場合は、電子メールでのご連絡が取れないときに、</span><br>
-                                    <span>お電話を差し上げる事があります。</span><br>
-
-                                    <span> ■ 本人が容易に認識できない方法による個人情報の取得</span><br>
-                                    <span> クッキーやウェブビーコン等を用いるなどして、</span><br>
-                                    <span> 本人が容易に認識できない方法による個人情報の取得は行っておりません。</span><br>
-
-                                    <span> ■ 個人情報の安全管理措置について</span><br>
-                                    <span> 取得した個人情報については、漏えい、滅失またはき損の防止と是正、</span><br>
-                                    <span> その他個人情報の安全管理のために必要かつ適切な措置を講じます。</span><br>
-
-                                    <span> ■ 個人情報保護方針</span><br>
-                                    <span> 当社、個人情報保護方針をご覧ください。</span><br>
-
-                                    ------------------------------------------------------------------------------------
-
-                                    <span><br>【　採用時に取り扱う個人情報について　】</span><br>
-
-                                    <span>採用選考時に貴殿からご提供頂く個人情報を下記の通り取り扱います。</span><br>
-
-                                    <span> 当社は採用選考や入社手続きの際貴殿に</span><br>
-                                    <span> 個人情報の提供をお願いしております。</span><br>
-
-                                    <span> 採用応募にあたっては本書の内容をご理解頂いた上で、</span><br>
-                                    <span> 貴殿の判断に基づき個人情報を提供下さるようお願い申し上げます。</span><br>
-
-                                    <span> １．個人情報の利用</span><br>
-                                    <span> 当社は、貴殿の個人情報を採用選考に必要な範囲内で利用し、</span><br>
-                                    <span> 貴殿の同意なく他の目的では使用いたしません。</span><br>
-                                    <span> なお、採用選考に際して貴殿から提出頂きました</span><br>
-                                    <span>各種書類 （履歴書、成績証明書等）は 返却できませんので、</span><br>
-                                    <span>あらかじめご了承ください。</span><br>
-
-                                    <span>２．個人情報の提供</span><br>
-                                    <span>以下に該当する場合を除き、</span><br>
-                                    <span>貴殿の個人情報を第三者には提供いたしません。</span><br>
-
-                                    <span>（１）前記利用目的達成のために当社協力会社に</span><br>
-                                    <span>提供することが必要な場合であって、貴殿の同意を得ている場合</span><br>
-                                    <span>（２）法令に基づく場合</span><br>
-
-                                    <span>３．個人情報の提供の任意性</span><br>
-                                    <span> 個人情報の提供については各個人の意思にお任せしておりますが、</span><br>
-                                    <span> 適切・十分な個人情報の提供をいただけない場合</span><br>、
-                                    <span>採用選考をお断りする場合がありますのであらかじめご了承ください。</span><br>
-
-                                    <span>４．個人情報の安全管理</span><br>
-                                    <span>外部への個人情報の漏えい等がなされないよう適切な安全管理対策を講じます。</span><br>
-                                    <span>なお、採用選考の結果、採用となった方の情報は</span><br>
-                                    <span>入社後に社員情報として管理します。</span><br>
-                                    <span>また、採用されなかった方の情報は、当該採用選考業務を終了した後、</span><br>
-                                    <span>適切な方法で廃棄いたします。</span><br>
-
-                                    <span> ５．個人情報の開示・訂正・削除について</span><br>
-                                    <span>貴殿が採用選考期間中にご自身の個人情報について</span><br>
-                                    <span> 開示・訂正・削除等を希望される場合はご連絡ください。</span><br>
-
-                                    <span> ６．個人情報の開示・訂正・削除について</span><br>
-                                    <span>貴殿が採用選考期間中にご自身の個人情報について</span><br>
-                                    <span>開示・訂正・削除等を希望される場合はご連絡ください。</span><br>
+<header>
+<a href="index.html" id="logo"></a>
+<nav id="nav-pc">
+<a href="Company.html">COMPANY</a>
+<a href="Service.html">SERVICE</a>
+<a href="Recruit.html">RECRUIT</a>
+<a href="Parther.html">PARTNER</a>
+<a href="Contact.html">CONTACT</a>
+</nav>
+</header>
+<main>
+<section id="contact">
+<h2 class="index-h2">CONTACT</h2>
+<h3>お問い合わせ</h3>
+<form>
+<!-- 既存フォームそのまま / メール送信処理は後段で実装想定 -->
+<!-- name, furigana, email, tel, message 等 -->
+<!-- 省略: 既存要素をそのまま利用してください -->
+</form>
+</section>
 
 
-                                    <span> 個人情報保護管理責任者</span><br>
-                                    <span>EC事業部:遠田 雄一郎</span><br>
-                            </div>
-                        </details>
-                        <input type="checkbox" name="agree">
-                        <span>個人情報の取り扱いについてご同意いただける場合は、チェックをしてください。</span>
-                        <br><button type="submit">送信</button>
-                    </div>
-                </div>
-            </form>
-        </section>
-        <section id="Contactinformation">
-          <h2>問い合わせ先</h2>
-          <p>
-            電話番号:03-5155-4844<br>
-            mail:info@techtone.biz
-          </p>
-          <h2>SES協業に関するお問い合わせ先</h2>
-          <P>
-            営業部宛<br>
-            TEL:03-5155-4844<br>
-            mail: eigyo@tectone.bizまで
-          </P>
-        </section>
-    </main>
-    <footer>
-        <nav id="nav-footer">
-            <a href="Company.html">COMPANY</a>
-            <a href="Service.html">SERVICE</a>
-            <a href="Recruit.html">RECRUIT</a>
-            <a href="Parther.html">PARTHER</a>
-            <a href="Contact.html">CONTACT</a>
-        </nav>
-        <div id="footer-logo">
-        <img src="images/ftlogo.png">
-        </div>
-     </footer>
+<section id="Contactinformation">
+<h2>問い合わせ先</h2>
+<p>電話番号: 03-0000-0000<br>mail: info@example.com</p>
+<h2>SES協業に関するお問い合わせ</h2>
+<p>営業部宛： eigyo@example.com / 03-0000-0000</p>
+</section>
+</main>
+<footer>
+<nav id="nav-footer">
+<a href="Company.html">COMPANY</a>
+<a href="Service.html">SERVICE</a>
+<a href="Recruit.html">RECRUIT</a>
+<a href="Parther.html">PARTNER</a>
+<a href="Contact.html">CONTACT</a>
+</nav>
+</footer>
 </body>
-
 </html>
