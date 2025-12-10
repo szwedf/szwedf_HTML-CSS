@@ -1,0 +1,33 @@
+:root{
+  --bg:#0b0c10; --panel:#12141a; --line:#222737;
+  --fg:#e9e9ef; --muted:#a0a2ad; --primary:#6ee7ff;
+  --radius:14px; --sp:16px; --shadow:0 12px 30px rgba(0,0,0,.25);
+}
+* { box-sizing: border-box }
+html, body { margin:0; font-family:system-ui, -apple-system, "Noto Sans JP", sans-serif; background:var(--bg); color:var(--fg); }
+a { color: var(--fg); text-decoration: none }
+.container { max-width: 960px; margin: 0 auto; padding: 24px }
+.card { background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px }
+.grid { display:grid; gap:var(--sp) }
+.grid-2 { grid-template-columns: 1fr 1fr }
+@media (max-width: 720px){ .grid-2 { grid-template-columns: 1fr } }
+
+label { display:grid; gap:6px; color:var(--muted); font-size:.95rem }
+input, select, button {
+  border-radius:12px; border:1px solid var(--line); background:#0f121b; color:var(--fg);
+  padding: 12px 14px; outline: none;
+}
+input:focus, select:focus { border-color: var(--primary); box-shadow: 0 0 0 2px color-mix(in oklab, var(--primary) 25%, transparent) }
+button {
+  cursor: pointer; background: linear-gradient(180deg, #1b2233, #121823);
+}
+button.primary {
+  border-color: color-mix(in oklab, var(--primary) 45%, white 0%);
+  outline: 2px solid color-mix(in oklab, var(--primary) 30%, transparent);
+}
+.badge { border:1px solid var(--line); border-radius:999px; padding:4px 10px; color:var(--muted); font-size:.85rem }
+.row { display:flex; gap:12px; align-items:center; justify-content:space-between }
+.price { font-size:1.2rem; font-variant-numeric: tabular-nums; }
+hr.sep { border:0; border-top:1px solid var(--line); margin: 18px 0 }
+.help { color: var(--muted); font-size: .9rem }
+.error { color: #ff6b6b; font-size: .95rem }
