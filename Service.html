@@ -1,48 +1,72 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<title>株式会社ブリッジワークス | 事業内容</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="Service.css">
+  <meta charset="utf-8" />
+  <title>ブリックワークス | 事業内容</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-<header>
-<a href="index.html" id="logo"></a>
-<nav id="nav-pc">
-<a href="Company.html">COMPANY</a>
-<a href="Service.html">SERVICE</a>
-<a href="Recruit.html">RECRUIT</a>
-<a href="Parther.html">PARTNER</a>
-<a href="Contact.html">CONTACT</a>
-</nav>
-</header>
-<main>
-<article>
-<section id="OurServices">
-<h3>事業内容</h3>
-<p>
-ブリッジワークスは4つの事業を軸に展開しています。<br>
-変化の速い社会に対し最適かつ最高のサービスを提供し、
-お客様の課題解決にコミットします。
-</p>
-<div class="grid" style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
-<article class="card"><h4>システム開発 / 受託</h4><p>Web/業務システム、API、E2Eテストまで一気通貫。</p></article>
-<article class="card"><h4>SES（常駐支援）</h4><p>即戦力エンジニアをチームで提供。スピードと品質。</p></article>
-<article class="card"><h4>運用保守 / SRE</h4><p>監視/自動化/Runbookで安定稼働を実現。</p></article>
-<article class="card"><h4>コンサルティング</h4><p>要件定義/品質改善/体制づくりを伴走支援。</p></article>
-</div>
-</section>
-</article>
-</main>
-<footer>
-<nav id="nav-pc">
-<a href="Company.html">COMPANY</a>
-<a href="Recruit.html">RECRUIT</a>
-<a href="Parther.html">PARTNER</a>
-<a href="Contact.html">CONTACT</a>
-</nav>
+<body data-page="service">
+  <div class="page">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"></span>
+          <span class="logo-text">BRICK WORKS</span>
+        </a>
+        <nav class="nav-links" id="nav-pc">
+          <a href="index.html" data-page="top">TOP</a>
+          <a href="Company.html" data-page="company">COMPANY</a>
+          <a href="Service.html" data-page="service">SERVICE</a>
+          <a href="Recruit.html" data-page="recruit">RECRUIT</a>
+          <a href="Parther.html" data-page="partner">PARTNER</a>
+          <a href="Contact.html" data-page="contact">CONTACT</a>
+        </nav>
+        <a href="Contact.html" class="nav-cta">案件・採用のご相談</a>
+      </div>
+    </header>
 
-</footer>
+    <main class="page-main">
+      <section class="page-hero">
+        <div class="container">
+          <h1 class="page-title">Service</h1>
+          <p class="page-lead">
+            ブリックワークスは4つの事業を軸に展開しています。  
+            変化の速い社会に対し、最適かつ安定したサービス提供を通じて  
+            お客様の課題解決にコミットします。
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container card-grid">
+          <article class="card">
+            <h2>システム開発 / 受託</h2>
+            <p>Web / 業務システム、API、E2Eテスト自動化まで一気通貫で対応します。</p>
+          </article>
+          <article class="card">
+            <h2>SES（常駐支援）</h2>
+            <p>既存チームにジョインし、開発〜運用まで「現場で動ける」エンジニアを提供します。</p>
+          </article>
+          <article class="card">
+            <h2>運用保守 / SRE</h2>
+            <p>監視・アラート設計、Evidence整備、Runbook作成、自動化などで安定稼働を実現します。</p>
+          </article>
+          <article class="card">
+            <h2>コンサルティング</h2>
+            <p>要件定義、品質改善、開発プロセス整備など、技術と運用の両側から支援します。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <small>© 2025 Brick Works Inc. All rights reserved.</small>
+      </div>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>

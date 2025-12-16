@@ -1,48 +1,142 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<title>株式会社ブリッジワークス | 採用情報</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="recruit.css">
+  <meta charset="utf-8" />
+  <title>ブリックワークス | 採用情報</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 共通スタイル -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- 採用ページ専用スタイル -->
+  <link rel="stylesheet" href="recruit.css" />
 </head>
 <body>
-<header>
-<a href="index.html" id="logo"></a>
-<nav id="nav-pc">
-<a href="Company.html">COMPANY</a>
-<a href="Service.html">SERVICE</a>
-<a href="Recruit.html">RECRUIT</a>
-<a href="Parther.html">PARTNER</a>
-<a href="Contact.html">CONTACT</a>
-</nav>
-</header>
-<main>
-<article>
-<section id="Recruitmentinformation">
-<h1>採用情報</h1>
-<h2>ブリッジワークスで働きませんか？</h2>
-<p>新卒・第二新卒、キャリア採用ともに募集しています。</p>
-<div id="Newgraduate">
-<a href="recruit/Newgraduate.html"><img src="images/新卒・第2新卒.jpg" alt="新卒用画像"></a>
-</div>
-</section>
-<section id="Careerrecruitment">
-<h3>キャリア採用</h3>
-<p>経験者の方は、スキル表を添えてご応募ください。</p>
-<a href="recruit/Careerrecruitment.html"><img src="images/中途採用.jpg" alt="中途採用向け画像"></a>
-</section>
-</article>
-</main>
-<footer>
-<nav id="nav-footer">
-<a href="Company.html">COMPANY</a>
-<a href="Service.html">SERVICE</a>
-<a href="Recruit.html">RECRUIT</a>
-<a href="Parther.html">PARTNER</a>
-<a href="Contact.html">CONTACT</a>
-</nav>
+  <div class="page">
+    <!-- ===== 共通ヘッダー ===== -->
+    <header class="site-header">
+      <div class="nav-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"></span>
+          <span class="logo-text">BRICK WORKS</span>
+        </a>
 
-</footer>
+        <!-- リンク構成は元ファイルと同じ -->
+        <nav class="nav-links" id="nav-pc">
+          <a href="index.html">TOP</a>
+          <a href="Company.html">COMPANY</a>
+          <a href="Service.html">SERVICE</a>
+          <a href="Recruit.html">RECRUIT</a>
+          <a href="Parther.html">PARTNER</a>
+          <a href="Contact.html">CONTACT</a>
+        </nav>
+
+        <a href="Contact.html" class="nav-cta">案件・採用のご相談</a>
+      </div>
+    </header>
+
+    <!-- ===== メイン ===== -->
+    <main class="page-main">
+      <!-- 上部：採用ページの導入エリア -->
+      <section class="page-hero page-hero--recruit">
+        <div class="section-inner">
+          <p class="page-eyebrow">採用情報</p>
+          <h1 class="page-title">ブリックワークスで、一緒に現場をよくしていく仲間を募集しています。</h1>
+          <p class="page-lead">
+            新卒・第二新卒から、インフラ／アプリ開発経験者まで幅広く募集しています。<br />
+            「現場の課題をちゃんと解決したい」「運用だけで終わりたくない」──そんな思いを持った方を歓迎します。
+          </p>
+        </div>
+      </section>
+
+      <!-- 募集区分のカード -->
+      <section class="section section--recruit">
+        <div class="section-inner">
+          <h2 class="section-heading">募集職種</h2>
+
+          <div class="recruit-grid">
+            <!-- 新卒・第二新卒 -->
+            <article class="recruit-card">
+              <img
+                src="images/新卒・第2新卒.jpg"
+                alt="新卒・第二新卒採用イメージ"
+                class="recruit-image"
+              />
+              <div class="recruit-body">
+                <h3>新卒・第二新卒採用</h3>
+                <p>
+                  IT業界が未経験でも、興味とやる気があれば歓迎です。<br />
+                  まずは基礎的なインフラ運用・開発業務から入り、段階的にスキルを伸ばしていきます。
+                </p>
+                <ul class="recruit-points">
+                  <li>研修＋OJTでの育成</li>
+                  <li>資格取得のサポート</li>
+                  <li>キャリア面談で中長期の方向性も一緒に設計</li>
+                </ul>
+                <a href="recruit/Newgraduate.html" class="btn-outline">新卒・第二新卒の募集要項を見る</a>
+              </div>
+            </article>
+
+            <!-- キャリア採用 -->
+            <article class="recruit-card">
+              <img
+                src="images/中途採用.jpg"
+                alt="キャリア採用イメージ"
+                class="recruit-image"
+              />
+              <div class="recruit-body">
+                <h3>キャリア採用（経験者）</h3>
+                <p>
+                  インフラ運用・基盤保守、Webアプリ開発、クラウド運用などの経験を活かして、<br />
+                  エンドユーザーに近い現場で「改善」に取り組みたい方を募集しています。
+                </p>
+                <ul class="recruit-points">
+                  <li>スキルに応じた単価＆還元率を提示</li>
+                  <li>希望に応じた案件選定（インフラ／開発）</li>
+                  <li>ゆくゆくはリードポジションや設計にもチャレンジ可能</li>
+                </ul>
+                <a href="recruit/Careerrecruitment.html" class="btn-outline">
+                  キャリア採用の募集要項を見る
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- メッセージエリア（お好みで調整） -->
+      <section class="section section--message">
+        <div class="section-inner">
+          <h2 class="section-heading">求める人物像</h2>
+          <p class="page-lead">
+            「わからないことをそのままにしない」「現場の課題を自分ごとで考える」。<br />
+            スキルはあとから伸ばせるので、まずはこの姿勢を大事にしています。
+          </p>
+          <ul class="recruit-traits">
+            <li>ログやドキュメントから状況を整理するのが苦にならない方</li>
+            <li>インフラだけ／開発だけでなく、横断的に関わってみたい方</li>
+            <li>エンジニアとして長く食べていける力をつけたい方</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== 共通フッター ===== -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <small class="footer-copy">
+          © 2025 ブリックワークス Inc. All rights reserved.
+        </small>
+        <nav class="footer-nav" id="nav-footer">
+          <a href="Company.html">COMPANY</a>
+          <a href="Service.html">SERVICE</a>
+          <a href="Recruit.html">RECRUIT</a>
+          <a href="Parther.html">PARTNER</a>
+          <a href="Contact.html">CONTACT</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+
+  <!-- 共通JS -->
+  <script src="main.js"></script>
 </body>
 </html>

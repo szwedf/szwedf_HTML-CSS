@@ -1,49 +1,80 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<title>株式会社ブリッジワークス | お問い合わせ</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="contact.css">
+  <meta charset="utf-8" />
+  <title>ブリックワークス | お問い合わせ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-<header>
-<a href="index.html" id="logo"></a>
-<nav id="nav-pc">
-<a href="Company.html">COMPANY</a>
-<a href="Service.html">SERVICE</a>
-<a href="Recruit.html">RECRUIT</a>
-<a href="Parther.html">PARTNER</a>
-<a href="Contact.html">CONTACT</a>
-</nav>
-</header>
-<main>
-<section id="contact">
-<h2 class="index-h2">CONTACT</h2>
-<h3>お問い合わせ</h3>
-<form>
-<!-- 既存フォームそのまま / メール送信処理は後段で実装想定 -->
-<!-- name, furigana, email, tel, message 等 -->
-<!-- 省略: 既存要素をそのまま利用してください -->
-</form>
-</section>
+<body data-page="contact">
+  <div class="page">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"></span>
+          <span class="logo-text">BRICK WORKS</span>
+        </a>
+        <nav class="nav-links" id="nav-pc">
+          <a href="index.html" data-page="top">TOP</a>
+          <a href="Company.html" data-page="company">COMPANY</a>
+          <a href="Service.html" data-page="service">SERVICE</a>
+          <a href="Recruit.html" data-page="recruit">RECRUIT</a>
+          <a href="Parther.html" data-page="partner">PARTNER</a>
+          <a href="Contact.html" data-page="contact">CONTACT</a>
+        </nav>
+        <a href="Contact.html" class="nav-cta">お問い合わせ</a>
+      </div>
+    </header>
 
+    <main class="page-main">
+      <section class="page-hero">
+        <div class="container">
+          <h1 class="page-title">Contact</h1>
+          <p class="page-lead">
+            案件のご相談、採用についてのご質問など、こちらからお気軽にお問い合わせください。
+          </p>
+        </div>
+      </section>
 
-<section id="Contactinformation">
-<h2>問い合わせ先</h2>
-<p>電話番号: 03-0000-0000<br>mail: info@example.com</p>
-<h2>SES協業に関するお問い合わせ</h2>
-<p>営業部宛： eigyo@example.com / 03-0000-0000</p>
-</section>
-</main>
-<footer>
-<nav id="nav-footer">
-<a href="Company.html">COMPANY</a>
-<a href="Service.html">SERVICE</a>
-<a href="Recruit.html">RECRUIT</a>
-<a href="Parther.html">PARTNER</a>
-<a href="Contact.html">CONTACT</a>
-</nav>
-</footer>
+      <section class="section">
+        <div class="container">
+          <form class="contact-form">
+            <div class="form-row">
+              <label for="name">お名前</label>
+              <input id="name" type="text" name="name" />
+            </div>
+            <div class="form-row">
+              <label for="email">メールアドレス</label>
+              <input id="email" type="email" name="email" />
+            </div>
+            <div class="form-row">
+              <label for="type">お問い合わせ種別</label>
+              <select id="type" name="type">
+                <option>案件のご相談</option>
+                <option>採用について</option>
+                <option>協業・パートナーについて</option>
+                <option>その他</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="message">メッセージ</label>
+              <textarea id="message" name="message" rows="5"></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">送信する（ダミー）</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <small>© 2025 Brick Works Inc. All rights reserved.</small>
+      </div>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>
