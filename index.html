@@ -1,128 +1,171 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <title>ブリックワークス | 現場で勝つSES / 受託開発</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRICK WORKS | 現場で勝つSES・受託開発</title>
+
+  <!-- 共通スタイル -->
   <link rel="stylesheet" href="style.css" />
+  <!-- Serviceページと共通で使うレイアウト（カード・余白など） -->
+  <link rel="stylesheet" href="service.css" />
 </head>
-<body data-page="top">
-  <div class="page">
-    <!-- 共通ヘッダー -->
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href="index.html" class="logo">
-          <span class="logo-mark"></span>
-          <span class="logo-text">BRICK WORKS</span>
-        </a>
-        <nav class="nav-links" id="nav-pc">
-          <a href="index.html" data-page="top">TOP</a>
-          <a href="Company.html" data-page="company">COMPANY</a>
-          <a href="Service.html" data-page="service">SERVICE</a>
-          <a href="Recruit.html" data-page="recruit">RECRUIT</a>
-          <a href="Parther.html" data-page="partner">PARTNER</a>
-          <a href="Contact.html" data-page="contact">CONTACT</a>
-        </nav>
-        <a href="Contact.html" class="nav-cta">案件・採用のご相談</a>
-      </div>
-    </header>
+<body>
+  <!-- 共通ヘッダー -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="site-logo">BRICK WORKS</div>
 
-    <!-- TOP：ヒーロー -->
-    <main class="page-main">
-      <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-left">
-            <p class="eyebrow">現場で勝つ、ブリックワークスのSES / 受託開発</p>
-            <h1 class="hero-title">
-              現場の <span>「困った」</span> を、<br />
-              仕組みと自動化で解決するチーム
-            </h1>
-            <p class="hero-lead">
-              Web/業務システム開発からクラウド運用、監視・自動化まで。<br />
-              小さな改善を素早く回し、<strong>人 × プロセス × 品質</strong>で  
-              サービスの安定運用と変化対応を支えます。
-            </p>
+      <nav class="site-nav">
+        <a href="index.html" class="is-active">TOP</a>
+        <a href="Company.html">COMPANY</a>
+        <a href="Service.html">SERVICE</a>
+        <a href="Recruit.html">RECRUIT</a>
+        <a href="Parther.html">PARTNER</a>
+        <a href="Contact.html">CONTACT</a>
+      </nav>
 
-            <div class="hero-badges">
-              <span class="badge">Web / 業務システム開発</span>
-              <span class="badge">AWS / GCP / SRE運用</span>
-              <span class="badge">Evidence / Runbook / 自動化</span>
+      <a href="Contact.html#inquiry" class="site-header-cta">案件・採用のご相談</a>
+    </div>
+  </header>
+
+  <main class="service-page">
+    <!-- ========= ヒーロー（キャンバス背景付き） ========= -->
+    <section class="hero-with-canvas">
+      <!-- 背景用キャンバス（hero-bg.js がここに描画する） -->
+      <canvas id="heroCanvas"></canvas>
+
+      <!-- 実際のテキスト・カード -->
+      <div class="hero-content">
+        <section class="service-hero section reveal-on-scroll">
+          <div class="service-hero-inner">
+            <div class="service-hero-text">
+              <p class="section-label">現場にちゃんと向き合う SES / ブリックワークス</p>
+              <h1>
+                「任せてよかった」と<br />
+                言われる現場パートナーに。
+              </h1>
+              <p class="lead">
+                ブリックワークスは、基盤運用・監視・Web開発など、<br>
+                「手が足りない」「属人化していて不安」といった現場の課題に対して、<br>
+                受託開発・SES・運用保守/SRE・コンサルティングの4つの事業で向き合うチームです。<br><br>
+                小さな改善と仕組みづくりを地道に積み重ね、<br>
+                お客様のプロダクトが「安心して伸ばしていける状態」になることをゴールとしています。
+              </p>
+
+              <div class="hero-badges">
+                <span>Web/業務システム開発</span>
+                <span>Vue / React / Laravel</span>
+                <span>Linux / Windows Server / JP1</span>
+                <span>SRE・監視設計・Runbook整備</span>
+              </div>
             </div>
 
-            <div class="hero-actions">
-              <a href="Contact.html" class="btn-primary">30分オンライン相談</a>
-              <a href="Service.html" class="btn-secondary">サービスを見る</a>
-            </div>
+            <!-- ここを hero-panel にしてチルト効果対象にする -->
+            <aside class="service-hero-panel hero-panel">
+              <div class="panel-item">
+                <span class="label">平均参画期間</span>
+                <span class="value">2〜3年</span>
+              </div>
+              <div class="panel-item">
+                <span class="label">対応フェーズ</span>
+                <span class="value">要件定義〜運用改善</span>
+              </div>
+              <div class="panel-item">
+                <span class="label">得意領域</span>
+                <span class="value">Web / 業務システム / インフラ</span>
+              </div>
+              <p class="panel-note">
+                「アラートが多くて眠れない」「属人化していて新人が育たない」など、<br>
+                現場のリアルな悩みベースで、一緒に設計・改善していきます。
+              </p>
+            </aside>
           </div>
+        </section>
+      </div>
+    </section>
 
-          <aside class="hero-right card">
-            <div class="hero-metrics">
-              <div class="metric">
-                <span>平均継続期間</span>
-                <strong>2.8年</strong>
-              </div>
-              <div class="metric">
-                <span>案件継続率</span>
-                <strong>92%</strong>
-              </div>
-              <div class="metric">
-                <span>対応レイヤー</span>
-                <strong>App〜Infra</strong>
-              </div>
-            </div>
-            <p class="hero-note">
-              「夜間アラートが多くてつらい」「属人化していて不安」など、  
-              現場のリアルな課題ベースで一緒に設計します。
-            </p>
-            <div class="hero-tags">
-              <span>Vue / React / TypeScript</span>
-              <span>Laravel / Node.js / Python</span>
-              <span>AWS / GCP / Terraform</span>
-              <span>監視・自動化 / Runbook</span>
-            </div>
-          </aside>
-        </div>
-      </section>
+    <!-- ========= ご支援イメージ ========= -->
+    <section class="service-section section reveal-on-scroll">
+      <div class="service-section-head">
+        <h2>ご支援イメージ</h2>
+        <p>
+          単に「1名アサインして終わり」ではなく、<br>
+          現場の課題整理から、設計・実装・運用改善・ドキュメント整備までを一気通貫で支援します。<br>
+          既存ベンダー様や社内メンバーと肩を並べて、同じチームとして伴走するスタイルです。
+        </p>
+      </div>
 
-      <!-- サービス概要サマリ -->
-      <section class="section">
-        <div class="container">
-          <h2 class="section-title">ブリックワークスのサービス</h2>
-          <p class="section-lead">
-            開発・運用・改善を一気通貫で支援します。  
-            SES常駐だけでなく、小さな受託チームからのスタートも可能です。
+      <div class="service-grid">
+        <article class="service-card">
+          <h3>どんな現場を支援しているか</h3>
+          <ul>
+            <li>証券・金融系の基盤運用保守、バッチ運用・監視改善</li>
+            <li>ECサイトや会員制サービスのWebアプリ開発・運用</li>
+            <li>社内業務のExcel/紙ベースをWebシステムに置き換えるプロジェクト</li>
+            <li>オンプレ環境からクラウド(AWS/GCP)への段階的な移行</li>
+            <li>既存システムの保守負債を減らすリファクタリング・自動化対応</li>
+          </ul>
+          <p class="card-example">
+            「今の体制だと回るけど、改善の手が回らない」「現場メンバーが疲弊している」<br>
+            そんな状況を、少しずつ健全化していく役割をイメージしていただけると近いです。
           </p>
+        </article>
 
-          <div class="card-grid">
-            <article class="card">
-              <h3>システム開発 / 受託</h3>
-              <p>Webアプリ・業務システム・APIなどを、小さく早くリリースしていきます。</p>
-            </article>
-            <article class="card">
-              <h3>SES（常駐支援）</h3>
-              <p>既存チームにジョインし、開発〜運用までを現場目線で伴走します。</p>
-            </article>
-            <article class="card">
-              <h3>運用保守 / SRE</h3>
-              <p>監視設計、アラート削減、自動化などで「落ちないサービス」を目指します。</p>
-            </article>
-            <article class="card">
-              <h3>コンサルティング</h3>
-              <p>要件定義〜体制設計まで、技術と現場運用の両側からサポートします。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- 共通フッター -->
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <small>© 2025 Brick Works Inc. All rights reserved.</small>
+        <article class="service-card">
+          <h3>フィットしやすいお客様イメージ</h3>
+          <ul>
+            <li>自社サービス・自社プロダクトを中長期的に育てていきたい企業</li>
+            <li>運用や監視が属人化しており、将来に不安を感じているチーム</li>
+            <li>既存ベンダーとの関係は維持しつつ、第三者の目線も入れたい現場</li>
+            <li>「まずは小さくPoCから始めて、良ければ広げていきたい」というスタンスの会社</li>
+            <li>クラウドやSREに興味はあるが、何から始めるべきか悩んでいる組織</li>
+          </ul>
+          <p class="card-example">
+            まずはオンラインで30分ほど、現状やお困りごとをヒアリングし、<br>
+            「やるべきこと」「やらなくていいこと」を一緒に整理するところからスタートします。
+          </p>
+        </article>
       </div>
-    </footer>
-  </div>
+    </section>
 
-  <script src="main.js"></script>
+    <!-- ========= サービス概要ダイジェスト ========= -->
+    <section class="service-section service-bottom section reveal-on-scroll">
+      <div class="bottom-columns">
+        <div class="bottom-box">
+          <h2>提供している主なサービス</h2>
+          <ul>
+            <li>システム開発 / 受託開発（Web / 業務システム / API連携）</li>
+            <li>SES（常駐支援）による長期的なチームジョイン</li>
+            <li>運用保守 / SRE（監視設計・アラート設計・Runbook整備）</li>
+            <li>技術選定・アーキ設計・運用設計のコンサルティング</li>
+          </ul>
+          <p class="bottom-note">
+            各サービスの詳細は <a href="Service.html">Serviceページ</a> にてより詳しく説明しています。
+          </p>
+        </div>
+
+        <div class="bottom-box">
+          <h2>まずはライトに相談したい方へ</h2>
+          <ul>
+            <li>「相談したいが、まだ具体的な予算やスケジュールが決まっていない」</li>
+            <li>「社内で説明するための、たたき台の提案資料が欲しい」</li>
+            <li>「現状の構成や運用に、第三者としてコメントが欲しい」</li>
+          </ul>
+          <p class="bottom-note">
+            そういったケースでは、1〜2回のミーティングだけのスポット相談もお受けしています。<br>
+            <a href="Contact.html#inquiry">お問い合わせフォーム</a> から、ざっくりとした内容だけでもお送りください。
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="hero-bg.js" defer></script>
+  <script src="scroll-effects.js" defer></script>
+
+  <footer class="site-footer">
+    <p>© 2025 Brick Works Inc. All rights reserved.</p>
+  </footer>
 </body>
 </html>
