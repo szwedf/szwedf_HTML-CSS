@@ -5,12 +5,139 @@
   box-sizing: border-box;
 }
 
+/* ======================================
+   モノトーン寄りの全体トーン調整
+   ====================================== */
+
+/* 背景をほぼグレー系に、うっすらだけブルー */
 body {
+  background: radial-gradient(circle at top, #f5f5f5 0%, #e5e5e5 40%, #e5e7eb 100%);
+  color: #111827;
+}
+
+/* ページの白カード感を少しだけグレー寄せ */
+.page {
+  background: #f9fafb;
+}
+
+/* ヘッダーをフラットな白グレーに */
+.site-header {
+  background: rgba(249, 250, 251, 0.96);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* ナビのリンクもモノトーン寄りに */
+.site-nav a {
+  color: #4b5563;
+}
+
+.site-nav a.is-active,
+.site-nav a:hover {
+  color: #111827;
+  border-bottom-color: #111827;
+}
+
+/* CTA ボタンだけはアクセントとしてブルー維持 */
+.site-header-cta {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #f9fafb;
+}
+
+/* ======================================
+   「こんなお悩み」セクション
+   ====================================== */
+
+.section--problems {
+  padding-top: 80px;
+  padding-bottom: 40px;
+}
+
+.section--problems .section-title {
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+}
+
+.problem-grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* 悩みカード：モノトーンのフラットカード + ふわっと浮く感じ */
+.problem-card {
+  position: relative;
+  padding: 24px 26px 22px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #fcfcfc, #e5e7eb);
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.problem-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #111827, #6b7280);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: -1;
+}
+
+/* hover で少しだけ立体感＋輪郭を締める */
+.problem-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
+  border-color: #9ca3af;
+  background: linear-gradient(145deg, #ffffff, #e5e7eb);
+}
+
+.problem-card:hover::before {
+  opacity: 0.08;
+}
+
+.problem-card h3 {
+  font-size: 1.05rem;
+  margin: 0 0 12px;
+  color: #111827;
+}
+
+.problem-card ul {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: linear-gradient(180deg, #f9fafb 0%, #eef2ff 100%);
-  color: #1f2933;
-  line-height: 1.7;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+  list-style: disc;
+}
+
+.problem-card li + li {
+  margin-top: 4px;
+}
+
+.problem-note {
+  margin-top: 12px;
+  font-size: 0.82rem;
+  color: #6b7280;
+}
+
+
+/* ==== 背景をCSSだけでふわっと動かす版 ==== */
+body {
+  background: radial-gradient(circle at top, #e0f2fe 0, #f9fafb 60%, #ffffff 100%);
+  background-size: 140% 140%;
+  animation: bodyBgMove 24s ease-in-out infinite alternate;
+}
+
+@keyframes bodyBgMove {
+  0%   { background-position: 0% 0%;   }
+  50%  { background-position: 50% 30%; }
+  100% { background-position: 100% 80%; }
 }
 
 .page {
@@ -64,7 +191,7 @@ body {
   width: 26px;
   height: 26px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #2563eb, #22c55e);
+  background: linear-gradient(135deg, #b3c5e8, #1e9cd2);
 }
 
 .logo-text {
@@ -837,11 +964,12 @@ header {
   transition: transform 0.3s ease-out;
   will-change: transform;
 }
+/* anime.js 用のスクロール表示初期状態 */
 .reveal-on-scroll {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 0;
+  transform: translateY(24px);
 }
+
 
 .reveal-on-scroll.is-visible {
   opacity: 1;
@@ -905,4 +1033,200 @@ header {
   .service-hero-panel {
     order: -1; /* カードを上に出したければコメント外す */
   }
+}
+/* ===== TOP 追加セクション共通 ===== */
+
+.section-head {
+  max-width: 880px;
+  margin: 0 auto 32px;
+}
+
+.section-head h2 {
+  font-size: 1.7rem;
+  margin-bottom: 8px;
+}
+
+.section-head p {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+/* 区切り用の軽いグラデーション */
+.section-divider {
+  background: linear-gradient(to bottom, #eef2ff 0, #f9fafb 70%);
+}
+
+.section-alt {
+  background: #f9fafb;
+}
+
+/* ===== ポイント（強み） ===== */
+
+.point-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.point-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px 22px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  font-size: 0.92rem;
+  color: #4b5563;
+}
+
+.point-card h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+/* ===== ベネフィット ===== */
+
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.benefit-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px 20px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+  font-size: 0.92rem;
+  color: #4b5563;
+}
+
+.benefit-card h3 {
+  font-size: 0.98rem;
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+/* ===== 数字で見る会社 ===== */
+
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.data-item {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px 18px;
+  text-align: left;
+  border: 1px solid rgba(148, 163, 184, 0.26);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+}
+
+.data-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.data-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* ===== 参画までの流れ ===== */
+
+.steps-list {
+  list-style: none;
+  counter-reset: step;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  padding: 0;
+}
+
+.steps-list li {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px 20px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+  font-size: 0.92rem;
+  color: #4b5563;
+}
+
+.steps-list h3 {
+  font-size: 0.98rem;
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+/* ===== FAQ ===== */
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px 18px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+  font-size: 0.92rem;
+  color: #4b5563;
+}
+
+.faq-item h3 {
+  font-size: 0.96rem;
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+/* ===== レスポンシブ ===== */
+
+@media (max-width: 1024px) {
+  .point-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .data-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .steps-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .point-grid,
+  .benefit-grid,
+  .data-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-head {
+    margin-bottom: 24px;
+  }
+}
+/* カード系の共通ホバー（フォールバック） */
+.service-card,
+.bottom-box,
+.card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* JS が効かない環境用の軽いホバー */
+.service-card:hover,
+.bottom-box:hover,
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.12);
 }

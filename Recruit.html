@@ -19,7 +19,7 @@
           <span class="logo-text">BRICK WORKS</span>
         </a>
 
-        <!-- リンク構成は元ファイルと同じ -->
+        <!-- 既存のリンク構成はそのまま維持 -->
         <nav class="nav-links" id="nav-pc">
           <a href="index.html">TOP</a>
           <a href="Company.html">COMPANY</a>
@@ -35,22 +35,36 @@
 
     <!-- ===== メイン ===== -->
     <main class="page-main">
-      <!-- 上部：採用ページの導入エリア -->
+      <!-- ▼ 採用ページ導入 -->
       <section class="page-hero page-hero--recruit">
         <div class="section-inner">
-          <p class="page-eyebrow">採用情報</p>
-          <h1 class="page-title">ブリックワークスで、一緒に現場をよくしていく仲間を募集しています。</h1>
+          <p class="page-eyebrow">RECRUIT</p>
+          <h1 class="page-title">
+            ブリックワークスで、<br />
+            「現場をちゃんと良くする」エンジニアになろう。
+          </h1>
           <p class="page-lead">
-            新卒・第二新卒から、インフラ／アプリ開発経験者まで幅広く募集しています。<br />
-            「現場の課題をちゃんと解決したい」「運用だけで終わりたくない」──そんな思いを持った方を歓迎します。
+            運用だけで終わらせず、仕組み化・自動化まで踏み込みたい。<br />
+            そんなエンジニアが、少しずつ裁量を広げていける環境を目指しています。<br />
+            インフラ・アプリ開発どちらのキャリアも歩めるよう、案件と学びの両面からサポートします。
           </p>
+
+          <div class="recruit-hero-points">
+            <span>SES / 受託どちらも現場は「長期目線」</span>
+            <span>インフラ・バックエンド・フロントの横断キャリア</span>
+            <span>勉強会／資格補助でステップアップを後押し</span>
+          </div>
         </div>
       </section>
 
-      <!-- 募集区分のカード -->
+      <!-- ▼ 募集職種カード -->
       <section class="section section--recruit">
         <div class="section-inner">
           <h2 class="section-heading">募集職種</h2>
+          <p class="page-lead">
+            新卒・第二新卒から経験者まで、インフラ運用・Webアプリ開発・クラウド/SRE の各ポジションで募集しています。<br />
+            まずはこれまでのご経験と、今後チャレンジしたいことを教えてください。
+          </p>
 
           <div class="recruit-grid">
             <!-- 新卒・第二新卒 -->
@@ -61,17 +75,29 @@
                 class="recruit-image"
               />
               <div class="recruit-body">
-                <h3>新卒・第二新卒採用</h3>
+                <h3>新卒・第二新卒エンジニア</h3>
                 <p>
-                  IT業界が未経験でも、興味とやる気があれば歓迎です。<br />
-                  まずは基礎的なインフラ運用・開発業務から入り、段階的にスキルを伸ばしていきます。
+                  IT未経験・文系出身も歓迎。まずは運用保守やテストなど、基礎を固めるところからスタートします。<br />
+                  ゆくゆくは Web 開発やクラウド設計にもチャレンジできるよう、段階的な育成カリキュラムを用意しています。
                 </p>
+                <dl class="recruit-meta">
+                  <div>
+                    <dt>主な業務</dt>
+                    <dd>監視・運用保守、手順書に沿ったオペレーション、簡単なスクリプト修正 など</dd>
+                  </div>
+                  <div>
+                    <dt>こんな方に</dt>
+                    <dd>まずは現場で経験を積みたい / 将来は自分で設計できるエンジニアになりたい</dd>
+                  </div>
+                </dl>
                 <ul class="recruit-points">
-                  <li>研修＋OJTでの育成</li>
-                  <li>資格取得のサポート</li>
-                  <li>キャリア面談で中長期の方向性も一緒に設計</li>
+                  <li>基礎研修＋先輩とのOJT</li>
+                  <li>資格受験費用の一部補助（基本情報・LinuC など）</li>
+                  <li>月1回の1on1でキャリア相談</li>
                 </ul>
-                <a href="recruit/Newgraduate.html" class="btn-outline">新卒・第二新卒の募集要項を見る</a>
+                <a href="recruit/Newgraduate.html" class="btn-outline">
+                  新卒・第二新卒の募集要項を見る
+                </a>
               </div>
             </article>
 
@@ -83,15 +109,25 @@
                 class="recruit-image"
               />
               <div class="recruit-body">
-                <h3>キャリア採用（経験者）</h3>
+                <h3>キャリア採用（インフラ / 開発）</h3>
                 <p>
-                  インフラ運用・基盤保守、Webアプリ開発、クラウド運用などの経験を活かして、<br />
-                  エンドユーザーに近い現場で「改善」に取り組みたい方を募集しています。
+                  基盤運用保守、Webアプリ開発、クラウド運用など、何らかの実務経験をお持ちの方向けのポジションです。<br />
+                  「運用から開発にシフトしたい」「クラウド寄りにキャリアを振りたい」といった希望も歓迎します。
                 </p>
+                <dl class="recruit-meta">
+                  <div>
+                    <dt>主な業務</dt>
+                    <dd>インフラ運用・保守、Webアプリ開発、クラウド設計・SRE、技術調査・自動化 など</dd>
+                  </div>
+                  <div>
+                    <dt>想定スキル</dt>
+                    <dd>Linux / Windowsサーバー運用、シェル・バッチ、Vue / Laravel などのいずれかの経験</dd>
+                  </div>
+                </dl>
                 <ul class="recruit-points">
-                  <li>スキルに応じた単価＆還元率を提示</li>
-                  <li>希望に応じた案件選定（インフラ／開発）</li>
-                  <li>ゆくゆくはリードポジションや設計にもチャレンジ可能</li>
+                  <li>希望とスキルに合わせて案件を提案</li>
+                  <li>単価テーブルを開示し、還元率を説明</li>
+                  <li>リーダー・設計ポジションへのチャレンジも可</li>
                 </ul>
                 <a href="recruit/Careerrecruitment.html" class="btn-outline">
                   キャリア採用の募集要項を見る
@@ -102,19 +138,144 @@
         </div>
       </section>
 
-      <!-- メッセージエリア（お好みで調整） -->
-      <section class="section section--message">
+      <!-- ▼ 働き方・環境 -->
+      <section class="section section--environment">
         <div class="section-inner">
-          <h2 class="section-heading">求める人物像</h2>
-          <p class="page-lead">
-            「わからないことをそのままにしない」「現場の課題を自分ごとで考える」。<br />
-            スキルはあとから伸ばせるので、まずはこの姿勢を大事にしています。
-          </p>
-          <ul class="recruit-traits">
-            <li>ログやドキュメントから状況を整理するのが苦にならない方</li>
-            <li>インフラだけ／開発だけでなく、横断的に関わってみたい方</li>
-            <li>エンジニアとして長く食べていける力をつけたい方</li>
-          </ul>
+          <h2 class="section-heading">働き方・環境</h2>
+          <div class="env-grid">
+            <article class="env-item">
+              <h3>案件は「現場の課題ベース」で選定</h3>
+              <p>
+                ただ人を埋めるだけではなく、現場の課題やあなたのキャリアの方向性を踏まえてアサインします。<br />
+                「長くいればいるほど、自分の価値が上がっていく現場」を一緒に選んでいきます。
+              </p>
+            </article>
+            <article class="env-item">
+              <h3>スキルアップ支援</h3>
+              <p>
+                書籍・オンライン講座の補助、資格取得支援、社内勉強会など、インプットの機会を用意しています。<br />
+                気になっている技術テーマがあれば、ミニ勉強会として企画することも歓迎です。
+              </p>
+            </article>
+            <article class="env-item">
+              <h3>リモート／ハイブリッド案件もあり</h3>
+              <p>
+                案件によりますが、リモートワークやハイブリッド勤務のプロジェクトも増えています。<br />
+                働き方の希望も面談時にすり合わせた上で、なるべくマッチした案件をご提案します。
+              </p>
+            </article>
+            <article class="env-item">
+              <h3>キャリア相談の場を用意</h3>
+              <p>
+                定期的な1on1で、今の現場の状況だけでなく「3〜5年後どうなりたいか」まで一緒に整理します。<br />
+                インフラ寄りからWeb開発、SRE・クラウドアーキテクトへのステップも視野に入れています。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ▼ 選考フロー -->
+      <section class="section section--flow">
+        <div class="section-inner">
+          <h2 class="section-heading">選考フロー</h2>
+          <ol class="flow-steps">
+            <li>
+              <h3>1. エントリー</h3>
+              <p>応募フォームまたは各種求人サイトからご応募ください。履歴書・職務経歴書をご提出いただきます。</p>
+            </li>
+            <li>
+              <h3>2. カジュアル面談</h3>
+              <p>オンラインで、これまでのご経験や今後やってみたいことをざっくばらんにお話しします。</p>
+            </li>
+            <li>
+              <h3>3. 面接（1〜2回）</h3>
+              <p>案件担当やエンジニアとの面接で、具体的な業務内容や働き方についてすり合わせを行います。</p>
+            </li>
+            <li>
+              <h3>4. オファー面談</h3>
+              <p>条件面のすり合わせや、入社後のキャリアプランを確認し、双方合意の上で内定となります。</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ▼ メンバーの声（ダミー文言） -->
+      <section class="section section--voice">
+        <div class="section-inner">
+          <h2 class="section-heading">メンバーの声</h2>
+          <div class="voice-grid">
+            <article class="voice-card">
+              <p class="voice-position">インフラエンジニア / 20代後半</p>
+              <p class="voice-text">
+                以前は「監視してアラートを流すだけ」の現場でしたが、今は原因分析や改善提案まで任されるようになりました。<br />
+                小さな改善でもきちんと評価してもらえるので、ログを読むのがだんだん楽しくなってきました。
+              </p>
+            </article>
+            <article class="voice-card">
+              <p class="voice-position">Webエンジニア / 30代前半</p>
+              <p class="voice-text">
+                フロントエンドから入りましたが、今はAPI設計やインフラ構成にも関わっています。<br />
+                SESだからこそ色んな現場を経験できて、その都度キャリア相談に乗ってもらえるのがありがたいです。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ▼ よくある質問 -->
+      <section class="section section--faq">
+        <div class="section-inner">
+          <h2 class="section-heading">よくある質問</h2>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>完全未経験でも応募できますか？</summary>
+              <p>
+                新卒・第二新卒枠については、IT未経験の方も歓迎しています。<br />
+                ただし、「ある程度は自分でも調べる」「学習時間を確保する」という前提を大切にしています。
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>どんな技術スタックの案件が多いですか？</summary>
+              <p>
+                インフラは Linux / Windows サーバー運用、JP1、各種クラウド（AWS / GCP）など。<br />
+                開発は JavaScript / TypeScript、Vue / React、PHP(Laravel) などの Web 系が中心です。
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>残業や働き方について教えてください。</summary>
+              <p>
+                案件や時期によって変動はありますが、平均残業時間は20時間前後です。<br />
+                リモート・ハイブリッド勤務の案件もあり、希望を踏まえてアサインしています。
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>副業や個人開発は可能ですか？</summary>
+              <p>
+                利益相反がない範囲での副業・個人開発は歓迎しています。<br />
+                技術ブログやポートフォリオサイトの作成なども、むしろ応援していきたいと考えています。
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ▼ エントリーCTA -->
+      <section class="section section--cta">
+        <div class="section-inner section-inner--cta">
+          <div>
+            <h2 class="section-heading">まずはカジュアルに話してみませんか？</h2>
+            <p class="page-lead">
+              「今のスキルで応募していいのか不安」「インフラからWebに寄せていきたい」など、ざっくばらんに相談してください。<br />
+              応募前提ではないカジュアル面談も実施しています。
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a href="Contact.html" class="btn-outline">エントリー・お問い合わせはこちら</a>
+          </div>
         </div>
       </section>
     </main>
@@ -136,7 +297,10 @@
     </footer>
   </div>
 
-  <!-- 共通JS -->
-  <script src="main.js"></script>
+  <!-- 共通JS（ナビ現在地ハイライトなど） -->
+ <script src="hero-bg.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="scroll-effects.js"></script>
+
 </body>
 </html>

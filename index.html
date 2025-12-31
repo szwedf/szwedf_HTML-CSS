@@ -29,140 +29,363 @@
     </div>
   </header>
 
-  <main class="service-page">
-    <!-- ========= ヒーロー（キャンバス背景付き） ========= -->
-    <section class="hero-with-canvas">
-      <!-- 背景用キャンバス（hero-bg.js がここに描画する） -->
-      <canvas id="heroCanvas"></canvas>
+ <main class="service-page">
+  <!-- ========= HERO ========= -->
+  <section class="service-hero">
+    <div class="section service-hero-inner">
+      <div class="service-hero-text">
+        <p class="section-label">現場にちゃんと向き合う SES / ブリックワークス</p>
+        <h1>
+          「任せてよかった」と<br />
+          言われる現場パートナーに。
+        </h1>
+        <p class="lead">
+          ブリックワークスは、基盤運用・監視・Web開発を中心に、<br />
+          「手が足りない」「属人化していて不安」といった現場の課題に対して、<br />
+          受託開発・SES・運用保守 / SRE ・コンサルティングの4つの事業で伴走するチームです。<br /><br />
+          小さな改善と仕組みづくりを地道に積み重ね、<br />
+          お客様のプロダクトが「安心して伸ばしていける状態」になることをゴールとしています。
+        </p>
 
-      <!-- 実際のテキスト・カード -->
-      <div class="hero-content">
-        <section class="service-hero section reveal-on-scroll">
-          <div class="service-hero-inner">
-            <div class="service-hero-text">
-              <p class="section-label">現場にちゃんと向き合う SES / ブリックワークス</p>
-              <h1>
-                「任せてよかった」と<br />
-                言われる現場パートナーに。
-              </h1>
-              <p class="lead">
-                ブリックワークスは、基盤運用・監視・Web開発など、<br>
-                「手が足りない」「属人化していて不安」といった現場の課題に対して、<br>
-                受託開発・SES・運用保守/SRE・コンサルティングの4つの事業で向き合うチームです。<br><br>
-                小さな改善と仕組みづくりを地道に積み重ね、<br>
-                お客様のプロダクトが「安心して伸ばしていける状態」になることをゴールとしています。
-              </p>
+        <div class="hero-badges">
+          <span>Web / 業務システム開発</span>
+          <span>Vue / React / Laravel</span>
+          <span>Linux / Windows Server / JP1</span>
+          <span>SRE・監視設計・Runbook整備</span>
+        </div>
 
-              <div class="hero-badges">
-                <span>Web/業務システム開発</span>
-                <span>Vue / React / Laravel</span>
-                <span>Linux / Windows Server / JP1</span>
-                <span>SRE・監視設計・Runbook整備</span>
-              </div>
-            </div>
-
-            <!-- ここを hero-panel にしてチルト効果対象にする -->
-            <aside class="service-hero-panel hero-panel">
-              <div class="panel-item">
-                <span class="label">平均参画期間</span>
-                <span class="value">2〜3年</span>
-              </div>
-              <div class="panel-item">
-                <span class="label">対応フェーズ</span>
-                <span class="value">要件定義〜運用改善</span>
-              </div>
-              <div class="panel-item">
-                <span class="label">得意領域</span>
-                <span class="value">Web / 業務システム / インフラ</span>
-              </div>
-              <p class="panel-note">
-                「アラートが多くて眠れない」「属人化していて新人が育たない」など、<br>
-                現場のリアルな悩みベースで、一緒に設計・改善していきます。
-              </p>
-            </aside>
-          </div>
-        </section>
+        <div class="hero-actions">
+          <a href="Contact.html#inquiry" class="hero-primary-btn">案件・ご相談はこちら</a>
+          <a href="Recruit.html" class="hero-secondary-btn">エンジニア採用情報を見る</a>
+        </div>
       </div>
-    </section>
 
-    <!-- ========= ご支援イメージ ========= -->
-    <section class="service-section section reveal-on-scroll">
+      <aside class="service-hero-panel">
+        <div class="panel-item">
+          <span class="label">平均参画期間</span>
+          <span class="value">2〜3年</span>
+        </div>
+        <div class="panel-item">
+          <span class="label">対応フェーズ</span>
+          <span class="value">要件定義〜運用改善</span>
+        </div>
+        <div class="panel-item">
+          <span class="label">得意領域</span>
+          <span class="value">Web / 業務システム / インフラ</span>
+        </div>
+        <p class="panel-note">
+          「アラートが多くて眠れない」「属人化していて新人が育たない」など、<br />
+          現場のリアルな悩みベースで、一緒に設計・改善していきます。
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ========= ABOUT SES / このサイトは誰のため？ ========= -->
+  <section class="service-section">
+    <div class="section">
       <div class="service-section-head">
-        <h2>ご支援イメージ</h2>
-        <p>
-          単に「1名アサインして終わり」ではなく、<br>
-          現場の課題整理から、設計・実装・運用改善・ドキュメント整備までを一気通貫で支援します。<br>
-          既存ベンダー様や社内メンバーと肩を並べて、同じチームとして伴走するスタイルです。
+        <h2 class="section-title">BRICK WORKS の SES / 受託開発とは</h2>
+        <p class="section-lead">
+          「とりあえず人を入れる」のではなく、課題の言語化から一緒に行い、<br />
+          開発〜運用〜改善サイクルまでを同じチームの一員として支えるスタイルです。
+        </p>
+      </div>
+
+      <div class="two-column">
+        <div class="paragraph">
+          <h3>クライアント企業の皆さまへ</h3>
+          <p>
+            既存ベンダーや社内メンバーと対立するのではなく、<br />
+            一緒に「どうすれば現場が楽になるか」を考えることを大事にしています。<br />
+            手順書・Evidence・Runbook の整備、監視 / アラート設計、開発プロセスの見直しなど、<br />
+            目の前の火消しだけでなく、再発防止まで並走します。
+          </p>
+        </div>
+
+        <div class="paragraph">
+          <h3>エンジニアの皆さんへ</h3>
+          <p>
+            単に「常駐して言われたことだけやる」のではなく、<br />
+            ログの読み方・設計レビュー・ドキュメント整備など、<br />
+            次のキャリアにつながるスキルが自然と身につく現場づくりを目指しています。<br />
+            フロントエンド〜サーバーサイド〜基盤運用まで、フルスタック志向の方も歓迎です。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- こんなお悩みはありませんか？ -->
+<section class="section section--problems" id="problems">
+  <div class="section-inner">
+    <h2 class="section-title">
+      こんなお悩みはありませんか？
+    </h2>
+
+    <div class="problem-grid">
+      <!-- 01: 属人化 -->
+      <article class="problem-card">
+        <h3>運用が属人化していて不安</h3>
+        <ul>
+          <li>特定のメンバーしか分からないバッチやジョブが多い</li>
+          <li>トラブル時の対応フローが人によってバラバラ</li>
+          <li>手順書がなく、現場では「口伝え」で回している</li>
+        </ul>
+      </article>
+
+      <!-- 02: アラート疲れ -->
+      <article class="problem-card">
+        <h3>アラートが多くて疲弊している</h3>
+        <ul>
+          <li>夜間・休日の電話が多く、メンバーが疲れ切っている</li>
+          <li>本当に見るべきアラートとノイズの区別がついていない</li>
+          <li>インシデント後の振り返りが形骸化している</li>
+        </ul>
+      </article>
+
+      <!-- 03: 改善したいが手が回らない -->
+      <article class="problem-card">
+        <h3>改善したいが手が回らない</h3>
+        <ul>
+          <li>「いつかやりたい改善タスク」が山積みになっている</li>
+          <li>ビジネス側の要望に追われ、技術的負債を減らす手が打てない</li>
+          <li>自動化・テスト整備に興味はあるが、どこから始めるべきか分からない</li>
+        </ul>
+      </article>
+
+      <!-- 04: どこから手を付ければいいか分からない（新規） -->
+      <article class="problem-card">
+        <h3>そもそも何から着手すべきか分からない</h3>
+        <ul>
+          <li>システム全体像や依存関係が整理されておらず不安</li>
+          <li>現行ベンダーや社内メンバーに遠慮して、本音を言いづらい</li>
+          <li>「クラウド」「SRE」などキーワードは多いが、自社に合う解き方が分からない</li>
+        </ul>
+        <p class="problem-note">
+          BRICK WORKS では、現状のヒアリングと簡易アセスメントから、<br>
+          「まずここから変えるとインパクトが大きい」という一手を一緒に設計します。
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+  <!-- ========= BRICK WORKS が選ばれる理由 ========= -->
+  <section class="service-section">
+    <div class="section">
+      <div class="service-section-head">
+        <h2 class="section-title">BRICK WORKS が選ばれる 3 つの理由</h2>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <h3>01. 現場視点の課題整理</h3>
+          <p>
+            単に技術だけを見るのではなく、運用フロー・体制・スキルセットなどを含めて現場の「今」を棚卸し。<br />
+            すぐに効く施策と、中長期で取り組むべきテーマを整理したうえで支援内容を提案します。
+          </p>
+        </article>
+
+        <article class="service-card">
+          <h3>02. 開発〜運用をまたぐ経験値</h3>
+          <p>
+            フロントエンド / サーバーサイド / バッチ / インフラ / 監視といったレイヤーをまたいだ経験をベースに、<br />
+            「どこを直せば一番効くのか」を一緒に考えます。単発の火消しではなく、再発防止まで含めた改善が強みです。
+          </p>
+        </article>
+
+        <article class="service-card">
+          <h3>03. ドキュメントと仕組み化までコミット</h3>
+          <p>
+            Evidence・Runbook・手順書・設計資料などを整備し、<br />
+            「人が入れ替わっても回るチーム」をゴールに据えて支援します。<br />
+            将来の内製化も見据えた設計を意識しています。
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= 案件・技術領域のイメージ ========= -->
+  <section class="service-section service-section-alt">
+    <div class="section">
+      <div class="service-section-head">
+        <h2 class="section-title">案件・技術領域のイメージ</h2>
+        <p class="section-lead">
+          Web / 業務システム開発から、オンプレサーバー運用、クラウド移行、監視基盤の整備まで。<br />
+          「アプリもインフラも分かる人」が欲しい現場を中心にご支援しています。
         </p>
       </div>
 
       <div class="service-grid">
         <article class="service-card">
-          <h3>どんな現場を支援しているか</h3>
+          <h3>Web / 業務システム開発</h3>
           <ul>
-            <li>証券・金融系の基盤運用保守、バッチ運用・監視改善</li>
-            <li>ECサイトや会員制サービスのWebアプリ開発・運用</li>
-            <li>社内業務のExcel/紙ベースをWebシステムに置き換えるプロジェクト</li>
-            <li>オンプレ環境からクラウド(AWS/GCP)への段階的な移行</li>
-            <li>既存システムの保守負債を減らすリファクタリング・自動化対応</li>
+            <li>フロントエンド：Vue / React / TypeScript</li>
+            <li>バックエンド：Laravel / Node.js / Python / PHP</li>
+            <li>API 設計・外部サービス連携・バッチ処理設計</li>
+            <li>E2E テスト・自動テスト整備・品質改善</li>
           </ul>
-          <p class="card-example">
-            「今の体制だと回るけど、改善の手が回らない」「現場メンバーが疲弊している」<br>
-            そんな状況を、少しずつ健全化していく役割をイメージしていただけると近いです。
-          </p>
         </article>
 
         <article class="service-card">
-          <h3>フィットしやすいお客様イメージ</h3>
+          <h3>基盤運用・SRE / 監視設計</h3>
           <ul>
-            <li>自社サービス・自社プロダクトを中長期的に育てていきたい企業</li>
-            <li>運用や監視が属人化しており、将来に不安を感じているチーム</li>
-            <li>既存ベンダーとの関係は維持しつつ、第三者の目線も入れたい現場</li>
-            <li>「まずは小さくPoCから始めて、良ければ広げていきたい」というスタンスの会社</li>
-            <li>クラウドやSREに興味はあるが、何から始めるべきか悩んでいる組織</li>
+            <li>Linux / Windows Server / Oracle / JP1</li>
+            <li>AWS / GCP などクラウド基盤の設計・移行</li>
+            <li>監視 / アラート設計、メトリクス可視化</li>
+            <li>運用手順の標準化、Runbook 整備、自動化支援</li>
           </ul>
-          <p class="card-example">
-            まずはオンラインで30分ほど、現状やお困りごとをヒアリングし、<br>
-            「やるべきこと」「やらなくていいこと」を一緒に整理するところからスタートします。
-          </p>
+        </article>
+
+        <article class="service-card">
+          <h3>現場改善・コンサルティング</h3>
+          <ul>
+            <li>運用フロー・体制の見直し、To-Be モデルの設計</li>
+            <li>技術選定・アーキテクチャレビュー</li>
+            <li>ナレッジ共有の仕組みづくり（Confluence / Notion など）</li>
+            <li>教育・オンボーディング資料の整備支援</li>
+          </ul>
         </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ========= サービス概要ダイジェスト ========= -->
-    <section class="service-section service-bottom section reveal-on-scroll">
-      <div class="bottom-columns">
-        <div class="bottom-box">
-          <h2>提供している主なサービス</h2>
+<section class="service-section" id="works">
+  <section class="section reveal-on-scroll">
+    <div class="service-section-head">
+      <p class="section-label">実績紹介</p>
+      <h2>BRICK WORKS が支援してきたプロジェクト例</h2>
+      <p>
+        ここでは、BRICK WORKS が担当してきたプロジェクトを
+        ポートフォリオ用に再構成したサンプルとしてご紹介します。
+      </p>
+    </div>
+
+    <div class="service-grid">
+      <article class="service-card">
+        <h3>サブスクECサイトの新規構築</h3>
+        <p class="card-meta">BtoC / Webアプリ / 受託開発</p>
+        <ul>
+          <li>要件定義〜UIデザイン〜開発〜インフラ構築まで一気通貫で対応</li>
+          <li>リニューアル前と比べてコンバージョン率が約120％に向上</li>
+          <li>定期購入バッチの監視・アラート設計も合わせて実施</li>
+        </ul>
+        <p class="card-tech">
+          使用技術：Vue / Laravel / MySQL / AWS
+        </p>
+      </article>
+
+      <article class="service-card">
+        <h3>基幹バッチシステムのリプレース</h3>
+        <p class="card-meta">金融系 / 基盤運用 / ジョブ管理</p>
+        <ul>
+          <li>既存バッチの棚卸しとジョブネット構成の再設計</li>
+          <li>JP1 + PowerShell による標準化されたバッチ基盤を構築</li>
+          <li>処理時間を最大30％短縮、夜間アラート件数を大幅削減</li>
+        </ul>
+        <p class="card-tech">
+          使用技術：JP1 / Windows Server / PowerShell / ksh
+        </p>
+      </article>
+
+      <article class="service-card">
+        <h3>監視・SRE支援によるアラート削減</h3>
+        <p class="card-meta">自社サービス / 監視設計 / SRE</p>
+        <ul>
+          <li>メトリクスとログ基盤の整理、アラートポリシーの再設計</li>
+          <li>ノイズアラートを削減しつつ、重大インシデントは早期検知</li>
+          <li>月間夜間アラートを約1/3まで削減し、オンコール負荷を軽減</li>
+        </ul>
+        <p class="card-tech">
+          使用技術：Prometheus / Grafana / AWS / Linux
+        </p>
+      </article>
+    </div>
+  </section>
+</section>
+
+  <!-- ========= エンジニア向けメッセージ ========= -->
+  <section class="service-section">
+    <div class="section">
+      <div class="service-section-head">
+        <h2 class="section-title">エンジニアとして働くイメージ</h2>
+        <p class="section-lead">
+          「SES だけどスキルが伸びない」という状況を変えたい人へ。<br />
+          ブリックワークスでは、案件の選び方とチームの入り方にこだわっています。
+        </p>
+      </div>
+
+      <div class="two-column">
+        <div class="paragraph">
+          <h3>案件の選び方</h3>
           <ul>
-            <li>システム開発 / 受託開発（Web / 業務システム / API連携）</li>
-            <li>SES（常駐支援）による長期的なチームジョイン</li>
-            <li>運用保守 / SRE（監視設計・アラート設計・Runbook整備）</li>
-            <li>技術選定・アーキ設計・運用設計のコンサルティング</li>
+            <li>運用だけではなく、設計・改善に関わる余地があるか</li>
+            <li>技術スタックが次のキャリアにつながるか</li>
+            <li>現場メンバーとのコミュニケーションスタイルが合うか</li>
           </ul>
-          <p class="bottom-note">
-            各サービスの詳細は <a href="Service.html">Serviceページ</a> にてより詳しく説明しています。
-          </p>
         </div>
-
-        <div class="bottom-box">
-          <h2>まずはライトに相談したい方へ</h2>
+        <div class="paragraph">
+          <h3>働き方・成長環境</h3>
           <ul>
-            <li>「相談したいが、まだ具体的な予算やスケジュールが決まっていない」</li>
-            <li>「社内で説明するための、たたき台の提案資料が欲しい」</li>
-            <li>「現状の構成や運用に、第三者としてコメントが欲しい」</li>
+            <li>リモート / 出社のバランスは現場に合わせつつ、無理のない働き方を重視</li>
+            <li>定期的な 1on1 で、案件状況やキャリア相談を実施</li>
+            <li>資格取得・勉強会・技術書購入などのインプットもサポート</li>
           </ul>
-          <p class="bottom-note">
-            そういったケースでは、1〜2回のミーティングだけのスポット相談もお受けしています。<br>
-            <a href="Contact.html#inquiry">お問い合わせフォーム</a> から、ざっくりとした内容だけでもお送りください。
-          </p>
         </div>
       </div>
-    </section>
-  </main>
 
-  <script src="hero-bg.js" defer></script>
-  <script src="scroll-effects.js" defer></script>
+      <div class="center-cta">
+        <a href="Recruit.html" class="hero-secondary-btn">採用情報・募集要項を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= ご相談の流れ ========= -->
+  <section class="service-section service-bottom">
+    <div class="section">
+      <div class="service-section-head">
+        <h2 class="section-title">ご相談〜参画までの流れ</h2>
+      </div>
+
+      <ol class="process-list">
+        <li>
+          <strong>01. お問い合わせ</strong>
+          <span>フォームまたはメールより、現状のお困りごとをざっくりお知らせください。</span>
+        </li>
+        <li>
+          <strong>02. ヒアリング</strong>
+          <span>オンラインで 30〜60 分ほど、現場の状況や体制・スケジュール感をお伺いします。</span>
+        </li>
+        <li>
+          <strong>03. ご提案</strong>
+          <span>支援内容・体制・期間・料金イメージをご提示。段階的に始めるプランもご相談可能です。</span>
+        </li>
+        <li>
+          <strong>04. キックオフ</strong>
+          <span>オンボーディング・環境準備・権限付与などを整理し、早期にキャッチアップできる状態を作ります。</span>
+        </li>
+        <li>
+          <strong>05. 定期レビュー</strong>
+          <span>月次・四半期ごとの振り返りで、支援内容の見直しや改善テーマの追加を行います。</span>
+        </li>
+      </ol>
+
+      <p class="bottom-note">
+        「まずは相談だけしてみたい」という段階でも構いません。<br />
+        <a href="Contact.html#inquiry">お問い合わせページ</a> から、お気軽にご連絡ください。
+      </p>
+    </div>
+  </section>
+</main>
+
+
+<!-- hero-bg.js の読み込みもコメントアウト -->
+<script src="hero-bg.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="scroll-effects.js"></script>
 
   <footer class="site-footer">
     <p>© 2025 Brick Works Inc. All rights reserved.</p>

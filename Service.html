@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <title>ブリックワークス | 事業内容</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="service.css">
 </head>
 <body data-page="service">
   <div class="page">
@@ -26,39 +26,114 @@
       </div>
     </header>
 
-    <main class="page-main">
-      <section class="page-hero">
-        <div class="container">
-          <h1 class="page-title">Service</h1>
-          <p class="page-lead">
-            ブリックワークスは4つの事業を軸に展開しています。  
-            変化の速い社会に対し、最適かつ安定したサービス提供を通じて  
-            お客様の課題解決にコミットします。
-          </p>
-        </div>
-      </section>
+    <main class="service-main">
+  <section class="service-hero">
+    <div class="service-inner">
+      <h1>Service</h1>
+      <p class="service-lead">
+        ブリックワークスは、現場の「手が足りない」「属人化していて不安」を解消するために、<br>
+        受託開発・SES（常駐支援）・運用保守/SRE・コンサルティングの4つの事業を展開しています。<br>
+        単に人をアサインするのではなく、課題の整理から設計・実装・運用改善までを一気通貫で支援し、<br>
+        お客様のプロダクトが「安心して伸ばせる状態」になることをゴールとしています。
+      </p>
 
-      <section class="section">
-        <div class="container card-grid">
-          <article class="card">
-            <h2>システム開発 / 受託</h2>
-            <p>Web / 業務システム、API、E2Eテスト自動化まで一気通貫で対応します。</p>
-          </article>
-          <article class="card">
-            <h2>SES（常駐支援）</h2>
-            <p>既存チームにジョインし、開発〜運用まで「現場で動ける」エンジニアを提供します。</p>
-          </article>
-          <article class="card">
-            <h2>運用保守 / SRE</h2>
-            <p>監視・アラート設計、Evidence整備、Runbook作成、自動化などで安定稼働を実現します。</p>
-          </article>
-          <article class="card">
-            <h2>コンサルティング</h2>
-            <p>要件定義、品質改善、開発プロセス整備など、技術と運用の両側から支援します。</p>
-          </article>
-        </div>
-      </section>
-    </main>
+      <p class="service-sublead">
+        特に、Web/業務システムの<strong>受託開発</strong>に強みを持ち、<br>
+        要件定義〜UI/UX設計〜フロント/バックエンド実装〜テスト自動化〜クラウドインフラ構築までを<br>
+        自社チームで完結できる体制を整えています。
+      </p>
+    </div>
+  </section>
+
+  <section class="service-section">
+    <div class="service-inner service-grid">
+
+      <!-- システム開発 / 受託 -->
+      <article class="service-card">
+        <h2>システム開発 / 受託</h2>
+        <p class="service-card-lead">
+          Web / 業務システム、API連携、E2Eテスト自動化まで、<br>
+          お客様のビジネスに合わせたシステムをフルスクラッチで開発します。
+        </p>
+        <ul class="service-list">
+          <li>要件ヒアリング・現状業務フローの棚卸し、課題の言語化</li>
+          <li>画面遷移図・ワイヤーフレーム・UIデザインの作成</li>
+          <li>フロントエンド（Vue / React）・バックエンド（Laravel / Node.js / Python）の実装</li>
+          <li>REST / GraphQL API設計、外部SaaSや既存システムとの連携</li>
+          <li>自動テスト・E2Eテスト・コードレビューによる品質担保</li>
+          <li>AWS / GCP 上でのインフラ設計・CI/CD パイプライン構築</li>
+        </ul>
+        <p class="service-card-note">
+          例）社内業務のExcel管理をWebシステムに置き換えたい、<br>
+          顧客向けの予約・会員・マイページシステムをゼロから作りたい、<br>
+          既存PHPシステムをモダンな構成にリプレイスしたい、といったご相談が多い領域です。
+        </p>
+      </article>
+
+      <!-- SES（常駐支援） -->
+      <article class="service-card">
+        <h2>SES（常駐支援）</h2>
+        <p class="service-card-lead">
+          既存チームにジョインし、「現場で一緒に手を動かす」エンジニアを提供します。<br>
+          開発〜運用保守まで、長期的な伴走を前提とした支援スタイルです。
+        </p>
+        <ul class="service-list">
+          <li>フロントエンド / バックエンドエンジニアとしての機能追加・改修作業</li>
+          <li>要件定義〜設計会議への参加、技術的な打ち返し・見積もり支援</li>
+          <li>運用チームと連携した障害調査・ログ解析・恒久対策の検討</li>
+          <li>ドキュメント整備、ナレッジ共有の仕組み化（Confluence / Notion など）</li>
+          <li>内製化に向けたオンボーディング・教育・開発プロセス改善の提案</li>
+        </ul>
+        <p class="service-card-note">
+          単なる「人月の補填」ではなく、現場のボトルネックを一緒に特定し、<br>
+          中長期的にチームの生産性が上がる状態を目指します。
+        </p>
+      </article>
+
+      <!-- 運用保守 / SRE -->
+      <article class="service-card">
+        <h2>運用保守 / SRE</h2>
+        <p class="service-card-lead">
+          監視・アラート設計から Evidence 整備、Runbook作成、自動化までをトータルで支援。<br>
+          「落ちない」「夜に鳴らない」システム運用を一緒につくります。
+        </p>
+        <ul class="service-list">
+          <li>監視項目・しきい値・アラートルールの設計（Zabbix / CloudWatch 等）</li>
+          <li>障害対応フロー / エスカレーションルールの整理と可視化</li>
+          <li>Evidence・Runbook・手順書の整備と定期的なメンテナンス</li>
+          <li>バッチ処理・運用作業の自動化（スクリプト化 / ジョブ管理ツール連携）</li>
+          <li>SLO / エラーバジェットの設計、運用コストを意識した改善提案</li>
+        </ul>
+        <p class="service-card-note">
+          「夜間アラートが多くてつらい」「誰か一人に運用が依存している」など、<br>
+          現場のリアルな悩みベースで、設計〜運用ルールの整備まで並走します。
+        </p>
+      </article>
+
+      <!-- コンサルティング -->
+      <article class="service-card">
+        <h2>コンサルティング</h2>
+        <p class="service-card-lead">
+          要件定義・品質改善・開発プロセスの見直しなど、<br>
+          「どこから手を付ければいいかわからない」状態から並走するライトな技術顧問プランです。
+        </p>
+        <ul class="service-list">
+          <li>現状システム・運用フローの棚卸しと課題整理ワークショップ</li>
+          <li>技術選定、アーキテクチャのレビュー、リプレイス計画の検討</li>
+          <li>レビュー文化・テスト文化を根付かせるための仕組みづくり支援</li>
+          <li>若手〜中堅エンジニア向けのメンタリング・勉強会の実施</li>
+          <li>経営層・非エンジニア向けの「技術とビジネスをつなぐ」説明サポート</li>
+        </ul>
+        <p class="service-card-note">
+          まずは月数時間からスタートし、<br>
+          「受託開発 or SES だけでは届きにくい、上流のモヤモヤ」を一緒に整理していきます。
+        </p>
+      </article>
+
+    </div>
+  </section>
+</main>
+
 
     <footer class="site-footer">
       <div class="container footer-inner">
@@ -67,6 +142,9 @@
     </footer>
   </div>
 
-  <script src="main.js"></script>
+<script src="hero-bg.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="scroll-effects.js"></script>
+
 </body>
 </html>
