@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ご予約内容確認 | HOTEL AURELIA TOKYO</title>
+  <link rel="stylesheet" href="hotelstyle.css">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><a href="top.html">HOTEL AURELIA TOKYO</a></div>
+      <a class="reserve" href="top.html#booking">空室検索へ</a>
+    </div>
+  </header>
+
+  <main class="container" style="padding:28px 0">
+    <div class="breadcrumbs">
+      <a href="top.html#booking">空室検索</a><span>›</span><span>予約内容確認</span>
+    </div>
+
+    <h1 style="font-family:'Noto Serif JP',serif;margin:6px 0 18px">予約内容確認</h1>
+
+    <section class="detail-layout">
+      <!-- 左：部屋の詳細 -->
+      <div class="detail-main">
+        <div class="card" id="roomCard" style="overflow:hidden">
+          <img id="roomImg" src="" alt="" style="height:320px;object-fit:cover">
+          <div class="body">
+            <h2 id="roomName" style="margin:0 0 6px">読み込み中…</h2>
+            <p id="roomMeta" class="lead" style="margin:0"> </p>
+          </div>
+        </div>
+
+        <section class="section" style="padding:18px 0">
+          <h2 style="margin:0 0 10px">お客様情報</h2>
+          <form id="bookingForm" class="card" style="padding:16px">
+            <input type="hidden" name="room_id" id="room_id">
+            <input type="hidden" name="checkin" id="checkin">
+            <input type="hidden" name="checkout" id="checkout">
+            <input type="hidden" name="guests" id="guests">
+            <input type="hidden" name="total_price" id="total_price">
+
+            <label style="display:block;margin-bottom:10px;color:var(--muted)">
+              お名前
+              <input name="guest_name" required style="width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper)">
+            </label>
+
+            <label style="display:block;margin-bottom:10px;color:var(--muted)">
+              メール（任意）
+              <input name="guest_email" type="email" style="width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper)">
+            </label>
+
+            <label style="display:block;margin-bottom:12px;color:var(--muted)">
+              備考（任意）
+              <textarea name="note" rows="3" style="width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper)"></textarea>
+            </label>
+
+            <button class="btn gold" type="submit">この内容で予約確定</button>
+            <p id="msg" class="lead" style="margin:10px 0 0"></p>
+          </form>
+        </section>
+      </div>
+
+      <!-- 右：じゃらんっぽい「予約サマリ」 -->
+      <aside class="sticky-box">
+        <div class="price-box">
+          <div class="price-row">
+            <strong>宿泊料金</strong>
+            <strong class="price" id="priceView">—</strong>
+          </div>
+          <ul class="mini" id="summary"></ul>
+        </div>
+        <div class="info-box">
+          <strong>キャンセルポリシー</strong>
+          <p class="note" style="margin:8px 0 0">学習用デモのため簡易表示です。</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    // === API（相対パス推奨） ===
+    const ROOM_API   = '/hotel-admin/api/room.php';
+    const CREATE_API = '/hotel-admin/api/reservation_create.php';
+
+    // URLパラメータ取得
+    const qs = new URLSearchParams(location.search);
+    const roomId = qs.get('roomId');
+    const checkin = qs.get('checkin');
+    const checkout = qs.get('checkout');
+    const guests = qs.get('guests');
+
+    // hiddenへ
+    document.getElementById('room_id').value = roomId || '';
+    document.getElementById('checkin').value = checkin || '';
+    document.getElementById('checkout').value = checkout || '';
+    document.getElementById('guests').value = guests || '1';
+
+    // 宿泊日数
+    function nights(ci, co){
+      const a = new Date(ci), b = new Date(co);
+      return Math.max(1, Math.round((b-a)/86400000));
+    }
+
+    // 部屋詳細取得して表示
+    (async () => {
+      if (!roomId || !checkin || !checkout) {
+        document.getElementById('roomName').textContent = 'URLパラメータが不足しています（top.htmlから遷移してください）';
+        return;
+      }
+      const res = await fetch(`${ROOM_API}?id=${encodeURIComponent(roomId)}`);
+      const room = await res.json();
+
+      const n = nights(checkin, checkout);
+      const total = Number(room.price) * n;
+
+      document.getElementById('roomImg').src = room.image || '';
+      document.getElementById('roomImg').alt = room.name || '';
+      document.getElementById('roomName').textContent = room.name || room.type || 'ROOM';
+      document.getElementById('roomMeta').textContent = `定員 ${room.capacity} ・ ¥${Number(room.price).toLocaleString()} / 泊`;
+
+      document.getElementById('priceView').textContent = `¥${total.toLocaleString()}`;
+      document.getElementById('summary').innerHTML = `
+        <li>チェックイン：${checkin}</li>
+        <li>チェックアウト：${checkout}</li>
+        <li>泊数：${n} 泊</li>
+        <li>人数：${guests} 名</li>
+      `;
+
+      document.getElementById('total_price').value = String(total);
+    })();
+
+    // 予約確定（INSERT）
+    document.getElementById('bookingForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.currentTarget;
+      const fd = new FormData(form);
+
+      const msg = document.getElementById('msg');
+      msg.textContent = '送信中…';
+
+      try {
+        const res = await fetch(CREATE_API, { method:'POST', body: fd });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || '予約に失敗しました');
+
+        msg.textContent = `予約完了！ 予約ID: ${data.reservation_id}`;
+        // 任意：完了ページへ
+        // location.href = `complete.html?id=${data.reservation_id}`;
+      } catch (err) {
+        console.error(err);
+        msg.textContent = '予約に失敗（サーバ/通信エラー）';
+      }
+    });
+  </script>
+</body>
+</html>
