@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Café Lumière | ギャラリー</title>
+  <link rel="stylesheet" href="page.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+</head>
+<body>
+<div id="app">
+  <header class="sub-hero" style="background-image:url('images/hero_gallery.jpg')">
+    <h1>Gallery</h1>
+    <p>店内・料理の雰囲気</p>
+  </header>
+
+  <main class="container">
+    <div class="grid gallery">
+      <figure v-for="img in images" :key="img.src" @click="open(img)">
+        <img :src="img.src" :alt="img.alt" loading="lazy">
+        <figcaption>{{ img.cap }}</figcaption>
+      </figure>
+    </div>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" v-if="viewer" @click.self="viewer=null">
+    <img :src="viewer.src" :alt="viewer.alt">
+    <button class="close" @click="viewer=null">×</button>
+  </div>
+</div>
+<script>
+new Vue({
+  el:'#app',
+  data:{
+    viewer:null,
+    images:[
+      {src:'images/gallery_01.jpg', alt:'Counter', cap:'カウンター'},
+      {src:'images/gallery_02.jpg', alt:'Latte',   cap:'ラテアート'},
+      {src:'images/gallery_03.jpg', alt:'Dessert', cap:'季節のデザート'},
+      {src:'images/gallery_04.jpg', alt:'Beans',   cap:'自家焙煎豆'},
+    ]
+  },
+  methods:{ open(img){ this.viewer=img; } }
+});
+</script>
+</body>
+</html>

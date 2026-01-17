@@ -1,0 +1,494 @@
+// menu-data.js
+window.MENU_DATA = {
+  breakfast: [
+    {
+      name: { jp: "たまごサンドウィッチ", en: "Egg Sandwich" },
+      price: 780,
+      description: {
+        jp: "ふわふわ卵をたっぷりサンド。",
+        en: "Fluffy egg filling.",
+      },
+    },
+    {
+      name: { jp: "ハムサンド", en: "Ham Sandwich" },
+      price: 820,
+      description: { jp: "バター香る食パンで。", en: "Buttery toast." },
+    },
+    {
+      name: { jp: "オムレツ", en: "Omelette" },
+      price: 890,
+      description: {
+        jp: "チーズ入り/プレーン選べます。",
+        en: "Cheese or plain.",
+      },
+    },
+    {
+      name: { jp: "シナモンロール", en: "Cinnamon Roll" },
+      price: 680,
+      description: { jp: "焼きたてをどうぞ。", en: "Freshly baked." },
+    },
+  ],
+  lunch: [
+    {
+      name: {
+        jp: "松阪牛100%ハンバーグ",
+        en: "Matsusaka Beef 100% Hamburger Steak",
+      },
+      price: 1680,
+      description: {
+        jp: "松阪牛100%使用。赤ワインソース。",
+        en: "100% Matsusaka beef with red-wine sauce.",
+      },
+    },
+    {
+      name: { jp: "ボロネーゼ", en: "Bolognese" },
+      price: 1280,
+      description: { jp: "濃厚ミートソース。", en: "Rich meat sauce." },
+    },
+    {
+      name: { jp: "カルボナーラ", en: "Carbonara" },
+      price: 1260,
+      description: { jp: "パンチェッタと卵のコク。", en: "Pancetta & egg." },
+    },
+    {
+      name: { jp: "ペペロンチーノ", en: "Aglio e Olio Peperoncino" },
+      price: 1100,
+      description: { jp: "ガーリック＆唐辛子。", en: "Garlic & chili." },
+    },
+    {
+      name: { jp: "トマトとモッツァレラ", en: "Tomato & Mozzarella" },
+      price: 1220,
+      description: {
+        jp: "バジル香るトマトソース。",
+        en: "Tomato sauce with basil.",
+      },
+    },
+  ],
+  dinner: [
+    {
+      name: {
+        jp: "松阪牛100%ハンバーグ",
+        en: "Matsusaka Beef 100% Hamburger Steak",
+      },
+      price: 1880,
+      description: {
+        jp: "松阪牛100%使用。グレイビーソース。",
+        en: "100% Matsusaka beef with gravy.",
+      },
+    },
+    {
+      name: { jp: "ボロネーゼ", en: "Bolognese" },
+      price: 1380,
+      description: {
+        jp: "ランチより少しリッチに。",
+        en: "A richer dinner portion.",
+      },
+    },
+    {
+      name: { jp: "カルボナーラ", en: "Carbonara" },
+      price: 1360,
+      description: { jp: "濃厚ソース。", en: "Creamy sauce." },
+    },
+    {
+      name: { jp: "ペペロンチーノ", en: "Aglio e Olio Peperoncino" },
+      price: 1180,
+      description: { jp: "辛さ調整可。", en: "Adjustable heat." },
+    },
+    {
+      name: { jp: "トマトとモッツァレラ", en: "Tomato & Mozzarella" },
+      price: 1320,
+      description: { jp: "フレッシュバジル。", en: "Fresh basil." },
+    },
+  ],
+  desserts: [
+    {
+      name: { jp: "バターミルクパンケーキ", en: "Buttermilk Pancakes" },
+      price: 980,
+      description: { jp: "メープル＆バター。", en: "Maple & butter." },
+    },
+    {
+      name: { jp: "NYチーズケーキ", en: "NY Cheesecake" },
+      price: 780,
+      description: { jp: "濃厚クリームチーズ。", en: "Rich and creamy." },
+    },
+    {
+      name: { jp: "チョコレートスフレケーキ", en: "Chocolate Soufflé Cake" },
+      price: 820,
+      description: { jp: "しっとり濃厚。", en: "Dark & moist." },
+    },
+    {
+      name: { jp: "クレームブリュレ", en: "Crème Brûlée" },
+      price: 760,
+      description: { jp: "パリッと飴化。", en: "Caramelized top." },
+    },
+    {
+      name: { jp: "アイス（バニラ）", en: "Vanilla Ice Cream" },
+      price: 480,
+      description: { jp: "シングル。", en: "Single scoop." },
+    },
+    {
+      name: { jp: "チョコアイス", en: "Chocolate Ice Cream" },
+      price: 480,
+      description: { jp: "シングル。", en: "Single scoop." },
+    },
+    {
+      name: { jp: "パフェ", en: "Parfait" },
+      price: 900,
+      description: { jp: "季節のフルーツ。", en: "Seasonal fruits." },
+    },
+    {
+      name: { jp: "プリン", en: "Custard Pudding" },
+      price: 580,
+      description: { jp: "昔ながらの固め。", en: "Classic firm pudding." },
+    },
+  ],
+  sides: [
+    {
+      name: { jp: "フレンチフライ", en: "French Fries" },
+      price: 580,
+      description: { jp: "ハーブソルト。", en: "Herb salt." },
+    },
+    {
+      name: { jp: "スモークベーコン", en: "Smoked Bacon" },
+      price: 520,
+      description: { jp: "厚切り。", en: "Thick cut." },
+    },
+    {
+      name: { jp: "ウインナー", en: "Sausages" },
+      price: 520,
+      description: { jp: "粒マスタード。", en: "With mustard." },
+    },
+    {
+      name: { jp: "ホイップクリーム", en: "Whipped Cream" },
+      price: 200,
+      description: { jp: "トッピング用。", en: "Topping." },
+    },
+  ],
+  drinks_sections: [
+    {
+      section: "Beer",
+      items: [
+        {
+          name: {
+            jp: "KIRIN プレミアム（ドラフト）",
+            en: "KIRIN PREMIUM (Draft)",
+          },
+          price: 950,
+          description: { jp: "香り高いホップ。", en: "Aromatic hops." },
+        },
+        {
+          name: { jp: "HEARTLAND（ボトル）", en: "HEARTLAND (Bottle)" },
+          price: 950,
+          description: { jp: "クリーンで爽快。", en: "Clean & crisp." },
+        },
+        {
+          name: { jp: "ノンアルコールビール", en: "Non-Alcohol Beer" },
+          price: 810,
+          description: { jp: "すっきり後味。", en: "Light finish." },
+        },
+      ],
+    },
+    {
+      section: "Cocktails",
+      items: [
+        {
+          name: { jp: "クラシックハイボール", en: "Classic Highball" },
+          price: 950,
+          description: { jp: "ウイスキー&ソーダ。", en: "Whisky & soda." },
+        },
+        {
+          name: { jp: "ジントニック", en: "Gin & Tonic" },
+          price: 950,
+          description: { jp: "ジン&トニック。", en: "Gin & tonic." },
+        },
+        {
+          name: { jp: "アペロールスプリッツ", en: "Aperol Spritz" },
+          price: 950,
+          description: {
+            jp: "アペロール/白ワイン/ソーダ。",
+            en: "Aperol/white wine/soda.",
+          },
+        },
+        {
+          name: { jp: "グレープフルーツ・パロマ", en: "Grapefruit Paloma" },
+          price: 1100,
+          description: {
+            jp: "GFジュース/テキーラ/ライム/ソーダ。",
+            en: "Grapefruit, tequila, lime, soda.",
+          },
+        },
+        {
+          name: { jp: "ペアーコリンズ", en: "Pear Collins" },
+          price: 1100,
+          description: {
+            jp: "洋梨ピューレ/ジン/トニック/レモン。",
+            en: "Pear purée, gin, tonic, lemon.",
+          },
+        },
+        {
+          name: { jp: "クランベリーホリデー", en: "Cranberry Holiday" },
+          price: 1100,
+          description: {
+            jp: "クランベリー/ウォッカ/ライム。",
+            en: "Cranberry, vodka, lime.",
+          },
+        },
+        {
+          name: { jp: "クラシックミモザ", en: "Classic Mimosa" },
+          price: 990,
+          description: {
+            jp: "オレンジ×スパークリング。",
+            en: "Orange & sparkling.",
+          },
+        },
+        {
+          name: { jp: "クラシックベリーニ", en: "Classic Bellini" },
+          price: 990,
+          description: {
+            jp: "ピーチ×スパークリング。",
+            en: "Peach & sparkling.",
+          },
+        },
+        {
+          name: { jp: "フォーフラワーミモザ", en: "Four-Flower Mimosa" },
+          price: 990,
+          description: {
+            jp: "4種ジュース×スパークリング。",
+            en: "Four-juice & sparkling.",
+          },
+        },
+        {
+          name: { jp: "ブランチパンチ", en: "Brunch Punch" },
+          price: 1100,
+          description: {
+            jp: "OJ/パイン/ウォッカ/スパークリング/ジンジャー/果実。",
+            en: "OJ, pineapple, vodka, sparkling, ginger ale, fruits.",
+          },
+        },
+        {
+          name: { jp: "ブラッディメアリー", en: "Bloody Mary" },
+          price: 1100,
+          description: {
+            jp: "トマト/ウォッカ/レモン/スパイス。",
+            en: "Tomato, vodka, lemon, spices.",
+          },
+        },
+      ],
+    },
+    {
+      section: "Wine",
+      items: [
+        {
+          name: {
+            jp: "ハウス スパークリング（グラス）",
+            en: "House Sparkling (Glass)",
+          },
+          price: 990,
+          description: { jp: "Spain", en: "Spain" },
+        },
+        {
+          name: {
+            jp: "ハウス スパークリング（ボトル）",
+            en: "House Sparkling (Bottle)",
+          },
+          price: 4800,
+          description: { jp: "Spain", en: "Spain" },
+        },
+        {
+          name: { jp: "ノンアル スパークリング", en: "Non-Alcohol Sparkling" },
+          price: 810,
+          description: { jp: "-", en: "-" },
+        },
+        {
+          name: { jp: "サングリア", en: "Sangria" },
+          price: 990,
+          description: { jp: "季節果実。", en: "Seasonal fruits." },
+        },
+        {
+          name: { jp: "ハウスワイン 白（グラス）", en: "House White (Glass)" },
+          price: 990,
+          description: { jp: "Chile", en: "Chile" },
+        },
+        {
+          name: { jp: "ハウスワイン 白（ボトル）", en: "House White (Bottle)" },
+          price: 4800,
+          description: { jp: "Chile", en: "Chile" },
+        },
+        {
+          name: {
+            jp: "ルーツ ソーヴィニヨンブラン（ボトル）",
+            en: "Roots Sauvignon Blanc (Bottle)",
+          },
+          price: 5200,
+          description: { jp: "California", en: "California" },
+        },
+        {
+          name: {
+            jp: "ストラタム ピノグリ（ボトル）",
+            en: "Stratum Pinot Gris (Bottle)",
+          },
+          price: 6200,
+          description: { jp: "Australia", en: "Australia" },
+        },
+        {
+          name: { jp: "ハウスワイン 赤（グラス）", en: "House Red (Glass)" },
+          price: 990,
+          description: { jp: "Chile", en: "Chile" },
+        },
+        {
+          name: { jp: "ハウスワイン 赤（ボトル）", en: "House Red (Bottle)" },
+          price: 4800,
+          description: { jp: "Chile", en: "Chile" },
+        },
+        {
+          name: {
+            jp: "ランチ32 カベルネ（ボトル）",
+            en: "Ranch 32 Cabernet (Bottle)",
+          },
+          price: 5200,
+          description: { jp: "California", en: "California" },
+        },
+        {
+          name: {
+            jp: "チブレオ サンジョベーゼ（ボトル）",
+            en: "Cibreo Sangiovese (Bottle)",
+          },
+          price: 6500,
+          description: { jp: "Italy", en: "Italy" },
+        },
+      ],
+    },
+    {
+      section: "Soft / Coffee / Tea",
+      items: [
+        {
+          name: { jp: "フォーフラワージュース", en: "Four Flowers Juice" },
+          price: 810,
+          description: {
+            jp: "オレンジ/パイン/バナナ/グレナデン",
+            en: "Orange, pineapple, banana, grenadine",
+          },
+        },
+        {
+          name: { jp: "オレンジジュレップ", en: "Orange Julep" },
+          price: 810,
+          description: {
+            jp: "オレンジ/ミルク/はちみつ/バニラ",
+            en: "Orange, milk, honey, vanilla",
+          },
+        },
+        {
+          name: {
+            jp: "レモネード（ホット/アイス）",
+            en: "Lemonade (Hot/Iced)",
+          },
+          price: 810,
+          description: { jp: "", en: "" },
+        },
+        {
+          name: {
+            jp: "チョコレートドリンク（ホット/アイス）",
+            en: "Chocolate Drink (Hot/Iced)",
+          },
+          price: 810,
+          description: { jp: "", en: "" },
+        },
+        {
+          name: { jp: "コカ・コーラ ゼロ", en: "Coca Cola Zero" },
+          price: 740,
+          description: { jp: "", en: "" },
+        },
+        {
+          name: { jp: "ジンジャーエール", en: "Ginger Ale" },
+          price: 740,
+          description: { jp: "", en: "" },
+        },
+        {
+          name: { jp: "アップルタイザー", en: "Appletiser" },
+          price: 810,
+          description: { jp: "", en: "" },
+        },
+        {
+          name: {
+            jp: "ミネラルウォーター（スティル/スパークリング）",
+            en: "Mineral Water (Still/Sparkling)",
+          },
+          price: 810,
+          description: { jp: "", en: "" },
+        },
+        {
+          name: { jp: "コーヒー（ホット/アイス）", en: "Coffee (Hot/Iced)" },
+          price: 770,
+          description: { jp: "NOGブレンド", en: "NOG blend" },
+        },
+        {
+          name: { jp: "エスプレッソ", en: "Espresso" },
+          price: 770,
+          description: { jp: "", en: "" },
+        },
+        {
+          name: { jp: "アメリカーノ", en: "Americano" },
+          price: 880,
+          description: { jp: "", en: "" },
+        },
+        {
+          name: {
+            jp: "カフェラテ（ホット/アイス）",
+            en: "Caffè Latte (Hot/Iced)",
+          },
+          price: 880,
+          description: { jp: "※オーツミルク +110", en: "Oat milk +110" },
+        },
+        {
+          name: {
+            jp: "カフェモカ（ホット/アイス）",
+            en: "Caffè Mocha (Hot/Iced)",
+          },
+          price: 990,
+          description: { jp: "", en: "" },
+        },
+        {
+          name: { jp: "ダージリン", en: "Darjeeling" },
+          price: 880,
+          description: { jp: "Harney & Sons", en: "Harney & Sons" },
+        },
+        {
+          name: {
+            jp: "アイスティー（アールグレイ）",
+            en: "Iced Tea (Earl Grey)",
+          },
+          price: 880,
+          description: { jp: "", en: "" },
+        },
+        {
+          name: { jp: "アールグレイ", en: "Earl Grey" },
+          price: 880,
+          description: { jp: "", en: "" },
+        },
+        {
+          name: {
+            jp: "イングリッシュブレックファスト",
+            en: "English Breakfast",
+          },
+          price: 880,
+          description: { jp: "", en: "" },
+        },
+        {
+          name: { jp: "ホットシナモン", en: "Hot Cinnamon" },
+          price: 880,
+          description: { jp: "", en: "" },
+        },
+        {
+          name: { jp: "シーズナルティー", en: "Seasonal Tea" },
+          price: 880,
+          description: { jp: "", en: "" },
+        },
+        {
+          name: { jp: "ノンカフェインティー", en: "Caffeine-Free Tea" },
+          price: 880,
+          description: { jp: "", en: "" },
+        },
+      ],
+    },
+  ],
+};

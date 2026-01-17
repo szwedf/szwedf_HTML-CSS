@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Café Lumière | 予約</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="page.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+</head>
+<body>
+<div id="app">
+  <header class="sub-hero" style="background-image:url('images/cafe.jpg')">
+    <h1>Reservation</h1>
+    <p>{{ lang==='jp' ? 'ご予約はこちらから' : 'Book your table here' }}</p>
+  </header>
+
+  <main class="container">
+    <form class="form-card" @submit.prevent="submit">
+      <div class="row">
+        <label>日付</label>
+        <input type="date" v-model="form.date" required>
+      </div>
+      <div class="row two">
+        <div>
+          <label>時間</label>
+          <select v-model="form.time" required>
+            <option value="" disabled>時間を選択</option>
+            <option v-for="t in times" :key="t" :value="t">{{ t }}</option>
+          </select>
+        </div>
+        <div>
+          <label>人数</label>
+          <input type="number" min="1" max="8" v-model.number="form.people" required>
+        </div>
+      </div>
+      <div class="row two">
+        <div>
+          <label>お名前</label>
+          <input type="text" v-model="form.name" required>
+        </div>
+        <div>
+          <label>電話番号</label>
+          <input type="tel" v-model="form.phone" required>
+        </div>
+      </div>
+      <div class="row">
+        <label>メールアドレス</label>
+        <input type="email" v-model="form.email" required>
+      </div>
+      <div class="row">
+        <label>ご要望</label>
+        <textarea v-model="form.notes" rows="3" placeholder="アレルギー・席の希望など"></textarea>
+      </div>
+      <button class="btn">送信</button>
+      <p class="helper">※デモではブラウザに保存します。実運用時はAPI連携に差し替え。</p>
+    </form>
+  </main>
+
+  <div class="modal" v-if="done" @click.self="done=false">
+    <div class="modal-box">
+      <h3>予約を受け付けました</h3>
+      <p>{{ form.date }} {{ form.time }} / {{ form.people }}名様</p>
+      <button class="btn" @click="done=false">閉じる</button>
+    </div>
+  </div>
+</div>
+
+<script>
+new Vue({
+  el:'#app',
+  data:{
+    lang:'jp',
+    done:false,
+    times:['10:00','11:00','12:00','13:00','14:00','17:00','18:00','19:00','20:00','21:00'],
+    form:{date:'',time:'',people:2,name:'',phone:'',email:'',notes:''}
+  },
+  methods:{
+    submit(){
+      // 簡易バリデーション
+      if(!this.form.date || !this.form.time || !this.form.name){ return; }
+      const key='cl_bookings';
+      const list=JSON.parse(localStorage.getItem(key)||'[]');
+      list.push({...this.form, createdAt:new Date().toISOString()});
+      localStorage.setItem(key, JSON.stringify(list));
+      this.done=true;
+      // リセット
+      this.form={date:'',time:'',people:2,name:'',phone:'',email:'',notes:''};
+    }
+  }
+});
+</script>
+</body>
+</html>

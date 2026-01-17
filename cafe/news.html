@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Café Lumière | お知らせ</title>
+  <link rel="stylesheet" href="page.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+</head>
+<body>
+<div id="app">
+  <header class="sub-hero" style="background-image:url('images/notice.jpg')">
+    <h1>News</h1>
+    <p>最新情報・季節メニュー</p>
+  </header>
+
+  <main class="container">
+    <div class="news-filter">
+      <input class="input" v-model="q" placeholder="キーワード検索">
+      <select class="input" v-model="tag">
+        <option value="">すべて</option>
+        <option>季節</option><option>限定</option><option>営業時間</option>
+      </select>
+    </div>
+
+    <div class="grid cards">
+      <article v-for="n in filtered" :key="n.id" class="card">
+        <small class="muted">{{ n.date }} ・ {{ n.tag }}</small>
+        <h3>{{ n.title }}</h3>
+        <p>{{ n.body }}</p>
+      </article>
+    </div>
+  </main>
+</div>
+<script>
+new Vue({
+  el:'#app',
+  data:{
+    q:'', tag:'',
+    news:[
+      {id:1, date:'2026-01-05', tag:'季節', title:'苺パフェが始まりました', body:'国産苺を使った季節のパフェ。2/末まで。'},
+      {id:2, date:'2026-01-02', tag:'営業時間', title:'1/9 営業時間変更', body:'社内研修のため 18:00 閉店となります。'},
+      {id:3, date:'2025-12-20', tag:'限定', title:'シュトーレン販売', body:'数量限定。店頭またはお電話でご予約ください。'},
+    ]
+  },
+  computed:{
+    filtered(){
+      let list=[...this.news].sort((a,b)=>b.date.localeCompare(a.date));
+      if(this.tag) list=list.filter(n=>n.tag===this.tag);
+      if(this.q) list=list.filter(n=> (n.title+n.body).includes(this.q));
+      return list;
+    }
+  }
+});
+</script>
+</body>
+</html>
