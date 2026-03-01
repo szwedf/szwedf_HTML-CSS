@@ -64,46 +64,75 @@
   <!-- データを先に読み込み -->
   <script src="./menu-data.js"></script>
   <script>
-    new Vue({
-      el: '#app',
-      data: {
-        lang: 'jp',
-        currentCategory: 'lunch',
-        showTop: false,
-        categories: [
-          { id:'breakfast', label:{jp:'朝食', en:'Breakfast'} },
-          { id:'lunch',     label:{jp:'ランチ', en:'Lunch'} },
-          { id:'dinner',    label:{jp:'ディナー', en:'Dinner'} },
-          { id:'desserts',  label:{jp:'デザート', en:'Desserts'} },
-          { id:'sides',     label:{jp:'サイドメニュー', en:'Sides'} },
-          { id:'drinks',    label:{jp:'ドリンク', en:'Drinks'} },
-        ],
-      },
-      computed: {
-        filteredMenu(){
-          const D = window.MENU_DATA || {};
-          const id = this.currentCategory;
-          if(id==='breakfast') return D.breakfast || [];
-          if(id==='lunch')     return D.lunch || [];
-          if(id==='dinner')    return D.dinner || [];
-          if(id==='desserts')  return D.desserts || [];
-          if(id==='sides')     return D.sides || [];
-          if(id==='drinks'){
-            const secs = D.drinks_sections || [];
-            return secs.reduce((a,s)=>a.concat(s.items||[]),[]);
-          }
-          return [];
+  new Vue({
+    el: '#app',
+    data: {
+      lang: 'jp',
+      currentCategory: 'lunch',
+      showTop: false,
+
+      // ✅ 追加：検索＆ソート
+      query: '',
+      sortKey: 'name',
+
+      categories: [
+        { id:'breakfast', label:{jp:'朝食', en:'Breakfast'} },
+        { id:'lunch',     label:{jp:'ランチ', en:'Lunch'} },
+        { id:'dinner',    label:{jp:'ディナー', en:'Dinner'} },
+        { id:'desserts',  label:{jp:'デザート', en:'Desserts'} },
+        { id:'sides',     label:{jp:'サイドメニュー', en:'Sides'} },
+        { id:'drinks',    label:{jp:'ドリンク', en:'Drinks'} },
+      ],
+    },
+    computed: {
+      filteredMenu(){
+        const D = window.MENU_DATA || {};
+        const id = this.currentCategory;
+
+        // ①カテゴリの元リスト
+        let list = [];
+        if(id==='breakfast') list = D.breakfast || [];
+        if(id==='lunch')     list = D.lunch || [];
+        if(id==='dinner')    list = D.dinner || [];
+        if(id==='desserts')  list = D.desserts || [];
+        if(id==='sides')     list = D.sides || [];
+        if(id==='drinks'){
+          const secs = D.drinks_sections || [];
+          list = secs.flatMap(s => s.items || []);
         }
-      },
-      methods: {
-        scrollTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
-      },
-      mounted(){
-        window.addEventListener('scroll', () => {
-          this.showTop = window.scrollY > 300;
-        });
+
+        // ②検索
+        const q = (this.query || '').trim().toLowerCase();
+        if(q){
+          list = list.filter(item => {
+            const nameJP = (item.name?.jp || '').toLowerCase();
+            const nameEN = (item.name?.en || '').toLowerCase();
+            const descJP = (item.description?.jp || '').toLowerCase();
+            const descEN = (item.description?.en || '').toLowerCase();
+            return (nameJP+nameEN+descJP+descEN).includes(q);
+          });
+        }
+
+        // ③並び替え
+        if(this.sortKey === 'price'){
+          list = [...list].sort((a,b) => (a.price||0) - (b.price||0));
+        }else{
+          const key = this.lang === 'jp' ? 'jp' : 'en';
+          list = [...list].sort((a,b) => (a.name?.[key]||'').localeCompare((b.name?.[key]||''), key==='jp'?'ja':'en'));
+        }
+
+        return list;
       }
-    });
-  </script>
+    },
+    methods: {
+      scrollTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    },
+    mounted(){
+      window.addEventListener('scroll', () => {
+        this.showTop = window.scrollY > 300;
+      }, { passive:true });
+    }
+  });
+</script>
 </body>
 </html>
