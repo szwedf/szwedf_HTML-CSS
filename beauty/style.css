@@ -42,9 +42,61 @@ a:hover {
     display: block;
 }
 
+.mainvisual {
+   width: 100%;
+   height: 600px;
+   object-fit: cover;
+}
+
+.wrapper {
+    max-width: 1040px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.concept {
+    padding-top: 130px;
+    padding-bottom: 130px;
+    position: relative;
+}
+
+.concept .img {
+ max-width: 720px;
+}
+
+.concept .text {
+    position: absolute;
+    max-width: 600px;
+    background-color: rgba(253, 248, 248, 0.8);
+    padding: 40px;
+    top: 325px;
+    right: 0;
+}
+
+.concept .text .section-title {
+    font-family: 'YuMincho', 'Yu Mincho', serif;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.concept .text .description {
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: justify;
+}
 /*------------------------
 スマートフォン
 ------------------------*/
 @media screen and (max-width: 767px) {
+    #header .logo {
+        max-width: 85px;
+        top: 20px;
+        left: 20px;
+    }
 
+.mainvisual {
+    height: 480px;
+    }
 }
