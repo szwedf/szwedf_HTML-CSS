@@ -1,0 +1,32 @@
+search.js 側で結果カードを描画している箇所を、下の ROOM_PRESETS を使うようにすると
+検索結果にも同じ画像が出ます。
+
+const ROOM_PRESETS = {
+  single: { image: "images/room-single.png", title: "シングル", desc: "コンパクトながら上質な寝具とワークデスクを備えた機能的な客室。" },
+  double: { image: "images/room-tokyo-night.jpg", title: "ダブル", desc: "落ち着いた色調の空間で、二名利用にもゆとりあるスタンダード客室。" },
+  twin:   { image: "images/room-twin.png", title: "ツイン", desc: "友人同士や家族での滞在に適した、2ベッドタイプの客室。" },
+  deluxe: { image: "images/room-deluxe.png", title: "デラックス", desc: "大きな窓から東京の夜景を楽しめる、人気の客室。" },
+  suite:  { image: "images/room-corner-suite.png", title: "スイート", desc: "リビングとベッドルームを備えた上位客室。" }
+};
+
+function renderCard(item){
+  const type = item.type || "double";
+  const preset = ROOM_PRESETS[type] || ROOM_PRESETS.double;
+  return `
+    <article class="card search-card">
+      <img src="${preset.image}" alt="${preset.title}" loading="lazy">
+      <div class="body">
+        <h3>${item.name_jp || preset.title}</h3>
+        <p>${item.description || preset.desc}</p>
+        <div class="meta">
+          <span>定員 ${item.max_capacity || "-"}</span>
+          <span>¥${Number(item.price_from || 0).toLocaleString()}〜</span>
+        </div>
+        <div class="actions">
+          <a class="btn" href="room.html?type=${type}">詳細を見る</a>
+          <a class="btn gold" href="booking.html?type=${type}">予約する</a>
+        </div>
+      </div>
+    </article>
+  `;
+}

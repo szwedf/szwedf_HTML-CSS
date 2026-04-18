@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>特設ページ | HOTEL AURELIA TOKYO</title>
+  <meta name="description" content="HOTEL AURELIA TOKYO の特設ページ" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/hotelstyle.css" />
+</head>
+<body>
+  <a href="#main" class="skip">本文へスキップ</a>
+
+  <header>
+    <div class="container nav" role="navigation" aria-label="トップナビ">
+      <div class="brand"><a href="top.html">HOTEL AURELIA TOKYO</a></div>
+
+      <nav class="menu" aria-label="メニュー">
+        <a href="top.html#rooms">客室・スイート</a>
+        <a href="top.html#dining">ダイニング</a>
+        <a href="top.html#spa">スパ＆フィットネス</a>
+        <a href="top.html#wedding">ウェディング</a>
+        <a href="top.html#offers">オファー</a>
+        <a href="top.html#access">アクセス</a>
+        <a href="gallery.html">ギャラリー</a>
+      </nav>
+
+      <div class="burger" id="openMenu" aria-label="メニューを開く">☰ メニュー</div>
+      <a class="reserve" href="search.html">ご予約</a>
+    </div>
+  </header>
+
+  <main id="main" class="container feature-page" tabindex="-1">
+    <div class="breadcrumbs feature-breadcrumbs">
+      <a href="top.html">ホーム</a>
+      <span>›</span>
+      <span id="featureCrumb">特設ページ</span>
+    </div>
+
+    <section class="feature-hero">
+      <div class="feature-hero-media">
+        <img id="featureHeroImage" src="" alt="">
+      </div>
+
+      <div class="feature-hero-card">
+        <p class="eyebrow" id="featureCategory">Feature</p>
+        <h1 id="featureTitle">タイトル</h1>
+        <p class="lead feature-lead" id="featureLead"></p>
+
+        <div class="feature-info-list" id="featureInfoList"></div>
+
+        <div class="feature-actions">
+          <a id="featurePrimaryBtn" class="btn gold" href="search.html">詳しく見る</a>
+          <a id="featureSecondaryBtn" class="btn" href="top.html">トップへ戻る</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>コンセプト</h2>
+          <p class="lead" id="featureConcept"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>ハイライト</h2>
+          <p class="lead">この特設ページの魅力をまとめています。</p>
+        </div>
+      </div>
+
+      <div class="feature-highlight-grid" id="featureHighlights"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>ギャラリー</h2>
+          <p class="lead">空間や体験の雰囲気をご覧ください。</p>
+        </div>
+      </div>
+
+      <div class="feature-gallery" id="featureGallery"></div>
+    </section>
+
+    <section class="section">
+      <div class="feature-story">
+        <div class="feature-story-text">
+          <h2>ご案内</h2>
+          <ul class="feature-guide" id="featureGuide"></ul>
+        </div>
+        <div class="feature-story-image">
+          <img id="featureSubImage" src="" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="cta-panel">
+        <div>
+          <p class="eyebrow">Special Feature</p>
+          <h2 id="featureCtaTitle">特別な体験をご案内します</h2>
+          <p id="featureCtaText">用途に合わせてご利用いただけます。</p>
+        </div>
+        <div class="feature-actions">
+          <a id="featurePrimaryBtnBottom" class="btn gold" href="search.html">見る</a>
+          <a class="btn" href="top.html">トップへ戻る</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="y"></span> HOTEL AURELIA TOKYO</div>
+  </footer>
+
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <div class="drawer" role="dialog" aria-label="モバイルメニュー">
+      <a href="top.html#rooms">客室・スイート</a>
+      <a href="top.html#dining">ダイニング</a>
+      <a href="top.html#spa">スパ＆フィットネス</a>
+      <a href="top.html#wedding">ウェディング</a>
+      <a href="top.html#offers">オファー</a>
+      <a href="top.html#access">アクセス</a>
+      <a href="gallery.html">ギャラリー</a>
+      <a class="reserve" href="search.html">ご予約</a>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <script src="assets/common.js"></script>
+  <script src="assets/feature-pages.js"></script>
+</body>
+</html>

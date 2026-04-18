@@ -1,0 +1,1178 @@
+/* =========================================================
+   HOTEL AURELIA TOKYO — demo (portfolio)
+   Design: luxury / calm / "じゃらん風" 検索UI
+   ========================================================= */
+
+/* Theme tokens */
+:root{
+  --bg:#f7f6f1; --paper:#ffffff; --ink:#141414; --muted:#6b7280;
+  --line:#e5e7eb; --accent:#bfa36b; --accent-ink:#151515;
+  --shadow: 0 10px 28px rgba(0,0,0,.07);
+  --radius: 16px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0b0c10; --paper:#0f1116; --ink:#e9eaec; --muted:#9aa0a6;
+    --line:#1f2432; --accent:#d7c07a; --accent-ink:#0b0c10;
+    --shadow: 0 10px 28px rgba(0,0,0,.35);
+  }
+}
+
+/* Base */
+*,*::before,*::after{ box-sizing:border-box }
+html,body{ height:100% }
+body{
+  margin:0; background:var(--bg); color:var(--ink); line-height:1.75; letter-spacing:.02em;
+  font-family:"Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+}
+img{ max-width:100%; display:block; height:auto }
+a{ color:inherit; text-decoration:none }
+.container{ width:min(1200px, 92vw); margin-inline:auto }
+hr{ border:none; border-top:1px solid var(--line); margin:18px 0 }
+
+/* Skip */
+.skip{ position:absolute; left:-9999px; top:auto }
+.skip:focus{ left:12px; top:12px; background:var(--paper); padding:.5rem .75rem; border:1px solid var(--line); border-radius:10px; z-index:999 }
+
+/* Header */
+header{
+  position:sticky; top:0; z-index:40;
+  backdrop-filter:saturate(180%) blur(10px);
+  background:color-mix(in sRGB, var(--bg) 80%, transparent);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding:14px 0;
+}
+.brand{
+  font-family:"Noto Serif JP", Georgia, serif;
+  font-weight:700; letter-spacing:.06em;
+}
+.brand a{
+  display:inline-block; padding:.35rem .7rem;
+  background:var(--paper); border:1px solid var(--line);
+  border-radius:999px;
+}
+.menu{ display:flex; gap:22px; font-size:14px; color:var(--muted) }
+.menu a:hover{ color:var(--ink) }
+.reserve{
+  display:inline-flex; align-items:center; gap:.6rem;
+  padding:.55rem 1rem; border-radius:999px;
+  background:var(--accent); color:var(--accent-ink);
+  border:1px solid color-mix(in sRGB, var(--accent) 70%, var(--accent-ink));
+  font-weight:700;
+}
+.burger{ display:none; cursor:pointer; color:var(--muted); user-select:none }
+@media (max-width: 900px){ .menu{ display:none } .burger{ display:inline-flex; align-items:center; gap:8px } }
+
+/* Hero */
+.hero{
+  position:relative; min-height:64vh; display:grid; place-items:center;
+  overflow:hidden; isolation:isolate; border-radius:20px;
+  box-shadow: var(--shadow);
+}
+.hero::before{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.35) 35%, rgba(0,0,0,.18) 60%, rgba(0,0,0,0) 100%);
+  z-index:0;
+}
+.hero .slide{ position:absolute; inset:0; background-position:center; background-size:cover; opacity:0; transition:opacity 1.2s ease }
+.hero .slide.show{ opacity:1 }
+.hero .inner{
+  position:relative; z-index:1; text-align:center; color:#fff;
+  padding:20px; text-shadow:0 10px 32px rgba(0,0,0,.45);
+}
+.hero h1{
+  font-family:"Noto Serif JP", Georgia, serif;
+  font-size:clamp(28px,3vw + 18px,56px);
+  letter-spacing:.02em; margin:0 0 6px;
+}
+.hero p{ margin:0 0 14px; opacity:.96 }
+.hero .cta{ display:inline-flex; gap:10px; flex-wrap:wrap; justify-content:center }
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+  padding:.55rem 1rem; border-radius:999px; border:1px solid var(--line);
+  background:var(--paper); color:var(--ink); cursor:pointer;
+}
+.btn.gold{
+  background:var(--accent); color:var(--accent-ink);
+  border-color:color-mix(in sRGB, var(--accent) 70%, var(--accent-ink));
+}
+.btn.ghost{
+  background:transparent; color:#fff; border-color:rgba(255,255,255,.6);
+}
+
+/* Sections */
+.section{ padding:54px 0 }
+.section h2{
+  font-family:"Noto Serif JP", Georgia, serif;
+  font-size:clamp(22px,1.3vw + 18px,34px);
+  margin:0 0 8px;
+}
+.lead{ color:var(--muted) }
+
+/* Booking/Search (home) */
+.booking-wrap{ padding:38px 0 }
+.booking-card{
+  background:var(--paper); border:1px solid var(--line);
+  border-radius:var(--radius); padding:18px;
+  box-shadow: var(--shadow);
+}
+.form-grid{
+  display:grid; grid-template-columns: 1.1fr 1.1fr .8fr .9fr auto; gap:12px; align-items:end;
+}
+@media (max-width: 1024px){ .form-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width: 560px){ .form-grid{ grid-template-columns:1fr; } }
+label{ display:block; font-size:.9rem; color:var(--muted) }
+input,select{
+  width:100%; padding:10px 12px; border-radius:12px;
+  border:1px solid var(--line); background:var(--paper); color:var(--ink);
+}
+.btn-primary{
+  width:100%; padding:12px 14px; font-weight:700;
+  border-radius:999px; border:1px solid rgba(0,0,0,.18);
+  background:var(--accent); color:var(--accent-ink);
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
+}
+.helper{ font-size:.9rem; color:var(--muted); margin-top:10px }
+
+/* Cards / Grid */
+.grid{ display:grid; grid-template-columns: repeat(12, 1fr); gap:12px }
+.card{
+  grid-column: span 6;
+  overflow:hidden; border:1px solid var(--line); border-radius:var(--radius);
+  background:var(--paper); box-shadow: var(--shadow);
+}
+.card img{ width:100%; height:260px; object-fit:cover }
+.card .body{ padding:16px }
+.card .body h3{ margin:0 0 6px; font-size:20px }
+.card .body p{ margin:0 0 10px; color:var(--muted) }
+.card .meta{ display:flex; flex-wrap:wrap; gap:10px; color:var(--muted); font-size:.92rem }
+.card .actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px }
+@media (max-width: 900px){ .card{ grid-column: span 12 } .card img{ height:220px } }
+
+/* Search page layout (Jalan-like) */
+.search-layout{
+  display:grid; grid-template-columns: 340px 1fr; gap:22px; align-items:start; padding:28px 0 40px;
+}
+@media (max-width: 1024px){ .search-layout{ grid-template-columns: 1fr } }
+.sidebar{
+  position:sticky; top:96px; z-index:5;
+  background:color-mix(in sRGB, var(--paper) 86%, transparent);
+  border:1px solid var(--line); border-radius:var(--radius); padding:16px;
+  box-shadow: var(--shadow);
+}
+.sidebar h3{ margin:0 0 8px; font-size:16px }
+.results-head{
+  display:flex; justify-content:space-between; align-items:flex-end; gap:12px; flex-wrap:wrap;
+  margin-bottom:12px;
+}
+.pills{ display:flex; gap:8px; flex-wrap:wrap }
+.pill{
+  display:inline-flex; align-items:center; padding:.25rem .6rem;
+  border-radius:999px; border:1px solid var(--line); background:var(--paper);
+  color:var(--muted); font-size:.85rem;
+}
+.cards{
+  display:grid; gap:16px;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Media frame (never break images) */
+.media-frame{ width:100%; aspect-ratio:16/9; border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); background:#000 }
+.media-frame > img{ width:100%; height:100%; object-fit:cover }
+
+/* Reveal */
+.reveal{ opacity:0; transform: translateY(10px); transition:.7s ease }
+.reveal.in{ opacity:1; transform:none }
+
+/* Footer */
+footer{ padding:40px 0; border-top:1px solid var(--line); color:var(--muted); font-size:13px }
+
+/* Mobile overlay menu */
+.overlay{ position:fixed; inset:0; display:none; z-index:50; background:rgba(0,0,0,.52); backdrop-filter: blur(6px) }
+.overlay.open{ display:block }
+.drawer{
+  width:min(320px,86vw); height:100%;
+  margin-left:auto; background:var(--paper); border-left:1px solid var(--line);
+  padding:26px; display:flex; flex-direction:column; gap:12px;
+}
+.drawer a{ padding:.6rem .4rem; border-radius:10px }
+.drawer a:hover{ background:color-mix(in sRGB, var(--paper) 72%, var(--line)) }
+
+/* Room / Booking pages */
+.breadcrumbs{ display:flex; gap:.5rem; align-items:center; padding:14px 0; color:var(--muted); font-size:.9rem }
+.breadcrumbs span{ opacity:.7 }
+.detail-layout{ display:grid; grid-template-columns: minmax(0,1fr) 360px; gap:28px; align-items:start; padding:24px 0 40px }
+@media (max-width: 1024px){ .detail-layout{ grid-template-columns: 1fr } }
+
+.sticky-box{ position:sticky; top:96px; display:flex; flex-direction:column; gap:16px }
+.box{
+  background:var(--paper); border:1px solid var(--line);
+  border-radius:var(--radius); padding:16px; box-shadow: var(--shadow);
+}
+.price{ font-size:clamp(20px, 2vw + 12px, 28px); font-weight:800 }
+.note{ color:var(--muted); font-size:.9rem }
+.badges{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px }
+.badge{ display:inline-block; padding:.28rem .6rem; border-radius:999px; border:1px solid var(--line); background:var(--paper); font-size:.9rem }
+
+.thumbs{ display:grid; gap:12px; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); margin-top:12px }
+.thumbs img{
+  width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:12px; border:1px solid var(--line);
+}
+
+.lightbox{ position:fixed; inset:0; display:none; background:rgba(0,0,0,.82); z-index:70; place-items:center; padding:2vw }
+.lightbox.open{ display:grid }
+.lightbox img{ width:min(1200px, 92vw); max-height:92vh; object-fit:contain; border-radius:12px; background:#000 }
+
+/* =========================================================
+   Access / Google Map
+   ========================================================= */
+.access-layout {
+  display: grid;
+  grid-template-columns: 1.35fr .65fr;
+  gap: 18px;
+  margin-top: 18px;
+  align-items: stretch;
+}
+
+.map-box {
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  min-height: 420px;
+}
+
+.map-box iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  border: 0;
+  filter: saturate(.85) contrast(.95);
+}
+
+.access-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px;
+  box-shadow: var(--shadow);
+}
+
+.access-card h3 {
+  margin: 0 0 12px;
+  font-family: "Noto Serif JP", Georgia, serif;
+  font-size: 24px;
+}
+
+.access-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.access-info {
+  margin: 18px 0;
+}
+
+.access-info div {
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+
+.access-info dt {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 3px;
+}
+
+.access-info dd {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .access-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .map-box,
+  .map-box iframe {
+    min-height: 320px;
+  }
+}
+
+/* =========================================================
+   Top page image size fix
+   トップページ内のカード画像を巨大化させない
+   ========================================================= */
+
+/* 客室・ダイニング・スパ・オファーなどの通常カード画像 */
+.room-card img,
+.feature-card img,
+.card > img,
+.card .media-frame img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* デラックス/スイートなど少し大きく見せたいカード */
+.room-card.featured img {
+  height: 300px;
+}
+
+/* 横長ストーリー画像：ウェディング/ギャラリーCTA/アクセスなど */
+.story > img,
+.story img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Google Map は画像扱いしない */
+.map-box iframe {
+  width: 100%;
+  height: 420px;
+  min-height: 420px;
+  border: 0;
+}
+
+/* スマホ/タブレットではさらに低くする */
+@media (max-width: 900px) {
+  .room-card img,
+  .room-card.featured img,
+  .feature-card img,
+  .card > img,
+  .card .media-frame img,
+  .story > img,
+  .story img {
+    height: 220px;
+  }
+
+  .map-box iframe {
+    height: 320px;
+    min-height: 320px;
+  }
+}
+/* =========================================================
+   Safety: reveal fallback
+   JSが止まっても真っ白にならないための保険
+   ========================================================= */
+body.reveal-ready .reveal {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+body.reveal-ready .reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* JSが何らかの理由で body に reveal-ready を付けられない場合は表示優先 */
+body:not(.reveal-ready) .reveal {
+  opacity: 1;
+  transform: none;
+}
+.dining-section {
+  padding: 100px 0;
+}
+
+.section-head {
+  margin-bottom: 36px;
+}
+
+.section-head h2 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  font-family: "Noto Serif JP", serif;
+}
+
+.section-head p {
+  color: #666;
+  line-height: 1.8;
+}
+
+.restaurant-slider {
+  display: grid;
+  gap: 24px;
+}
+
+.restaurant-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.restaurant-tab {
+  padding: 10px 18px;
+  border: 1px solid #d5c7a2;
+  border-radius: 999px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.restaurant-tab:hover,
+.restaurant-tab.active {
+  background: #c9a95c;
+  color: #fff;
+  border-color: #c9a95c;
+}
+
+.restaurant-card {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 32px;
+  align-items: center;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.restaurant-image-wrap {
+  height: 100%;
+  min-height: 420px;
+}
+
+.restaurant-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.restaurant-content {
+  padding: 36px;
+}
+
+.restaurant-category {
+  color: #a88735;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.restaurant-content h3 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  font-family: "Noto Serif JP", serif;
+}
+
+.restaurant-description {
+  color: #555;
+  line-height: 1.9;
+  margin-bottom: 24px;
+}
+
+.restaurant-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: grid;
+  gap: 12px;
+}
+
+.restaurant-meta li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+  color: #444;
+}
+
+.restaurant-meta span {
+  color: #777;
+}
+
+.restaurant-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .restaurant-card {
+    grid-template-columns: 1fr;
+  }
+
+  .restaurant-image-wrap {
+    min-height: 260px;
+  }
+
+  .restaurant-content {
+    padding: 24px;
+  }
+
+  .restaurant-content h3 {
+    font-size: 1.6rem;
+  }
+}
+/* =========================================================
+   Restaurant detail page
+   ========================================================= */
+.restaurant-page {
+  padding-top: 28px;
+  padding-bottom: 80px;
+}
+
+.restaurant-breadcrumbs {
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.restaurant-breadcrumbs a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.restaurant-hero {
+  display: grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 56px;
+}
+
+.restaurant-hero-media {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  min-height: 500px;
+}
+
+.restaurant-hero-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+.restaurant-hero-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 34px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+.restaurant-hero-card h1 {
+  margin: 0 0 14px;
+  font-family: "Noto Serif JP", Georgia, serif;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.2;
+}
+
+.restaurant-lead {
+  margin-bottom: 24px;
+}
+
+.restaurant-info-list {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.restaurant-info-list .info-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.restaurant-info-list .info-item span {
+  color: var(--muted);
+}
+
+.restaurant-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.restaurant-menu-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.restaurant-menu-card h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-family: "Noto Serif JP", Georgia, serif;
+}
+
+.restaurant-menu-card p {
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 0 0 16px;
+}
+
+.restaurant-menu-price {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.restaurant-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.restaurant-gallery-item {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.restaurant-gallery-item img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.restaurant-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+.restaurant-story-text,
+.cta-panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.restaurant-story-text h2,
+.cta-panel h2 {
+  margin-top: 0;
+  font-family: "Noto Serif JP", Georgia, serif;
+  font-size: 30px;
+}
+
+.restaurant-story-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  display: block;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.restaurant-guide {
+  margin: 0;
+  padding-left: 18px;
+  line-height: 2;
+  color: var(--muted);
+}
+
+@media (max-width: 960px) {
+  .restaurant-hero,
+  .restaurant-story,
+  .restaurant-menu-grid,
+  .restaurant-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .restaurant-hero-media,
+  .restaurant-hero-media img {
+    min-height: 280px;
+  }
+
+  .restaurant-gallery-item img {
+    height: 220px;
+  }
+}
+/* =========================================================
+   Tea lounge teaser on top page
+   ========================================================= */
+.tea-lounge-card {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.tea-lounge-card img {
+  width: 100%;
+  max-width: 1040px;
+  height: 320px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.tea-lounge-card .body {
+  max-width: 760px;
+  padding-top: 4px;
+}
+
+.tea-lounge-card h3 {
+  margin: 0 0 14px;
+  font-size: 34px;
+  font-family: "Noto Serif JP", Georgia, serif;
+}
+
+.tea-lounge-card p {
+  margin: 0 0 18px;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+.tea-lounge-card .actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ダイニングスライダーとの余白を少し広げる */
+.dining-section .restaurant-slider {
+  margin-bottom: 28px;
+}
+
+@media (max-width: 960px) {
+  .tea-lounge-card {
+    margin-top: 32px;
+  }
+
+  .tea-lounge-card img {
+    height: 240px;
+  }
+
+  .tea-lounge-card h3 {
+    font-size: 28px;
+  }
+}
+/* =========================================================
+   Wellness detail page
+   ========================================================= */
+.wellness-page {
+  padding-top: 28px;
+  padding-bottom: 80px;
+}
+
+.wellness-breadcrumbs {
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.wellness-breadcrumbs a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wellness-hero {
+  display: grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 56px;
+}
+
+.wellness-hero-media {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  min-height: 500px;
+}
+
+.wellness-hero-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+.wellness-hero-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 34px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wellness-hero-card h1 {
+  margin: 0 0 14px;
+  font-family: "Noto Serif JP", Georgia, serif;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.2;
+}
+
+.wellness-lead {
+  margin-bottom: 24px;
+}
+
+.wellness-info-list {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.wellness-info-list .info-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.wellness-info-list .info-item span {
+  color: var(--muted);
+}
+
+.wellness-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.wellness-service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.wellness-service-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.wellness-service-card h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-family: "Noto Serif JP", Georgia, serif;
+}
+
+.wellness-service-card p {
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.wellness-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.wellness-gallery-item {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.wellness-gallery-item img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.wellness-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+.wellness-story-text {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.wellness-story-text h2 {
+  margin-top: 0;
+  font-family: "Noto Serif JP", Georgia, serif;
+  font-size: 30px;
+}
+
+.wellness-story-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  display: block;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.wellness-guide {
+  margin: 0;
+  padding-left: 18px;
+  line-height: 2;
+  color: var(--muted);
+}
+
+@media (max-width: 960px) {
+  .wellness-hero,
+  .wellness-story,
+  .wellness-service-grid,
+  .wellness-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .wellness-hero-media,
+  .wellness-hero-media img {
+    min-height: 280px;
+  }
+
+  .wellness-gallery-item img {
+    height: 220px;
+  }
+}
+/* =========================================================
+   Feature detail page
+   ========================================================= */
+.feature-page {
+  padding-top: 28px;
+  padding-bottom: 80px;
+}
+
+.feature-breadcrumbs {
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.feature-breadcrumbs a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.feature-hero {
+  display: grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 56px;
+}
+
+.feature-hero-media {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  min-height: 500px;
+}
+
+.feature-hero-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+.feature-hero-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 34px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.feature-hero-card h1 {
+  margin: 0 0 14px;
+  font-family: "Noto Serif JP", Georgia, serif;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.2;
+}
+
+.feature-lead {
+  margin-bottom: 24px;
+}
+
+.feature-info-list {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.feature-info-list .info-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.feature-info-list .info-item span {
+  color: var(--muted);
+}
+
+.feature-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.feature-highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.feature-highlight-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.feature-highlight-card h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-family: "Noto Serif JP", Georgia, serif;
+}
+
+.feature-highlight-card p {
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.feature-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.feature-gallery-item {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.feature-gallery-item img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.feature-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+.feature-story-text {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+.feature-story-text h2 {
+  margin-top: 0;
+  font-family: "Noto Serif JP", Georgia, serif;
+  font-size: 30px;
+}
+
+.feature-story-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  display: block;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.feature-guide {
+  margin: 0;
+  padding-left: 18px;
+  line-height: 2;
+  color: var(--muted);
+}
+
+@media (max-width: 960px) {
+  .feature-hero,
+  .feature-story,
+  .feature-highlight-grid,
+  .feature-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-hero-media,
+  .feature-hero-media img {
+    min-height: 280px;
+  }
+
+  .feature-gallery-item img {
+    height: 220px;
+  }
+}

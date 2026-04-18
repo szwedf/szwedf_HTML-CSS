@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>レストラン詳細 | HOTEL AURELIA TOKYO</title>
+  <meta name="description" content="HOTEL AURELIA TOKYO のレストラン詳細ページ" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/hotelstyle.css" />
+</head>
+<body>
+  <a href="#main" class="skip">本文へスキップ</a>
+
+  <header>
+    <div class="container nav" role="navigation" aria-label="トップナビ">
+      <div class="brand"><a href="top.html">HOTEL AURELIA TOKYO</a></div>
+
+      <nav class="menu" aria-label="メニュー">
+        <a href="top.html#rooms">客室・スイート</a>
+        <a href="top.html#dining">ダイニング</a>
+        <a href="top.html#spa">スパ</a>
+        <a href="top.html#wedding">ウェディング</a>
+        <a href="top.html#access">アクセス</a>
+        <a href="gallery.html">ギャラリー</a>
+      </nav>
+
+      <div class="burger" id="openMenu" aria-label="メニューを開く">☰ メニュー</div>
+      <a class="reserve" href="search.html">ご予約</a>
+    </div>
+  </header>
+
+  <main id="main" class="container restaurant-page" tabindex="-1">
+    <div class="breadcrumbs restaurant-breadcrumbs">
+      <a href="top.html">ホーム</a>
+      <span>›</span>
+      <a href="top.html#dining">ダイニング</a>
+      <span>›</span>
+      <span id="crumbName">レストラン</span>
+    </div>
+
+    <section class="restaurant-hero">
+      <div class="restaurant-hero-media">
+        <img id="restaurantHeroImage" src="" alt="">
+      </div>
+
+      <div class="restaurant-hero-card">
+        <p class="eyebrow" id="restaurantCategory">Fine Dining</p>
+        <h1 id="restaurantTitle">メインダイニング</h1>
+        <p class="lead restaurant-lead" id="restaurantLead"></p>
+
+        <div class="restaurant-info-list">
+          <div class="info-item">
+            <span>営業時間</span>
+            <strong id="restaurantHours"></strong>
+          </div>
+          <div class="info-item">
+            <span>席数</span>
+            <strong id="restaurantSeats"></strong>
+          </div>
+          <div class="info-item">
+            <span>ドレスコード</span>
+            <strong id="restaurantDress"></strong>
+          </div>
+          <div class="info-item">
+            <span>フロア</span>
+            <strong id="restaurantFloor"></strong>
+          </div>
+        </div>
+
+        <div class="restaurant-actions">
+          <a id="restaurantReserveBtn" class="btn gold" href="booking.html">席を予約する</a>
+          <a id="restaurantBackBtn" class="btn" href="top.html#dining">ダイニングへ戻る</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>コンセプト</h2>
+          <p class="lead" id="restaurantConcept"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>おすすめメニュー</h2>
+          <p class="lead">シグネチャー体験としてご提案するメニューです。</p>
+        </div>
+      </div>
+
+      <div class="restaurant-menu-grid" id="restaurantMenus"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>ギャラリー</h2>
+          <p class="lead">空間と料理の雰囲気をご覧ください。</p>
+        </div>
+      </div>
+
+      <div class="restaurant-gallery" id="restaurantGallery"></div>
+    </section>
+
+    <section class="section">
+      <div class="restaurant-story">
+        <div class="restaurant-story-text">
+          <h2>ご利用案内</h2>
+          <ul class="restaurant-guide" id="restaurantGuide"></ul>
+        </div>
+        <div class="restaurant-story-image">
+          <img id="restaurantSubImage" src="" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="cta-panel">
+        <div>
+          <p class="eyebrow">Dining Reservation</p>
+          <h2 id="ctaTitle">特別なひとときのご予約を</h2>
+          <p id="ctaText">ご記念日や会食など、用途に合わせたお席をご案内いたします。</p>
+        </div>
+        <div class="restaurant-actions">
+          <a id="restaurantReserveBtnBottom" class="btn gold" href="booking.html">予約する</a>
+          <a class="btn" href="top.html#dining">他のレストランを見る</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="y"></span> HOTEL AURELIA TOKYO</div>
+  </footer>
+
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <div class="drawer" role="dialog" aria-label="モバイルメニュー">
+      <a href="top.html#rooms">客室・スイート</a>
+      <a href="top.html#dining">ダイニング</a>
+      <a href="top.html#spa">スパ</a>
+      <a href="top.html#wedding">ウェディング</a>
+      <a href="top.html#access">アクセス</a>
+      <a href="gallery.html">ギャラリー</a>
+      <a class="reserve" href="search.html">ご予約</a>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <script src="assets/common.js"></script>
+  <script src="assets/restaurants.js"></script>
+</body>
+</html>

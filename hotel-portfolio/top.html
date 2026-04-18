@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HOTEL AURELIA TOKYO | ラグジュアリーホテル</title>
+  <meta name="description" content="東京の夜景を望むラグジュアリーホテル。客室、ダイニング、スパ、ウェディング、特別オファーをご案内します。" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/hotelstyle.css" />
+
+  <!-- flatpickr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+</head>
+
+<body>
+  <a href="#main" class="skip">本文へスキップ</a>
+
+  <header>
+    <div class="container nav" role="navigation" aria-label="トップナビ">
+      <div class="brand"><a href="top.html">HOTEL AURELIA TOKYO</a></div>
+
+      <nav class="menu" aria-label="メニュー">
+        <a href="#rooms">客室・スイート</a>
+        <a href="#dining">ダイニング</a>
+        <a href="#spa">スパ</a>
+        <a href="#wedding">ウェディング</a>
+        <a href="#offers">オファー</a>
+        <a href="#access">アクセス</a>
+        <a href="gallery.html">ギャラリー</a>
+      </nav>
+
+      <button class="burger" id="openMenu" type="button" aria-label="メニューを開く" aria-controls="overlay" aria-expanded="false">☰ メニュー</button>
+      <a class="reserve" href="search.html">ご予約</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero container" aria-label="メインビジュアル">
+    <div class="slide show" style="background-image:url('images/exterior-night.jpg');"></div>
+    <div class="slide" style="background-image:url('images/room-tokyo-night.jpg');"></div>
+    <div class="slide" style="background-image:url('images/room-corner-suite.png');"></div>
+
+    <div class="inner">
+      <h1>都心の眺望と、静謐なもてなし。</h1>
+      <p>東京の夜景を望む客室、上質なダイニング、心身を整えるスパ。特別な一日を、静かに美しく。</p>
+      <div class="cta">
+        <a class="btn gold" href="#booking">空室を検索</a>
+        <a class="btn ghost" href="#rooms">客室を見る</a>
+        <a class="btn ghost" href="gallery.html">ギャラリー</a>
+      </div>
+    </div>
+  </section>
+
+  <main id="main" class="container" tabindex="-1">
+
+    <!-- Booking -->
+    <section id="booking" class="booking-wrap reveal">
+      <div class="booking-card">
+        <h2 style="margin:0 0 6px; font-family:'Noto Serif JP',serif;">空室検索</h2>
+        <p class="lead" style="margin:0 0 12px">ご宿泊日・人数・客室タイプを選択し、空室状況をご確認ください。</p>
+
+        <form id="homeSearch" class="form-grid" action="search.html" method="get">
+          <div>
+            <label for="checkin">チェックイン</label>
+            <input id="checkin" name="checkin" type="text" placeholder="YYYY-MM-DD" autocomplete="off">
+          </div>
+
+          <div>
+            <label for="checkout">チェックアウト</label>
+            <input id="checkout" name="checkout" type="text" placeholder="YYYY-MM-DD" autocomplete="off">
+          </div>
+
+          <div>
+            <label for="guests">ご宿泊人数</label>
+            <select id="guests" name="guests">
+              <option value="1">1名</option>
+              <option value="2" selected>2名</option>
+              <option value="3">3名</option>
+              <option value="4">4名</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="type">タイプ</label>
+            <select id="type" name="type">
+              <option value="">指定なし</option>
+              <option value="single">シングル</option>
+              <option value="double">ダブル</option>
+              <option value="twin">ツイン</option>
+              <option value="deluxe">デラックス</option>
+              <option value="suite">スイート</option>
+            </select>
+          </div>
+
+          <div>
+            <button class="btn-primary" type="submit">空室を検索</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Hotel Concept -->
+    <section class="section reveal">
+      <div class="section-head">
+        <div>
+          <h2>HOTEL AURELIA TOKYO</h2>
+          <p class="lead">都市の中心にありながら、喧騒から一歩離れたような静けさ。滞在そのものを記憶に残す、上質なホテル体験をお届けします。</p>
+        </div>
+      </div>
+
+      <div class="hotel-points">
+        <div class="point">
+          <strong>Tokyo View</strong>
+          <p>高層階から望む東京の夜景。</p>
+        </div>
+        <div class="point">
+          <strong>Fine Dining</strong>
+          <p>四季の素材を活かしたダイニング。</p>
+        </div>
+        <div class="point">
+          <strong>Spa & Fitness</strong>
+          <p>滞在中のコンディションを整える設備。</p>
+        </div>
+        <div class="point">
+          <strong>Wedding</strong>
+          <p>記念日にふさわしい上質な空間。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rooms -->
+    <section id="rooms" class="section reveal">
+      <div class="section-head">
+        <div>
+          <h2>客室・スイート</h2>
+          <p class="lead">ビジネスにも記念日にも合わせやすいシングルから、東京の眺望を楽しめるスイートまで、滞在目的に応じた客室をご用意しています。</p>
+        </div>
+        <a class="btn" href="search.html">すべての客室を探す</a>
+      </div>
+
+      <div class="room-grid">
+        <article class="room-card">
+          <img src="images/room-single.png" alt="シングルルーム" loading="lazy">
+          <div class="body">
+            <h3>シングル</h3>
+            <p>コンパクトながら、上質な寝具とワークデスクを備えた機能的な客室。</p>
+            <div class="room-meta">
+              <span>25㎡</span>
+              <span>1名</span>
+              <span>クイーンベッド</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="room.html?type=single">詳細</a>
+              <a class="btn gold" href="search.html?type=single">予約</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="room-card">
+          <img src="images/room-tokyo-night.jpg" alt="ダブルルーム" loading="lazy">
+          <div class="body">
+            <h3>ダブル</h3>
+            <p>落ち着いた色調の空間で、二名利用にもゆとりあるスタンダード客室。</p>
+            <div class="room-meta">
+              <span>32㎡</span>
+              <span>1〜2名</span>
+              <span>キングベッド</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="room.html?type=double">詳細</a>
+              <a class="btn gold" href="search.html?type=double">予約</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="room-card">
+          <img src="images/room-twin.png" alt="ツインルーム" loading="lazy">
+          <div class="body">
+            <h3>ツイン</h3>
+            <p>友人同士や家族での滞在に適した、2ベッドタイプの客室。</p>
+            <div class="room-meta">
+              <span>36㎡</span>
+              <span>2名</span>
+              <span>セミダブル×2</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="room.html?type=twin">詳細</a>
+              <a class="btn gold" href="search.html?type=twin">予約</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="room-card featured">
+          <img src="images/room-deluxe.png" alt="デラックスルーム 東京タワービュー" loading="lazy">
+          <div class="body">
+            <h3>デラックス</h3>
+            <p>大きな窓から東京の夜景を楽しめる、ホテルを代表する人気の客室。</p>
+            <div class="room-meta">
+              <span>45㎡</span>
+              <span>1〜3名</span>
+              <span>東京ビュー</span>
+              <span>バス・シャワー別</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="room.html?type=deluxe">詳細</a>
+              <a class="btn gold" href="search.html?type=deluxe">予約</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="room-card featured">
+          <img src="images/room-corner-suite.png" alt="コーナースイート" loading="lazy">
+          <div class="body">
+            <h3>スイート</h3>
+            <p>リビングとベッドルームを備えた、特別な滞在にふさわしい上位客室。</p>
+            <div class="room-meta">
+              <span>80㎡</span>
+              <span>1〜3名</span>
+              <span>パノラマビュー</span>
+              <span>ラウンジアクセス</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="room.html?type=suite">詳細</a>
+              <a class="btn gold" href="search.html?type=suite">予約</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="dining" class="section dining-section reveal">
+  <div class="section-head">
+    <h2>ダイニング</h2>
+    <p>五感を満たす、個性豊かな五つのレストランとバー。</p>
+  </div>
+
+  <div class="restaurant-slider">
+    <div class="restaurant-tabs" id="restaurantTabs">
+      <button class="restaurant-tab active" data-index="0">メインダイニング</button>
+     <button class="restaurant-tab" data-index="1">鉄板焼</button>
+      <button class="restaurant-tab" data-index="2">鮨</button>
+      <button class="restaurant-tab" data-index="3">バー</button>
+      <button class="restaurant-tab" data-index="4">ラウンジ</button> 
+    </div>
+
+    <div class="restaurant-card">
+      <div class="restaurant-image-wrap">
+        <img id="restaurantImage" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80" alt="メインダイニング">
+      </div>
+
+      <div class="restaurant-content">
+        <p class="restaurant-category" id="restaurantCategory">Fine Dining</p>
+        <h3 id="restaurantName">メインダイニング「AURORA」</h3>
+        <p class="restaurant-description" id="restaurantDescription">
+          旬の食材を活かしたコンテンポラリー・キュイジーヌ。東京の夜景を望む落ち着いた空間で、シェフ渾身のコース料理をお楽しみいただけます。
+        </p>
+
+        <ul class="restaurant-meta" id="restaurantMeta">
+          <li><span>営業時間</span><strong>17:30–22:00</strong></li>
+          <li><span>席数</span><strong>60席</strong></li>
+          <li><span>ドレスコード</span><strong>スマートカジュアル</strong></li>
+        </ul>
+
+        <div class="restaurant-actions">
+          <a class="btn" href="restaurant.html?type=aurora">詳細を見る</a>
+          <a class="btn gold" href="restaurant.html?type=aurora">予約する</a>
+        </div>
+      </div>
+    </div>
+  </div>
+     <article class="feature-card compact-card tea-lounge-card">
+  <img
+    src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1400&q=80"
+    alt="ティーラウンジ"
+    loading="lazy"
+  >
+  <div class="body">
+    <h3>ティーラウンジ「Camellia」</h3>
+    <p>
+      大きな窓と落ち着いたインテリアが印象的な、都心の高級ホテルラウンジ。
+      季節のアフタヌーンティー、シグネチャードリンク、上質な紅茶をゆったりとお楽しみいただけます。
+    </p>
+    <div class="actions">
+      <a class="btn" href="restaurant.html?type=camellia">詳細を見る</a>
+      <a class="btn gold" href="booking.html?restaurant=camellia">予約する</a>
+    </div>
+  </div>
+</article>
+    </section>
+
+    <!-- Spa & Fitness -->
+    <section id="spa" class="section reveal">
+      <div class="section-head">
+        <div>
+          <h2>スパ＆フィットネス</h2>
+          <p class="lead">トリートメント、フィットネスジム、リラクゼーション空間を備え、滞在中のコンディションを整えます。</p>
+        </div>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card compact-card">
+          <img src="images/fitness-gym.jpg" alt="フィットネスジム" loading="lazy">
+          <div class="body">
+            <h3>フィットネスジム</h3>
+            <p>シティビューを望むフィットネスエリア。ランニングマシン、ウェイト、ストレッチスペースを完備。</p>
+            <a class="btn" href="wellness.html?type=fitness">詳細を見る</a>
+            <a class="btn gold" href="wellness.html?type=fitness">利用案内を見る</a>
+          </div>
+        </article>
+
+        <article class="feature-card compact-card">
+          <img src="images/bathroom.png" alt="スパ・バスルーム" loading="lazy">
+          <div class="body">
+            <h3>バス＆リラクゼーション</h3>
+            <p>深めのバスタブと上質なアメニティ。滞在の終わりに、静かなリラックスタイムを。</p>
+            <a class="btn gold" href="#booking">宿泊プランを見る</a>
+           <a class="btn" href="wellness.html?type=spa">詳細を見る</a>
+          <a class="btn gold" href="wellness.html?type=spa">スパを予約する</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Wedding -->
+    <section id="wedding" class="section reveal">
+      <div class="section-head">
+        <div>
+          <h2>ウェディング</h2>
+          <p class="lead">自然光の入るチャペル、上品な披露宴会場、専任スタッフによるサポート。大切な一日を美しく演出します。</p>
+          <a class="btn" href="feature.html?type=wedding">会場写真を見る</a>    
+          <a class="btn gold" href="feature.html?type=wedding">相談する</a>
+        </div>
+      </div>
+
+      <div class="story">
+        <img src="images/wedding-chapel.jpg" alt="ウェディングチャペル" loading="lazy">
+        <div class="story-text">
+          <h3>光に包まれるセレモニー</h3>
+          <p>白を基調としたチャペルに、キャンドルとフラワーアレンジメントを添えて。クラシックでありながら、現代的な美しさを感じる空間です。</p>
+          <div class="actions">
+            <a class="btn" href="gallery.html">会場写真を見る</a>
+            <a class="btn gold" href="#access">相談する</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Offers -->
+    <section id="offers" class="section reveal">
+      <div class="section-head">
+        <div>
+          <h2>オファー</h2>
+          <p class="lead">記念日、朝食付きステイ、スパと宿泊を組み合わせた特別プランをご用意しています。</p>
+        </div>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card compact-card">
+          <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1600&auto=format&fit=crop" alt="朝食付きプラン" loading="lazy">
+          <div class="body">
+            <h3>ベッド＆ブレックファスト</h3>
+            <p>朝食付きの定番プラン。初めてのご宿泊にもおすすめです。</p>
+            <a class="btn" href="search.html">今すぐ探す</a>
+            <a class="btn" href="feature.html?type=offer-breakfast">今すぐ探す</a>
+          </div>
+        </article>
+
+        <article class="feature-card compact-card">
+          <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1600&auto=format&fit=crop" alt="記念日プラン" loading="lazy">
+          <div class="body">
+            <h3>アニバーサリー</h3>
+            <p>シャンパーニュ、ケーキ、レイトチェックアウトで特別な滞在を。</p>
+            <a class="btn" href="room.html?type=suite">スイートを見る</a>
+            <a class="btn" href="feature.html?type=offer-anniversary">プランを見る</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Gallery CTA -->
+    <section class="section reveal">
+      <div class="story">
+        <img src="images/exterior-night.jpg" alt="ホテル外観 夜景" loading="lazy">
+        <div class="story-text">
+          <h3>写真で見るホテル体験</h3>
+          <p>客室、外観、ウェディング、フィットネスなど、ホテルの世界観をギャラリーでご覧いただけます。</p>
+         <a class="btn gold" href="feature.html?type=gallery-experience">ギャラリーを見る</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Access -->
+    <section id="access" class="section reveal">
+      <div class="section-head">
+        <div>
+          <h2>アクセス</h2>
+          <p class="lead">
+            東京メトロ南北線・都営大江戸線「麻布十番駅」より徒歩約1分。
+            都心の主要エリアへもアクセスしやすいロケーションです。
+          </p>
+        </div>
+      </div>
+
+      <div class="access-layout">
+        <div class="map-box">
+          <iframe
+            src="https://www.google.com/maps?q=%E9%BA%BB%E5%B8%83%E5%8D%81%E7%95%AA%E9%A7%85&output=embed"
+            title="HOTEL AURELIA TOKYO 周辺地図"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <div class="access-card">
+          <h3>HOTEL AURELIA TOKYO</h3>
+          <p>〒106-0045<br>東京都港区麻布十番 4-1-4</p>
+
+          <dl class="access-info">
+            <div>
+              <dt>最寄り駅</dt>
+              <dd>麻布十番駅 徒歩約1分</dd>
+            </div>
+            <div>
+              <dt>お車でお越しの方</dt>
+              <dd>首都高速「芝公園」出口より約8分</dd>
+            </div>
+            <div>
+              <dt>空港からのアクセス</dt>
+              <dd>羽田空港より車で約30分</dd>
+            </div>
+            <div>
+              <dt>電話番号</dt>
+              <dd>03-0000-0000</dd>
+            </div>
+          </dl>
+
+          <a
+            class="btn gold"
+            href="https://www.google.com/maps/search/?api=1&query=%E9%BA%BB%E5%B8%83%E5%8D%81%E7%95%AA%E9%A7%85"
+            target="_blank"
+            rel="noreferrer">
+            Googleマップで開く
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="y"></span> HOTEL AURELIA TOKYO</div>
+  </footer>
+
+  <!-- Mobile drawer -->
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <div class="drawer" role="dialog" aria-label="モバイルメニュー">
+      <a href="#rooms">客室・スイート</a>
+      <a href="#dining">ダイニング</a>
+      <a href="#spa">スパ</a>
+      <a href="#wedding">ウェディング</a>
+      <a href="#offers">オファー</a>
+      <a href="#access">アクセス</a>
+      <a href="gallery.html">ギャラリー</a>
+      <a class="reserve" href="search.html">ご予約</a>
+    </div>
+  </div>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/common.js"></script>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const yearEl = document.getElementById("y");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    if (typeof flatpickr === "undefined") return;
+
+    const inEl = document.getElementById("checkin");
+    const outEl = document.getElementById("checkout");
+
+    // 要素が無ければ何もしない
+    if (!inEl || !outEl) return;
+
+    const today = new Date();
+    const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+
+    let outPicker;
+
+    const inPicker = flatpickr(inEl, {
+      locale: "ja",
+      minDate: today,
+      dateFormat: "Y-m-d",
+      disableMobile: true,
+      onChange(d) {
+        if (!d[0] || !outPicker) return;
+
+        const minOut = new Date(d[0].getTime() + 86400000);
+        outPicker.set("minDate", minOut);
+
+        const outDate = outPicker.selectedDates[0];
+        if (!outDate || outDate <= d[0]) {
+          outPicker.setDate(minOut, true);
+        }
+      }
+    });
+
+    outPicker = flatpickr(outEl, {
+      locale: "ja",
+      minDate: tomorrow,
+      dateFormat: "Y-m-d",
+      disableMobile: true
+    });
+
+    inPicker.setDate(today, true);
+    outPicker.setDate(tomorrow, true);
+  });
+</script>
+</body>
+</html>

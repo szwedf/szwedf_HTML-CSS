@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ウェルネス | HOTEL AURELIA TOKYO</title>
+  <meta name="description" content="HOTEL AURELIA TOKYO のスパ＆フィットネス詳細ページ" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/hotelstyle.css" />
+</head>
+<body>
+  <a href="#main" class="skip">本文へスキップ</a>
+
+  <header>
+    <div class="container nav" role="navigation" aria-label="トップナビ">
+      <div class="brand"><a href="top.html">HOTEL AURELIA TOKYO</a></div>
+
+      <nav class="menu" aria-label="メニュー">
+        <a href="top.html#rooms">客室・スイート</a>
+        <a href="top.html#dining">ダイニング</a>
+        <a href="top.html#spa">スパ＆フィットネス</a>
+        <a href="top.html#wedding">ウェディング</a>
+        <a href="top.html#access">アクセス</a>
+        <a href="gallery.html">ギャラリー</a>
+      </nav>
+
+      <div class="burger" id="openMenu" aria-label="メニューを開く">☰ メニュー</div>
+      <a class="reserve" href="search.html">ご予約</a>
+    </div>
+  </header>
+
+  <main id="main" class="container wellness-page" tabindex="-1">
+    <div class="breadcrumbs wellness-breadcrumbs">
+      <a href="top.html">ホーム</a>
+      <span>›</span>
+      <a href="top.html#spa">スパ＆フィットネス</a>
+      <span>›</span>
+      <span id="crumbName">ウェルネス</span>
+    </div>
+
+    <section class="wellness-hero">
+      <div class="wellness-hero-media">
+        <img id="wellnessHeroImage" src="" alt="">
+      </div>
+
+      <div class="wellness-hero-card">
+        <p class="eyebrow" id="wellnessCategory">Fitness</p>
+        <h1 id="wellnessTitle">フィットネスジム</h1>
+        <p class="lead wellness-lead" id="wellnessLead"></p>
+
+        <div class="wellness-info-list">
+          <div class="info-item">
+            <span>営業時間</span>
+            <strong id="wellnessHours"></strong>
+          </div>
+          <div class="info-item">
+            <span>対象</span>
+            <strong id="wellnessTarget"></strong>
+          </div>
+          <div class="info-item">
+            <span>利用条件</span>
+            <strong id="wellnessAccess"></strong>
+          </div>
+          <div class="info-item">
+            <span>フロア</span>
+            <strong id="wellnessFloor"></strong>
+          </div>
+        </div>
+
+        <div class="wellness-actions">
+          <a id="wellnessActionBtn" class="btn gold" href="search.html">宿泊予約を見る</a>
+          <a class="btn" href="top.html#spa">トップへ戻る</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>コンセプト</h2>
+          <p class="lead" id="wellnessConcept"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>主なサービス</h2>
+          <p class="lead">ご滞在中のコンディションに合わせてご利用いただけます。</p>
+        </div>
+      </div>
+
+      <div class="wellness-service-grid" id="wellnessServices"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>ギャラリー</h2>
+          <p class="lead">施設や空間の雰囲気をご覧ください。</p>
+        </div>
+      </div>
+
+      <div class="wellness-gallery" id="wellnessGallery"></div>
+    </section>
+
+    <section class="section">
+      <div class="wellness-story">
+        <div class="wellness-story-text">
+          <h2>ご利用案内</h2>
+          <ul class="wellness-guide" id="wellnessGuide"></ul>
+        </div>
+        <div class="wellness-story-image">
+          <img id="wellnessSubImage" src="" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="cta-panel">
+        <div>
+          <p class="eyebrow">Wellness Experience</p>
+          <h2 id="wellnessCtaTitle">滞在に癒やしとリフレッシュを</h2>
+          <p id="wellnessCtaText">旅の合間にも、特別なご褒美にもふさわしいウェルネス体験をご案内します。</p>
+        </div>
+        <div class="wellness-actions">
+          <a id="wellnessActionBtnBottom" class="btn gold" href="search.html">宿泊予約を見る</a>
+          <a class="btn" href="gallery.html">写真を見る</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="y"></span> HOTEL AURELIA TOKYO</div>
+  </footer>
+
+  <div class="overlay" id="overlay" aria-hidden="true">
+    <div class="drawer" role="dialog" aria-label="モバイルメニュー">
+      <a href="top.html#rooms">客室・スイート</a>
+      <a href="top.html#dining">ダイニング</a>
+      <a href="top.html#spa">スパ＆フィットネス</a>
+      <a href="top.html#wedding">ウェディング</a>
+      <a href="top.html#access">アクセス</a>
+      <a href="gallery.html">ギャラリー</a>
+      <a class="reserve" href="search.html">ご予約</a>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <script src="assets/common.js"></script>
+  <script src="assets/wellness.js"></script>
+</body>
+</html>
